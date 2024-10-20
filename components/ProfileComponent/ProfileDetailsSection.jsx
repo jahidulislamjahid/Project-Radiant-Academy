@@ -18,13 +18,13 @@ const ProfileDetailsSection = ({ account }) => {
     const userTopics = allTopics.filter(topic => topic.authorEmail === account.data[0].email);
 
     const enrolled = account?.data[0]?.enrolledCourses;
-    const enrolledChecker = account.data.length!==0 ? enrolled.map(enroll => {
+    const enrolledChecker = account.data.length !== 0 ? enrolled.map(enroll => {
         let index = allCourses.findIndex(course => enroll.courseId === course._id);
         if (index > -1) {
             return allCourses[index];
         }
         return 0;
-    }): '';
+    }) : '';
 
     const handleDelete = () => {
         console.log('clicked')
@@ -52,76 +52,36 @@ const ProfileDetailsSection = ({ account }) => {
                                 <div className=" w-full overflow-none">
                                     <div>
                                         {
-                                        account.data.length!==0 ?
-                                            enrolledChecker.map(course => (
-                                                <div className="container grid grid-cols-8 bg-slate-700 text-slate-200 dark:text-slate-800 dark:bg-slate-200 p-2 rounded-md mb-2 items-center" key={course._id}>
-                                                    <h2 className="font-semibold col-span-2">{course.title}</h2>
-                                                    <h2>
-                                                        <span className="flex items-center">
-                                                            <FaDollarSign className="text-lg" />{course.price}
-                                                        </span>
-                                                    </h2>
-                                                    <h2 className="text-center text-green-600 font-semibold uppercase">Premium</h2>
-                                                    <h2>
-                                                        <span className="flex items-center">
-                                                            <FaUserFriends className="text-2xl mr-1.5 text-purple-800" /> {course.enrolled}
-                                                        </span>
-                                                    </h2>
-                                                    <h2>
-                                                        <span className="flex items-center">
-                                                            <FaHeart className="mr-1.5 text-red-500" /> 304
-                                                        </span>
-                                                    </h2>
-                                                    <h2 className="text-center text-orange-500 font-semibold">Pending</h2>
-                                                    <h2>
-                                                        <button className="btn btn-ghost py-0  uppercase" onClick={() => handleQuiz(course)}>
-                                                            START
-                                                        </button>
-                                                    </h2>
-                                                </div>
-                                            )):<h2 className='text-4xl text-center bg-white dark:text-white dark:bg-slate-700 overflow-hidden'>You have not enrolled any courses</h2>
-                                        }
-                                    </div>
-                                </div>
-                            </section>
-                        </TabPanel>
-                        <TabPanel className="px-5 pt-0">
-                            <section className="overflow-x-auto">
-                                <div className=" w-full bg-slate-200 dark:bg-slate-700 overflow-none">
-                                    <div>
-                                        {
-                                            userTopics.length!==0 ?
-                                                userTopics.map(topic => (
-                                                    <div className="grid grid-cols-8 bg-slate-700 dark:bg-white text-slate-200 dark:text-slate-700 p-5 rounded-md mb-2" key={topic._id}>
-                                                        <h2 className="font-semibold col-span-3">{topic.desc.split(' ').slice(0, 7).toString().replace(/,/g, ' ')}</h2>
-                                                        <h2>
-                                                            <span className="flex items-center">
-                                                                <FaHashtag className="mr-1.5" /> {topic.category}
+                                            account.data.length !== 0 ?
+                                                enrolledChecker.map(course => (
+                                                    <div className="container grid md:grid-cols-8 xs:grid-cols-1 bg-slate-700 text-slate-200 dark:text-slate-800 dark:bg-slate-200 pl-3 rounded-md mb-2 items-center" key={course._id}>
+                                                        <h1 className="font-semibold md:col-span-2 my-2">{course.title}</h1>
+                                                        <h1>
+                                                            <span className="flex items-center my-2">
+                                                                <h3 className='text-lg'><span className='font-semibold'>৳</span> {course.price}</h3>
+                                                                {/* <FaDollarSign className="text-lg" />{course.price} */}
                                                             </span>
-                                                        </h2>
-                                                        <h2>
-                                                            <span className="flex items-center">
-                                                                <FaEye className="mr-1.5 text-purple-800" /> {topic.views}
+                                                        </h1>
+                                                        <h1 className=" text-green-600 font-semibold uppercase my-2">Premium</h1>
+                                                        <h1>
+                                                            <span className="flex items-center my-2">
+                                                                <FaUserFriends className="text-2xl mr-1.5 text-purple-800" /> {course.enrolled}
                                                             </span>
-                                                        </h2>
-                                                        <h2>
-                                                            <span className="flex items-center">
-                                                                <FaHeart className="mr-1.5 text-red-500" /> {topic.loves}
+                                                        </h1>
+                                                        <h1>
+                                                            <span className="flex items-center my-2">
+                                                                <FaHeart className="mr-1.5 text-red-500" /> 304
                                                             </span>
-                                                        </h2>
-
-                                                        {topic.status === false ? <h2 className="text-center text-orange-500">Pending</h2> : <h2 className="text-center text-green-500">Approved</h2>}
-                                                        
-                                                        <h2 className='text-right'>
-                                                            <button onClick={handleDelete}>
-                                                                <FaTrash className="hover:text-red-500" onClick={() => handleRemove(topic._id, 'topic')}/>
+                                                        </h1>
+                                                        <h1 className=" text-orange-500 font-semibold my-2">Pending</h1>
+                                                        <h1>
+                                                            <button className="btn btn-ghost py-0  uppercase my-2" onClick={() => handleQuiz(course)}>
+                                                                START
                                                             </button>
-                                                        </h2>
+                                                        </h1>
                                                     </div>
-                                                ))
-                                            :<h2 className='text-4xl text-center dark:text-white overflow-hidden'>You have no submission on forum</h2>
+                                                )) : <h2 className='text-4xl text-center bg-white dark:text-white dark:bg-slate-700 overflow-hidden'>You have not enrolled any courses</h2>
                                         }
-                                        
                                     </div>
                                 </div>
                             </section>
@@ -130,52 +90,146 @@ const ProfileDetailsSection = ({ account }) => {
                             <section className="overflow-x-auto">
                                 <div className=" w-full bg-slate-200 dark:bg-slate-700 overflow-none">
                                     <div>
-                                        <div className="bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-700 grid grid-cols-6 p-3 rounded-md mb-2">
-                                            <h2 className="text-lg font-semibold col-span-2">Quiz Name</h2>
-                                            <h2 className="text-green-600 font-semibold uppercase">Premium</h2>
-                                            <h2>
-                                                <span className="flex items-center">
+                                        <div className="grid xs:grid-cols-1 md:grid-cols-8 bg-slate-700 dark:bg-white text-slate-200 dark:text-slate-700 p-3 rounded-md mb-2">
+                                            <h1 className="font-semibold md:col-span-3 my-2 px-1">Radiant Academy turned 2 today!</h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
+                                                    <FaHashtag className="mr-1.5" /> Welcome
+                                                </span>
+                                            </h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
+                                                    <FaEye className="mr-1.5 text-purple-800" /> 1213
+                                                </span>
+                                            </h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
+                                                    <FaHeart className="mr-1.5 text-red-500" /> 304
+                                                </span>
+                                            </h1>
+                                            <h1 className=" text-orange-500 my-2">Pending</h1>
+                                            <h1 className='md:text-right my-2 pr-3'>
+                                                <button onClick={handleDelete}>
+                                                    <FaTrash className="hover:text-red-500" />
+                                                </button>
+                                            </h1>
+                                        </div>
+                                        <div className="grid xs:grid-cols-1 md:grid-cols-8 bg-slate-700 dark:bg-white text-slate-200 dark:text-slate-700 p-3 rounded-md mb-2">
+                                            <h1 className="font-semibold md:col-span-3 my-2 px-1">Radiant Academy turned 2 today!</h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
+                                                    <FaHashtag className="mr-1.5" /> Welcome
+                                                </span>
+                                            </h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
+                                                    <FaEye className="mr-1.5 text-purple-800" /> 1213
+                                                </span>
+                                            </h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
+                                                    <FaHeart className="mr-1.5 text-red-500" /> 304
+                                                </span>
+                                            </h1>
+                                            <h1 className=" text-orange-500 my-2">Pending</h1>
+                                            <h1 className='md:text-right my-2 pr-3'>
+                                                <button onClick={handleDelete}>
+                                                    <FaTrash className="hover:text-red-500" />
+                                                </button>
+                                            </h1>
+                                        </div>
+                                        <div className="grid xs:grid-cols-1 md:grid-cols-8 bg-slate-700 dark:bg-white text-slate-200 dark:text-slate-700 p-3 rounded-md mb-2">
+                                            <h1 className="font-semibold md:col-span-3 my-2 px-1">Radiant Academy turned 2 today!</h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
+                                                    <FaHashtag className="mr-1.5" /> Welcome
+                                                </span>
+                                            </h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
+                                                    <FaEye className="mr-1.5 text-purple-800" /> 1213
+                                                </span>
+                                            </h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
+                                                    <FaHeart className="mr-1.5 text-red-500" /> 304
+                                                </span>
+                                            </h1>
+                                            <h1 className=" text-orange-500 my-2">Pending</h1>
+                                            <h1 className='md:text-right my-2 pr-3'>
+                                                <button onClick={handleDelete}>
+                                                    <FaTrash className="hover:text-red-500" />
+                                                </button>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </TabPanel>
+                        <TabPanel className="px-5 pt-0">
+                            <section className="overflow-x-auto">
+                                <div className=" w-full bg-slate-200 dark:bg-slate-700 overflow-none">
+                                    <div>
+                                        <div className="bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-700 grid xs:grid-cols-1 md:grid-cols-6 p-3 rounded-md mb-2">
+                                            <h1 className="text-lg font-semibold md:col-span-2 my-2">Quiz Name</h1>
+                                            <h1 className="text-green-600 font-semibold uppercase my-2">Premium</h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
                                                     <FaUserFriends className="text-2xl mr-1.5 text-purple-800" /> 1213
                                                 </span>
-                                            </h2>
-                                            <h2>
-                                                <span className="flex items-center">
+                                            </h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
                                                     <FaFlag className="mr-1.5 text-lg" /> 100%
                                                 </span>
-                                            </h2>
-                                            <h2 className="text-green-600 font-semibold">Completed</h2>
+                                            </h1>
+                                            <h1 className="text-green-600 font-semibold my-2">Completed</h1>
                                         </div>
-                                        <div className="bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-700 grid grid-cols-6 p-3 rounded-md mb-2">
-                                            <h2 className="text-lg font-semibold col-span-2">Quiz Name</h2>
-                                            <h2 className="text-green-600 font-semibold uppercase">Premium</h2>
-                                            <h2>
-                                                <span className="flex items-center">
+                                        <div className="bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-700 grid xs:grid-cols-1 md:grid-cols-6 p-3 rounded-md mb-2">
+                                            <h1 className="text-lg font-semibold md:col-span-2 my-2">Quiz Name</h1>
+                                            <h1 className="text-green-600 font-semibold uppercase my-2">Premium</h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
                                                     <FaUserFriends className="text-2xl mr-1.5 text-purple-800" /> 1213
                                                 </span>
-                                            </h2>
-                                            <h2>
-                                                <span className="flex items-center">
+                                            </h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
                                                     <FaFlag className="mr-1.5 text-lg" /> 100%
                                                 </span>
-                                            </h2>
-                                            <h2 className="text-green-600 font-semibold">Completed</h2>
+                                            </h1>
+                                            <h1 className="text-green-600 font-semibold my-2">Completed</h1>
                                         </div>
-                                        <div className="bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-700 grid grid-cols-6 p-3 rounded-md mb-2">
-                                            <h2 className="text-lg font-semibold col-span-2">Quiz Name</h2>
-                                            <h2 className="text-green-600 font-semibold uppercase">Premium</h2>
-                                            <h2>
-                                                <span className="flex items-center">
+                                        <div className="bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-700 grid xs:grid-cols-1 md:grid-cols-6 p-3 rounded-md mb-2">
+                                            <h1 className="text-lg font-semibold md:col-span-2 my-2">Quiz Name</h1>
+                                            <h1 className="text-green-600 font-semibold uppercase my-2">Premium</h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
                                                     <FaUserFriends className="text-2xl mr-1.5 text-purple-800" /> 1213
                                                 </span>
-                                            </h2>
-                                            <h2>
-                                                <span className="flex items-center">
+                                            </h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
                                                     <FaFlag className="mr-1.5 text-lg" /> 100%
                                                 </span>
-                                            </h2>
-                                            <h2 className="text-green-600 font-semibold">Completed</h2>
+                                            </h1>
+                                            <h1 className="text-green-600 font-semibold my-2">Completed</h1>
                                         </div>
-                                        
+                                        <div className="bg-slate-700 dark:bg-slate-200 text-slate-200 dark:text-slate-700 grid xs:grid-cols-1 md:grid-cols-6 p-3 rounded-md mb-2">
+                                            <h1 className="text-lg font-semibold md:col-span-2 my-2">Quiz Name</h1>
+                                            <h1 className="text-green-600 font-semibold uppercase my-2">Premium</h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
+                                                    <FaUserFriends className="text-2xl mr-1.5 text-purple-800" /> 1213
+                                                </span>
+                                            </h1>
+                                            <h1>
+                                                <span className="flex items-center my-2">
+                                                    <FaFlag className="mr-1.5 text-lg" /> 100%
+                                                </span>
+                                            </h1>
+                                            <h1 className="text-green-600 font-semibold my-2">Completed</h1>
+                                        </div>
                                     </div>
                                 </div>
                             </section>
