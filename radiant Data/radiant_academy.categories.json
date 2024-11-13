@@ -1,0 +1,98 @@
+[
+  {
+    "_id": {
+      "$oid": "621727d4d645d82b4f290f00"
+    },
+    "title": "Welcome",
+    "subTitle": "welcome",
+    "desc": "A warm introduction to our platform. Get familiar with the basics and explore our community guidelines to start your journey with us.",
+    "icon": "https://i.ibb.co/PD69KM4/umblella.png",
+    "createdAt": {
+      "$date": "2022-02-24T06:38:12.601Z"
+    },
+    "updatedAt": {
+      "$date": "2022-02-24T06:38:12.601Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6217287ae5615143ef7b59fb"
+    },
+    "title": "Learning And Growth",
+    "subTitle": "learning",
+    "desc": "Your space for development and progress. Discover resources, share learning experiences, and track your personal and professional growth.",
+    "icon": "https://i.ibb.co/SKm93XH/stat.png",
+    "createdAt": {
+      "$date": "2022-02-24T06:40:58.853Z"
+    },
+    "updatedAt": {
+      "$date": "2022-02-24T06:40:58.853Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "62172885e5615143ef7b59fd"
+    },
+    "title": "General Discussion",
+    "subTitle": "general",
+    "desc": "An open forum for all topics and ideas. Connect with others, discuss current events, or share what's on your mind.",
+    "icon": "https://i.ibb.co/PFgHgzj/general.png",
+    "createdAt": {
+      "$date": "2022-02-24T06:41:09.194Z"
+    },
+    "updatedAt": {
+      "$date": "2022-02-24T06:41:09.194Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "62172891e5615143ef7b59ff"
+    },
+    "title": "Product Feedback",
+    "subTitle": "feedback",
+    "desc": "Help us improve by sharing your thoughts on our platform. Provide feedback on features, suggest new ideas, or report any issues.",
+    "icon": "https://i.ibb.co/RyjCwpB/screen.png",
+    "createdAt": {
+      "$date": "2022-02-24T06:41:21.589Z"
+    },
+    "updatedAt": {
+      "$date": "2022-02-24T06:41:21.589Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "62177dea18d593916a336e61"
+    },
+    "title": "Question And Answers",
+    "subTitle": "question",
+    "desc": "Got questions? Our community has answers! Post questions, provide solutions, and learn from the knowledge of others.",
+    "icon": "https://i.ibb.co/wyvjFjQ/question.png",
+    "createdAt": {
+      "$date": "2022-02-24T12:45:30.074Z"
+    },
+    "updatedAt": {
+      "$date": "2022-02-24T12:45:30.074Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "62177df218d593916a336e63"
+    },
+    "title": "Tips And Tricks",
+    "subTitle": "tips",
+    "desc": "Explore helpful insights and shortcuts to make the most out of your experience. Share your own tips and discover new ways to enhance productivity.",
+    "icon": "https://i.ibb.co/09qpYSd/tips.png",
+    "createdAt": {
+      "$date": "2022-02-24T12:45:38.056Z"
+    },
+    "updatedAt": {
+      "$date": "2022-02-24T12:45:38.056Z"
+    },
+    "__v": 0
+  }
+]

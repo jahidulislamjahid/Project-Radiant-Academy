@@ -121,7 +121,7 @@ const Navbar = () => {
                             }
                             {!user.isSignedIn &&
                                 <Link passHref href="/register">
-                                    <button className="btn border-0 px-5 py-1 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">Join for Free</button>
+                                    <button className="btn border-0 px-5 py-1 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">Join Now</button>
                                 </Link>
                             }
 

@@ -48,7 +48,7 @@ const about = () => {
                     <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                         <div className="grid place-content-center relative bottom-12">
                             <Image
-                                src="/img/jahid.jpg"
+                                src="https://i.ibb.co/vvphWfV/310747857-5400378163413295-811890902554305829-n.jpg"
                                 height="150"
                                 width="150"
                                 alt="User"
@@ -63,11 +63,11 @@ const about = () => {
                         </div>
                         <div className="flex justify-center">
                             <h4 className="text-slate-700 dark:text-slate-200  text-md">
-                                Team Leader
+                                Front End Developer
                             </h4>
                         </div>
                         <div>
-                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
+                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I build this site front end visualization according to the figma file. Used TailwindCSS and some UI library to buid a user friendly web application”</p>
                         </div>
                         <div className="flex justify-center pb-5">
                             <a href="https://www.linkedin.com/in/jahidul-islam-076a8b216/" target="_new" className="mr-3">
@@ -95,7 +95,7 @@ const about = () => {
                     <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                         <div className="grid place-content-center relative bottom-12">
                             <Image
-                                src="/img/iftikharrasha.jpg"
+                                src="https://i.ibb.co/B6NNNFT/rabbi.jpg"
                                 height="150"
                                 width="150"
                                 alt="User"
@@ -105,12 +105,12 @@ const about = () => {
                         </div>
                         <div className="flex justify-center">
                             <h2 className="text-slate-700 dark:text-slate-200 font-semibold text-xl">
-                                Iftikhar Rasha
+                                Fazle Rabbi
                             </h2>
                         </div>
                         <div className="flex justify-center">
                             <h4 className="text-slate-700 dark:text-slate-200  text-md">
-                                Project Manager
+                                UI/UX Designer
                             </h4>
                         </div>
                         <div>
@@ -142,7 +142,7 @@ const about = () => {
                     <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                         <div className="grid place-content-center relative bottom-12">
                             <Image
-                                src="/img/shahriar.jpg"
+                                src="https://i.ibb.co/vLncdVC/346064333-949333756309325-621565237007494427-n-1.jpg"
                                 height="150"
                                 width="150"
                                 alt="User"
@@ -152,7 +152,7 @@ const about = () => {
                         </div>
                         <div className="flex justify-center">
                             <h2 className="text-slate-700 dark:text-slate-200 font-semibold text-xl">
-                                Md. Shahriar Mehedi
+                                Shafiul Islam
                             </h2>
                         </div>
                         <div className="flex justify-center">
@@ -161,7 +161,7 @@ const about = () => {
                             </h4>
                         </div>
                         <div>
-                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
+                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“ ”</p>
                         </div>
                         <div className="flex justify-center pb-5">
                             <a href="" target="_new" className="mr-3">
@@ -186,7 +186,7 @@ const about = () => {
                             </a>
                         </div>
                     </div>
-                    <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                    {/* <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                         <div className="grid place-content-center relative bottom-12">
                             <Image
                                 src="/img/Nashtarin.jpg"
@@ -373,7 +373,7 @@ const about = () => {
                                 </span>
                             </a>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </section>
 

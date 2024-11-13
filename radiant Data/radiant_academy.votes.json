@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "62286699e8e79f3871eec447"
+  },
+  "title": "Angular JS Course",
+  "image": "https://i.ibb.co/TcZ91g0/Angular.jpg",
+  "price": 15,
+  "votesTotal": 26,
+  "createdAt": {
+    "$date": "2022-03-09T08:34:33.453Z"
+  },
+  "updatedAt": {
+    "$date": "2022-08-22T12:14:01.426Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62286699e8e79f3871eec448"
+  },
+  "title": "React JS Course",
+  "image": "https://i.ibb.co/T4X3jz7/react.jpg",
+  "price": 15,
+  "votesTotal": 24,
+  "createdAt": {
+    "$date": "2022-03-09T08:34:33.453Z"
+  },
+  "updatedAt": {
+    "$date": "2022-10-24T11:27:37.508Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62286699e8e79f3871eec449"
+  },
+  "title": "Vue JS Course",
+  "image": "https://i.ibb.co/KjfBz7b/vue.png",
+  "price": 15,
+  "votesTotal": 24,
+  "createdAt": {
+    "$date": "2022-03-09T08:34:33.453Z"
+  },
+  "updatedAt": {
+    "$date": "2022-09-05T08:50:46.060Z"
+  },
+  "__v": 0
+}]

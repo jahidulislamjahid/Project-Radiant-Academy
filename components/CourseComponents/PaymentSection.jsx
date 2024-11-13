@@ -40,7 +40,7 @@ const PaymentSection = ({ course }) => {
 
     // PAYPAL VALUES
     const amount = "2";
-    const currency = "USD";
+    const currency = "BDT";
     const style = { "layout": "vertical" };
 
 
@@ -119,7 +119,7 @@ const PaymentSection = ({ course }) => {
                                 <p className="text-sm mt-2 px-2 text-stone-600 dark:text-stone-200">● 10 Quizzes ● 10 Articles <br /> ● 10 Problem Solving</p>
                             </div>
                             <div className='bg-slate-100 mt-3 px-5 py-2 rounded-md'>
-                                <h4 className="text-2xl text-center sm:text-left font-bold text-rose-500 ">Pay: <span>$</span>{course?.data?.price}</h4>
+                                <h4 className="text-2xl text-center sm:text-left font-bold text-rose-500 ">Pay: <span></span>{course?.data?.price} BDT</h4>
                             </div>
                         </div>
                         <div className="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 shadow-md rounded-md p-5 h-auto mt-5">
@@ -483,7 +483,7 @@ const PaymentSection = ({ course }) => {
                                     <label>Save Payment Information</label>
                                 </div>
 
-                                <h3 className='text-slate-700 dark:text-slate-200 text-2xl py-7'>Pay total <span>$</span>{course?.data?.price} with </h3>
+                                <h3 className='text-slate-700 dark:text-slate-200 text-2xl py-7'>Pay total <span></span>{course?.data?.price} BDT</h3>
 
                                 <button className=' w-full'>
                                     <PayPalScriptProvider

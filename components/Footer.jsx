@@ -70,14 +70,14 @@ const Footer = () => {
                                             <span className="mb-1 hover:text-rose-600 cursor-pointer">Forum</span>
                                         </Link>
                                     </div>
-                                    <div className="text-left">
+                                    {/* <div className="text-left">
                                         <Link href="/profile" passHref>
                                             <span className="mb-1 hover:text-rose-600 cursor-pointer">Account</span>
                                         </Link><br />
                                         <Link href="" passHref>
                                             <span className="mb-1 hover:text-rose-600 cursor-pointer">Payment</span>
                                         </Link>
-                                    </div>
+                                    </div> */}
                                     <div className="text-right sm:text-left">
                                         <span className="mb-1 hover:text-rose-600 cursor-pointer">Privacy Policy</span><br />
                                         <Link href="/about" passHref>

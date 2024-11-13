@@ -48,8 +48,8 @@ const CourseCard = ({ course }) => {
                 </div>
                 <div>
                     <h4 className="font-semibold text-lg text-slate-700 dark:text-slate-200">{course?.title}</h4>
-                    <p className="text-slate-400 text-[0.9em]">#html #css #beginners</p>
-                    <p className="text-sm mt-2 px-2 text-stone-600 dark:text-slate-400">● 10 Quizzes ● 10 Articles <br /> ● 10 Problem Solving</p>
+                    {/* <p className="text-slate-400 text-[0.9em]">#html #css #beginners</p>
+                    <p className="text-sm mt-2 px-2 text-stone-600 dark:text-slate-400">● 10 Quizzes ● 10 Articles <br /> ● 10 Problem Solving</p> */}
                 </div>
                 <div className="flex flex-col md:flex-row justify-between items-center pt-5">
                     <h4 className="font-semibold text-lg text-slate-700 dark:text-slate-200"> <span>৳</span> {course?.price}</h4>
