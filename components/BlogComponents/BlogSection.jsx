@@ -23,13 +23,13 @@ const BlogSection = ({ blogs }) => {
                             />)
                         }
                     </div>
-                    <div className="flex justify-center my-2 p-5">
+                    {/* <div className="flex justify-center my-2 p-5">
                         <Link href="/blogs" passHref>
                             <button className="btn bg-violet-900 dark:bg-violet-400 dark:text-black dark:hover:text-white dark:hover:bg-slate-700 text-[1em] px-8 rounded-full">
                                 See More! &nbsp; <BsArrowRight />
                             </button>
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
 
             </div>

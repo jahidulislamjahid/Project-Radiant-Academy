@@ -8,7 +8,9 @@ import CourseCard from './CourseCard';
 
 const CourseDetailsSection = ({ course }) => {
     const [rating, setRating] = useState(4.5);
-    console.log(course);
+    const reviews = course.data.reviews
+
+
 
     //rating system
     const ratingCount = {
@@ -65,13 +67,16 @@ const CourseDetailsSection = ({ course }) => {
                 <div className="mt-8 py-8">
                     <section id="#about-the-course">
                         <div className='flex justify-center pb-14'>
-                            <Image
-                                src={course?.data?.image}
-                                alt="Course Cover"
-                                height="330px"
-                                width="600px"
+                            <iframe
+                                width="1200"
+                                height="600"
+                                src={course.data.courseVideo}
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
                                 draggable="false"
-                            />
+                            ></iframe>
                         </div>
                         <div className="flex items-center">
                             <div>
@@ -151,47 +156,40 @@ const CourseDetailsSection = ({ course }) => {
                         </div>
                         <div>
                             <div className="p-2 sm:p-5 flex items-start">
-                                <div className="px-2 pt-1.5 block w-[70px]">
-                                    <Image
-                                        src="https://i.postimg.cc/4dNK0r0W/people-1.png"
-                                        alt="User Picture"
-                                        height="100px"
-                                        width="100px"
-                                    />
-                                </div>
-                                <div className="w-full">
-                                    <div className="flex items-baseline flex-wrap sm:flex-row px-2">
-                                        <h4 className="text-xl">Iftakher Hossen</h4>
-                                        &nbsp; - &nbsp;
-                                        <p className="text-stone-400">a day ago</p>
-                                    </div>
-                                    <p className="text-sm px-2 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque maxime natus sit mollitia odit cumque?</p>
-                                    <div className="ratings flex">
-                                        <ReactStars {...ratingCount} value={rating} edit={false} />
-                                    </div>
-                                </div>
+
+                                {
+                                    reviews && (
+                                        reviews.map(review =>
+                                            <div key={review}>
+
+                                                <div className="p-2 sm:p-5 flex items-start">
+                                                    <div className="px-2 pt-1.5 block w-[100px]">
+                                                        <Image
+                                                        className='rounded-2xl'
+                                                            src={review.img}
+                                                            alt="User Picture"
+                                                            height="100px"
+                                                            width="100px"
+                                                        />
+                                                    </div>
+                                                    <div className="w-full">
+                                                        <div className="flex items-baseline flex-wrap sm:flex-row px-2">
+                                                            <h4 className="text-xl">{review.name}</h4>
+                                                            &nbsp; - &nbsp;
+                                                            <p className="text-stone-400">2 days ago</p>
+                                                        </div>
+                                                        <p className="text-sm px-2 pt-1">{review.reviewTxt}</p>
+                                                        <div className="ratings flex">
+                                                            <ReactStars {...ratingCount} value={rating} edit={false} />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    )
+                                }
                             </div>
-                            <div className="p-2 sm:p-5 flex items-start">
-                                <div className="px-2 pt-1.5 block w-[70px]">
-                                    <Image
-                                        src="https://i.postimg.cc/4dNK0r0W/people-1.png"
-                                        alt="User Picture"
-                                        height="100px"
-                                        width="100px"
-                                    />
-                                </div>
-                                <div className="w-full">
-                                    <div className="flex items-baseline flex-wrap sm:flex-row px-2">
-                                        <h4 className="text-xl">Iftakher Hossen</h4>
-                                        &nbsp; - &nbsp;
-                                        <p className="text-stone-400">2 days ago</p>
-                                    </div>
-                                    <p className="text-sm px-2 pt-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, natus.</p>
-                                    <div className="ratings flex">
-                                        <ReactStars {...ratingCount} value={rating} edit={false} />
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </section>
                 </div>

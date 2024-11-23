@@ -24,6 +24,9 @@ const QuizzesSection = () => {
     //filtering out all quizzes to find quizzes related to thisCourseId
     const thisCourseId = useSelector((state) => state.quizzes.thisCourse);
     const enrolledQuizzes = allQuizzes.filter(quizData => quizData.courseId === thisCourseId);
+    console.log(thisCourseId);
+    console.log(enrolledQuizzes);
+    
 
     const startQuizzes = () => {
         const display = document.getElementById('timer');

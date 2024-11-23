@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
+import { useSelector } from "react-redux";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import useAuth from "../../utilities/Hooks/useAuth";
 
 const HeroSection = () => {
     var settings = {
@@ -36,6 +38,9 @@ const HeroSection = () => {
             },
         ],
     };
+
+    const { user } = useAuth();
+
 
     return (
         <>
@@ -70,7 +75,7 @@ const HeroSection = () => {
                                     `}
                                 </style>
                             </div>
-                            <Link passHref href="/register">
+                            <Link passHref href={`${user? '/code-editor' : '/register'}`}>
                                 <button className="bg-rose-500 animate-[pulse_2s_ease-in-out_infinite] rounded-md text-white px-7 py-3 my-5 flex justify-center items-center">
                                     Try it out &nbsp; <FaArrowRight style={{ fontSize: '14px', marginTop: '2px' }} />
                                 </button>
