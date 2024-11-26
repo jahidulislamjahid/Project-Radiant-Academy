@@ -62,8 +62,8 @@ const Footer = () => {
                                         </Link>
                                     </div>
                                     <div className="text-right sm:text-left sm:pl-5 md:pl-0 lg:pl-5">
-                                        <Link href="/blogs" passHref>
-                                            <span className="mb-1 hover:text-rose-600 cursor-pointer">Blogs</span>
+                                        <Link href="/canvas" passHref>
+                                            <span className="mb-1 hover:text-rose-600 cursor-pointer">Canvas</span>
                                         </Link>
                                         <br />
                                         <Link href="/forum" passHref>

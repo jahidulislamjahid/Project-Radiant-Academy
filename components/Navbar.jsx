@@ -111,7 +111,7 @@ const Navbar = () => {
                                                 <button className="text-sm undefined hover:scale-110 focus:outline-none
                                                     flex justify-center px-4 py-2 rounded font-bold
                                                     hover:bg-rose-700 hover:text-white bg-violet-500 
-                                                    text-white border duration-200 ease-in-out border-white-600 transition cursor-not-allowed" disabled>
+                                                    text-white border duration-200 ease-in-out border-white-600 transition cursor-not-allowed" >
                                                     Checkout ${totalPrice}
                                                 </button>
                                             </Link>

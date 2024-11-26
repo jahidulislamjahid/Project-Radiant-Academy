@@ -8,7 +8,7 @@ import CourseCard from './CourseCard';
 
 const CourseDetailsSection = ({ course }) => {
     const [rating, setRating] = useState(4.5);
-    const reviews = course.data.reviews
+    const reviews = course?.data.reviews
 
 
 

@@ -19,7 +19,24 @@ const PaymentSection = ({ course }) => {
     const router = useRouter();
     const { user } = useAuth();
     const allUserData = useSelector((state) => state.users.usersList);
+    const cart = useSelector((state) => state.courses.wishList);
     const thisUser = allUserData.find(userData => userData.email === user.email);
+
+
+
+
+    const handleSSLPayment = async () => {
+        const res = await axios.post('../../api/creatPayment', {
+            ammont: '1000',
+            currency: 'BDt'
+        })
+        const redirectURL = res?.data?.data.GatewayPageURL
+        if (redirectURL) {
+            window.location.replace(redirectURL)
+        }
+
+    }
+
 
     const payAndEnroll = async (user) => {
         try {
@@ -103,25 +120,51 @@ const PaymentSection = ({ course }) => {
             <div className="px-24 py-16">
                 <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(300px,_1fr)] lg:grid-cols-[350px_minmax(600px,_1fr)] gap-5">
                     <div>
-                        <div className="bg-slate-200 dark:bg-slate-700 p-5 grid grid-rows-1 rounded-xl">
-                            <div>
-                                <Image
-                                    src={coverImg}
-                                    alt="Course Cover"
-                                    className="w-full"
-                                    height="165px"
-                                    draggable="false"
-                                />
-                            </div>
-                            <div>
-                                <h4 className="font-semibold text-2xl text-slate-700 dark:text-slate-200">{course?.data?.title}</h4>
-                                <p className="text-slate-400 text-[0.9em]">#html #css #beginners</p>
-                                <p className="text-sm mt-2 px-2 text-stone-600 dark:text-stone-200">● 10 Quizzes ● 10 Articles <br /> ● 10 Problem Solving</p>
-                            </div>
-                            <div className='bg-slate-100 mt-3 px-5 py-2 rounded-md'>
-                                <h4 className="text-2xl text-center sm:text-left font-bold text-rose-500 ">Pay: <span></span>{course?.data?.price} BDT</h4>
-                            </div>
-                        </div>
+                        {
+                            cart ? (
+                                cart.map(item =>
+                                    <div key={item.id} className="bg-slate-200 dark:bg-slate-700 p-5 grid grid-rows-1 rounded-xl mb-3">
+                                        <div>
+                                            <Image
+                                                src={item.image}
+                                                alt="Course Cover"
+                                                className="w-full"
+                                                width={165}
+                                                height="165px"
+                                                draggable="false"
+                                            />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-semibold text-2xl text-slate-700 dark:text-slate-200">{item.title}</h4>
+                                            <p className="text-slate-400 text-[0.9em]">#html #css #beginners</p>
+                                            <p className="text-sm mt-2 px-2 text-stone-600 dark:text-stone-200">● 10 Quizzes ● 10 Articles <br /> ● 10 Problem Solving</p>
+                                        </div>
+                                        <div className='bg-slate-100 mt-3 px-5 py-2 rounded-md'>
+                                            <h4 className="text-2xl text-center sm:text-left font-bold text-rose-500 ">Pay: <span></span>{item.price} BDT</h4>
+                                        </div>
+                                    </div>
+                                )
+                            ) : (<div className="bg-slate-200 dark:bg-slate-700 p-5 grid grid-rows-1 rounded-xl">
+                                <div>
+                                    <Image
+                                        src={coverImg}
+                                        alt="Course Cover"
+                                        className="w-full"
+                                        height="165px"
+                                        draggable="false"
+                                    />
+                                </div>
+                                <div>
+                                    <h4 className="font-semibold text-2xl text-slate-700 dark:text-slate-200">{course?.data?.title}</h4>
+                                    <p className="text-slate-400 text-[0.9em]">#html #css #beginners</p>
+                                    <p className="text-sm mt-2 px-2 text-stone-600 dark:text-stone-200">● 10 Quizzes ● 10 Articles <br /> ● 10 Problem Solving</p>
+                                </div>
+                                <div className='bg-slate-100 mt-3 px-5 py-2 rounded-md'>
+                                    <h4 className="text-2xl text-center sm:text-left font-bold text-rose-500 ">Pay: <span></span>{course?.data?.price} BDT</h4>
+                                </div>
+                            </div>)
+                        }
+
                         <div className="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 shadow-md rounded-md p-5 h-auto mt-5">
                             <div className="flex items-center">
                                 <FaInfoCircle className="mr-2 text-lg" />
@@ -500,6 +543,9 @@ const PaymentSection = ({ course }) => {
                                             showSpinner={false}
                                         />
                                     </PayPalScriptProvider>
+                                </button>
+                                <button onClick={handleSSLPayment} className='bg-green-400 btn btn-block'>
+                                    Pay with SSL
                                 </button>
                                 <div className='text-center py-5'>
                                     <button className='text-center mx-auto bg-slate-300 dark:bg-slate-500 py-1 px-4' type="submit" onClick={payAndEnroll}>Mark Payment as done (For test)</button>
