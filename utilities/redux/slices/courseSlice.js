@@ -57,6 +57,9 @@ const courseSlice = createSlice({
         removeFromWishList: (state, action) => {
             state.wishList = state.wishList.filter(course => course._id !== action.payload);
         },
+        removeAllFromCartlist(state) {
+            state.wishList = [];
+        }
     },
     extraReducers: (builder) => {
         // Add reducers for additional action types here, and handle loading state as needed
@@ -90,5 +93,5 @@ const courseSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addToWishlist, removeFromWishList } = courseSlice.actions;
+export const { addToWishlist, removeFromWishList , removeAllFromCartlist } = courseSlice.actions;
 export default courseSlice.reducer;

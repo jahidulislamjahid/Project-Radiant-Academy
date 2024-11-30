@@ -4,7 +4,6 @@ import { BsCheck2All, BsCheck2Circle } from 'react-icons/bs';
 import ReactStars from "react-rating-stars-component";
 import Image from 'next/image';
 import Link from 'next/link';
-import CourseCard from './CourseCard';
 
 const CourseDetailsSection = ({ course }) => {
     const [rating, setRating] = useState(4.5);

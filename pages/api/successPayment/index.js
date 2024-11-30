@@ -1,21 +1,24 @@
+import SuccessPayment from '../../../components/SuccessPayment/SuccessPayment';
 import Payment from '../../../models/PaymentModel';
 import dbConnect from '../../../utilities/mongoose';
 
 export default async function handler(req, res) {
-    const { method } = req; 
+    const { method } = req;
 
     await dbConnect()
 
     if (method === "POST") {
-    
         try {
-           const successData = req.body
-           const saveData = await Payment.create(successData)
-            res.status(200).json({ success: true, data: saveData })
-
+            const successData = req.body;
+            const saveData = await Payment.create(successData);
+    
+            // Redirect to the success payment page
+            res.redirect(302, '/successPayment');
+            // res.writeHead(302, { Location: "http://localhost:3000" });
         } catch (error) {
-            res.status(500).json({ success: false , error: error});
+            res.status(500).json({ success: false, error: error.message });
         }
     }
+    
 
 }
