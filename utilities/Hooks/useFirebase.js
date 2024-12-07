@@ -52,6 +52,7 @@ const useFirebase = () => {
                 });
             })
             .catch((error) => {
+                console.log(error);
                 setAuthError(error.message)
             })
             .finally(() => setIsLoading(false))
@@ -181,7 +182,7 @@ const useFirebase = () => {
         } else {
             const role = 'user';
             const user = { email, displayName, photoURL, accessToken, role };
-            fetch('http://localhost:3000/api/users', {
+            fetch('https://radiant-academy-ius.vercel.app/api/users', {
                 method: method,
                 headers: {
                     'content-type': 'application/json'

@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
-import { FaInfoCircle, FaEnvelope, FaPhoneSquareAlt, FaBookmark, FaIdCardAlt } from 'react-icons/fa';
+import { FaInfoCircle, FaEnvelope, FaPhoneSquareAlt, FaBookmark, FaIdCardAlt, FaCcVisa } from 'react-icons/fa';
+
 import { BsArrowRight } from 'react-icons/bs';
 import coverImg from '../../public/img/css_flexbox 1.png';
 import Image from 'next/image';
@@ -12,8 +13,9 @@ import Swal from 'sweetalert2'
 import {
     PayPalScriptProvider,
     PayPalButtons,
-    usePayPalScriptReducer
+    usePayPalScriptReducer,
 } from "@paypal/react-paypal-js";
+
 
 const PaymentSection = ({ course }) => {
     const router = useRouter();
@@ -40,7 +42,7 @@ const PaymentSection = ({ course }) => {
 
     const payAndEnroll = async (user) => {
         try {
-            const res = await axios.put(`http://localhost:3000/api/users/enroll/${thisUser._id}/${course.data._id}`, user.data);
+            const res = await axios.put(`https://radiant-academy-ius.vercel.app/api/users/enroll/${thisUser._id}/${course.data._id}`, user.data);
             if (res.status === 201) {
                 Swal.fire(
                     'Payment Complete',
@@ -527,26 +529,33 @@ const PaymentSection = ({ course }) => {
                                 </div>
 
                                 <h3 className='text-slate-700 dark:text-slate-200 text-2xl py-7'>Pay total <span></span>{course?.data?.price} BDT</h3>
+                                <div className='flex flex-col gap-3'>
+                                    <button className='btn hover:bg-[#FFC439] w-full bg-[#FFC439]'>
 
-                                <button className=' w-full'>
-                                    <PayPalScriptProvider
-                                        className="z-10"
-                                        options={{
-                                            "client-id": "test",
-                                            components: "buttons",
-                                            currency: "USD",
-                                            "disable-funding": "credit,card,p24,venmo"
-                                        }}
-                                    >
-                                        <ButtonWrapper
-                                            currency={currency}
-                                            showSpinner={false}
-                                        />
-                                    </PayPalScriptProvider>
-                                </button>
-                                <button onClick={handleSSLPayment} className='bg-green-400 btn btn-block'>
-                                    Pay with SSL
-                                </button>
+
+                                        <PayPalScriptProvider
+                                            className=" "
+                                            options={{
+                                                "client-id": "test",
+                                                components: "buttons",
+                                                currency: "USD",
+                                                "disable-funding": "credit,card,p24,venmo"
+                                            }}
+                                        >
+                                            <ButtonWrapper
+
+                                                currency={currency}
+                                                showSpinner={false}
+                                            />
+                                        </PayPalScriptProvider>
+                                    </button>
+                                    <button onClick={handleSSLPayment} className='bg-blue-500 btn btn-block'>
+                                        <div className='flex items-center space-x-2'>
+                                            <FaCcVisa className='text- text-2xl'></FaCcVisa>
+                                           
+                                            <h1>SSL COMMERCE</h1></div>
+                                    </button>
+                                </div>
                                 <div className='text-center py-5'>
                                     <button className='text-center mx-auto bg-slate-300 dark:bg-slate-500 py-1 px-4' type="submit" onClick={payAndEnroll}>Mark Payment as done (For test)</button>
                                 </div>
