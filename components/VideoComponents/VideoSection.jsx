@@ -4,10 +4,15 @@ import Peer from "simple-peer";
 import io from "socket.io-client";
 import { BiPhoneCall, BiAt, BiDialpad, BiCopy, BiVideo } from "react-icons/bi";
 import { HiOutlinePhoneMissedCall } from "react-icons/hi";
+import { data } from "autoprefixer";
 
 const socket = io.connect('http://localhost:5000')
+
 // const socket = io.connect('https://cors-anywhare.herokuapp.com/http://mysterious-citadel-77081.herokuapp.com/')
+
 // const socket = io.connect('https://warm-wildwood-81069.herokuapp.com/')
+
+
 export default function App() {
 
     const [me, setMe] = useState("");
@@ -16,7 +21,7 @@ export default function App() {
     const [caller, setCaller] = useState("");
     const [callerSignal, setCallerSignal] = useState();
     const [callAccepted, setCallAccepted] = useState(false);
-    const [idToCall, setIdToCall] = useState("");
+    const [idToCall, setIdToCall] = useState(socket.id);
     const [callEnded, setCallEnded] = useState(false);
     const [name, setName] = useState("");
     const myVideo = useRef();
@@ -32,6 +37,7 @@ export default function App() {
         socket.on("me", (id) => {
             setMe(id)
         })
+
 
         socket.on("callUser", (data) => {
             setReceivingCall(true)
@@ -52,7 +58,7 @@ export default function App() {
                 userToCall: id,
                 signalData: data,
                 from: me,
-                name: name
+                name: 'Test'
             })
         })
         peer.on("stream", (stream) => {
@@ -90,6 +96,8 @@ export default function App() {
         setCallEnded(true)
         connectionRef.current.destroy()
     }
+    console.log(idToCall);
+    
 
     return (
         <div>

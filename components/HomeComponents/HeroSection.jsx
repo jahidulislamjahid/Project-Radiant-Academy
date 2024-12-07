@@ -67,7 +67,7 @@ const HeroSection = () => {
                                         <p className="py-5 text-2xl lg:w-3/4 xl:w-1/2">We have got 20+ online solutions for programmers, who is excited?</p>
                                     </div>
                                 </Slider>
-                                <style jsx global>
+                                <style >
                                     {`
                                         .slick-list{
                                             padding-bottom: 0 !important;

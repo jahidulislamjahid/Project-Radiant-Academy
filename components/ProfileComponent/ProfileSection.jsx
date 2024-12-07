@@ -83,7 +83,7 @@ const ProfileSection = ({ account }) => {
                                 <h5 className="text-lg">Overall Rating</h5>
                                 <div className="ratings flex">
                                     <ReactStars {...ratingCount} value={rating} edit={false} /> (0)
-                                    <style jsx global>
+                                    <style >
                                         {`
                                         .ratings {
                                             margin: 1rem;

@@ -54,7 +54,7 @@ const CourseSlider = ({allCourses, category}) => {
                         />)
                     }
                 </Slider> 
-                <style jsx global>
+                <style >
                     {`
                         .card-single{
                             width: 90% !important;

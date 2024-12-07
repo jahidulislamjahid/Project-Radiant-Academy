@@ -91,7 +91,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="sticky-footer hidden md:block w-full fixed left-0 right-0 bottom-0" id="sticky">
-                <style jsx global>
+                <style >
                     {`
                         .sticky-footer {
                             bottom: -204px;
@@ -119,7 +119,7 @@ const Footer = () => {
             </div>
 
             <button className="stickyGoToTop fixed right-5 btn btn-ghost rounded-btn m-5 dark:text-slate-200" id="sticky2" onClick={topFunction}>
-                <style jsx global>
+                <style >
                     {`
                         .stickyGoToTop {
                             bottom: -60px;
@@ -145,7 +145,7 @@ const Footer = () => {
                         </Link>
                         <FaHeadset className="text-4xl"/>
                     </div>
-                <style jsx>
+                <style >
                         {`
                             #chat-bot {
                                 position: fixed;

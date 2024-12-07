@@ -91,7 +91,7 @@ const ReviewSection = ({ forum }) => {
                                         <p className="text-sm px-2 pt-1 dark:text-slate-200">{review.comment}</p>
                                         <div className="ratings flex">
                                             <ReactStars {...ratingCount} value={review.rating} edit={false} />
-                                            <style jsx global>{`
+                                            <style >{`
                                                 .ratings {
                                                     margin: 1rem;
                                                 }
@@ -114,7 +114,7 @@ const ReviewSection = ({ forum }) => {
                             <div className="drop-rating flex flex-col sm:flex-row">
                                 <h3 className="text-xl pb-2 sm:pb-0 text-slate-700 dark:text-slate-200">Select your Rating:</h3>
                                 <ReactStars {...ratingCount} />
-                                <style jsx global>
+                                <style >
                                     {`
                                         .drop-rating {
                                             padding: 1rem;

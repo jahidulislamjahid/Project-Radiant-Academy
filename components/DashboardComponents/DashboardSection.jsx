@@ -198,7 +198,7 @@ const DashboardSection = () => {
                                             ))
                                         }
                                     </Slider>
-                                    <style jsx global>
+                                    <style >
                                         {`
                                             .course-card .slick-list{
                                                 padding-top: 0;
@@ -326,7 +326,7 @@ const DashboardSection = () => {
                                                 ))
                                         }
                                     </Slider>
-                                    <style jsx global>
+                                    <style >
                                         {`
                                             .slick-list{
                                                 padding: 2rem 0;
@@ -341,7 +341,7 @@ const DashboardSection = () => {
                                 <div className="bg-slate-200 dark:bg-slate-600 shadow-md rounded-md p-5 h-auto mb-5 ">
                                     <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 border-stone-300 text-violet-900 dark:text-violet-100 dark:border-stone-400">
                                         <FaNewspaper className="mr-2" />
-                                        <h3>Newsletters</h3>
+                                        <h3>Newsletter</h3>
                                     </div>
                                     <Slider {...settings}>
                                         <div className="p-5 text-violet-900 dark:text-violet-200">

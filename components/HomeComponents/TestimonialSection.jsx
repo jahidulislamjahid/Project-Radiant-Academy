@@ -139,7 +139,7 @@ const TestimonialSection = () => {
                             </div>
                         </div>
                     </Slider>
-                    <style jsx global>
+                    <style >
                         {`
                             .single-card {
                                 width: 90% !important;
