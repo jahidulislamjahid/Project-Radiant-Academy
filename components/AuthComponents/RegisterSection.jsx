@@ -21,7 +21,7 @@ const RegisterSection = () => {
         e.preventDefault()
         registerUser(logindata.name, logindata.username, logindata.email, logindata.password)
 
-          router.push("/login")
+        router.push("/login")
     }
 
     const something = () => {

@@ -62,7 +62,14 @@ const useFirebase = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('');
-                const newUser = { email, displayName: name };
+                console.log(userCredential);
+                const {accessToken} = userCredential?.user
+                console.log('token' , accessToken);
+                
+                const userPic='https://i.ibb.co/rHNS0zG/Photo-1.png'
+                const newUser = { email, displayName: name  };
+                saveUser(email, name, userPic, accessToken, 'POST');
+
                 setUser(newUser);
                 // save user to the database
                 // saveUser(email, name, 'POST');

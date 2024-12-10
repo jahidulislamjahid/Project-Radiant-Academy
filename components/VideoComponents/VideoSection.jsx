@@ -4,9 +4,8 @@ import Peer from "simple-peer";
 import io from "socket.io-client";
 import { BiPhoneCall, BiAt, BiDialpad, BiCopy, BiVideo } from "react-icons/bi";
 import { HiOutlinePhoneMissedCall } from "react-icons/hi";
-import { data } from "autoprefixer";
 
-const socket = io.connect('http://localhost:5000')
+const socket = io.connect('https://finalserver-nine.vercel.app/')
 
 // const socket = io.connect('https://cors-anywhare.herokuapp.com/http://mysterious-citadel-77081.herokuapp.com/')
 
