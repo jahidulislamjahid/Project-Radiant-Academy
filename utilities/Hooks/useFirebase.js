@@ -43,7 +43,7 @@ const useFirebase = () => {
                     success: true,
                     name: displayName
                 };
-
+                localStorage.setItem('signedInUser', JSON.stringify(signedInUser));
                 setUser(signedInUser);
                 dispatch(fetchUsers());
                 router.replace(`/profile/${signedInUser.email}`);
@@ -63,11 +63,11 @@ const useFirebase = () => {
             .then((userCredential) => {
                 setAuthError('');
                 console.log(userCredential);
-                const {accessToken} = userCredential?.user
-                console.log('token' , accessToken);
-                
-                const userPic='https://i.ibb.co/rHNS0zG/Photo-1.png'
-                const newUser = { email, displayName: name  };
+                const { accessToken } = userCredential?.user
+                console.log('token', accessToken);
+
+                const userPic = 'https://i.ibb.co/rHNS0zG/Photo-1.png'
+                const newUser = { email, displayName: name };
                 saveUser(email, name, userPic, accessToken, 'POST');
 
                 setUser(newUser);
@@ -75,7 +75,8 @@ const useFirebase = () => {
                 // saveUser(email, name, 'POST');
                 // send name to firebase after creation
                 updateProfile(auth.currentUser, {
-                    displayName: name
+                    displayName: name,
+                    email: email
                 }).then(() => {
                 }).catch((error) => {
                 });
@@ -130,6 +131,17 @@ const useFirebase = () => {
 
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+                console.log(userCredential);
+                const signedInUser = {
+                    isSignedIn: true,
+                    email: email,
+                };
+                localStorage.setItem('signedInUser', JSON.stringify(signedInUser));
+                const signInUserData = JSON.parse(localStorage.getItem('signedInUser'));
+                console.log(signInUserData);
+                setUser(signInUserData)
+                toast.success("Logged In")
+
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
                 setAuthError('');
@@ -169,6 +181,7 @@ const useFirebase = () => {
             localStorage.removeItem('token');
             setUser({});
             router.push('/');
+            localStorage.removeItem('signedInUser')
             toast.success("Successfully signed out!", {
                 position: "top-center"
             });
@@ -189,7 +202,7 @@ const useFirebase = () => {
         } else {
             const role = 'user';
             const user = { email, displayName, photoURL, accessToken, role };
-            fetch('https://radiant-academy-ius.vercel.app/api/users', {
+            fetch('http://localhost:3000/api/users', {
                 method: method,
                 headers: {
                     'content-type': 'application/json'

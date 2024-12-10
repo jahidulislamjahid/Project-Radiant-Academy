@@ -15,9 +15,9 @@ export default async function handler(req, res) {
             total_amount: paymentInfo?.ammont || "0", // Default value if ammont is undefined
             currency: "BDT",
             tran_id: paymentInfo?.ammont + date, // Replace with a unique transaction ID
-            success_url: "https://radiant-academy-ius.vercel.app/api/successPayment", // Replace with the actual URL
-            fail_url: "https://radiant-academy-ius.vercel.app/api/failPayment", // Replace with the actual URL
-            cancel_url: "https://radiant-academy-ius.vercel.app/api/cancelPayment", // Replace with the actual URL
+            success_url: "http://localhost:3000/api/successPayment", // Replace with the actual URL
+            fail_url: "http://localhost:3000/api/failPayment", // Replace with the actual URL
+            cancel_url: "http://localhost:3000/api/cancelPayment", // Replace with the actual URL
             cus_name: paymentInfo?.cus_name || "Customer Name",
             cus_email: paymentInfo?.cus_email || "customer@example.com",
             cus_add1: paymentInfo?.cus_add1 || "Customer Address 1",
