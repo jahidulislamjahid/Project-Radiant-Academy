@@ -167,8 +167,8 @@ const CourseDetailsSection = ({ course }) => {
                                                         className='rounded-2xl'
                                                             src={review.img}
                                                             alt="User Picture"
-                                                            height="100px"
-                                                            width="100px"
+                                                            height={100}
+                                                            width={100}
                                                         />
                                                     </div>
                                                     <div className="w-full">

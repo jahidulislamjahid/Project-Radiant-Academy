@@ -9,13 +9,13 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { removeFromWishList } from "../utilities/redux/slices/courseSlice";
+import { setUserData } from "../utilities/redux/slices/loginUserSlice";
 
 const Navbar = () => {
     const dispatch = useDispatch();
     const { user, logout } = useAuth();
 
     const signInUserData = JSON.parse(localStorage.getItem('signedInUser'));
-    console.log(signInUserData?.email);
     
 
     const [isDarkMode, toggleDarkMode] = useDarkMode();
@@ -38,9 +38,10 @@ const Navbar = () => {
         });
     }
     const allUsers = useSelector((state) => state.users.usersList);
-    const thisUser = allUsers.find(userData => userData.email === signInUserData?.email );
-    console.log( 'users', thisUser)
-    
+    const logInUser = allUsers.find(userData => userData.email === signInUserData?.email );    
+    dispatch(setUserData(logInUser))
+
+    const thisUser = useSelector((state) => state.loginUser.loginUser)
 
     return (
         <>
@@ -53,8 +54,8 @@ const Navbar = () => {
                                     <Image
                                         src={Logo}
                                         alt="Radiant Academy Logo"
-                                        width="80px"
-                                        height="80px"
+                                        width={80}
+                                        height={80}
                                         draggable="false"
                                     />
                                 </div>
@@ -118,7 +119,7 @@ const Navbar = () => {
                                                     flex justify-center px-4 py-2 rounded font-bold
                                                     hover:bg-rose-700 hover:text-white bg-violet-500 
                                                     text-white border duration-200 ease-in-out border-white-600 transition " >
-                                                    Checkout ${totalPrice}
+                                                    Checkout ৳ {totalPrice} 
                                                 </button>
                                             </Link>
                                         </div>

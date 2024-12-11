@@ -3,30 +3,21 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { FaBookmark, FaClock, FaHeart, FaPenNib } from "react-icons/fa";
 import ReactStars from "react-rating-stars-component";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import useAuth from '../../utilities/Hooks/useAuth';
 import { fetchQuizzes } from '../../utilities/redux/slices/quizSlice';
 import ProfileDetailsSection from './ProfileDetailsSection';
 
 const ProfileSection = ({ account }) => {
     const [rating, setRating] = useState(0);
-    const { user, isLoading } = useAuth();
-    const router = useRouter();
     const dispatch = useDispatch();
+    
+    const thisUser = useSelector((state) => state.loginUser.loginUser)
 
     useEffect(() => {
         dispatch(fetchQuizzes());
     }, [dispatch]);
 
-    if (isLoading && !user.isSignedIn) {
-        return <div className="loading flex justify-center items-center min-h-screen m-auto">
-            {/* <div>
-                <Lottie options={defaultOptions}
-                    height={200}
-                    width={200} />
-            </div> */}
-        </div>
-    }
 
     //rating system
     const ratingCount = {
@@ -45,26 +36,26 @@ const ProfileSection = ({ account }) => {
         }
     };
 
-    !user.isSignedIn && router.replace('/login');
+    // !signInUserData && router.replace('/login');
 
     return (
         <div>
-            {user.isSignedIn &&
+            {thisUser &&
                 <div className="grid xs:grid-cols-1 md:grid-cols-4 p-8 bg-white dark:bg-slate-800 gap-5">
                     <div className="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 p-5 rounded-lg py-6 flex justify-center">
                         <div className="flex-col text-center">
                             <div>
                                 <Image
-                                    src={user.photo}
+                                    src={thisUser?.photoURL}
                                     alt="Profile Picture"
-                                    width="100px"
-                                    height="100px"
+                                    width={100}
+                                    height={100}
                                     className="rounded-full"
                                 />
                             </div>
                             <div className="py-2">
-                                <h2 className="text-xl font-bold">{user.name}</h2>
-                                <p className="text-stone-500 dark:text-stone-400">{user.email}</p>
+                                <h2 className="text-xl font-bold">{thisUser?.name}</h2>
+                                <p className="text-stone-500 dark:text-stone-400">{thisUser?.email}</p>
                             </div>
                             <div>
                                 <p className="mt-3 flex items-center mb-1">

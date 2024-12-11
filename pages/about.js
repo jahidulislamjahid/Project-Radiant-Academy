@@ -49,8 +49,8 @@ const about = () => {
                         <div className="grid place-content-center relative bottom-12">
                             <Image
                                 src="https://i.ibb.co/vvphWfV/310747857-5400378163413295-811890902554305829-n.jpg"
-                                height="150"
-                                width="150"
+                                height={150}
+                                width={150}
                                 alt="User"
                                 draggable="false"
                                 className="rounded-full"
@@ -96,8 +96,8 @@ const about = () => {
                         <div className="grid place-content-center relative bottom-12">
                             <Image
                                 src="https://i.ibb.co/B6NNNFT/rabbi.jpg"
-                                height="150"
-                                width="150"
+                                height={150}
+                                width={150}
                                 alt="User"
                                 draggable="false"
                                 className="rounded-full"
@@ -143,8 +143,8 @@ const about = () => {
                         <div className="grid place-content-center relative bottom-12">
                             <Image
                                 src="https://i.ibb.co/vLncdVC/346064333-949333756309325-621565237007494427-n-1.jpg"
-                                height="150"
-                                width="150"
+                                height={150}
+                                width={150}
                                 alt="User"
                                 draggable="false"
                                 className="rounded-full"

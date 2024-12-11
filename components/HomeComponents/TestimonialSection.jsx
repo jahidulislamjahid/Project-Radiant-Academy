@@ -47,8 +47,8 @@ const TestimonialSection = () => {
                             <div className="grid place-content-center relative bottom-12">
                                 <Image
                                     src="https://i.ibb.co/vLncdVC/346064333-949333756309325-621565237007494427-n-1.jpg"
-                                    height="120"
-                                    width="120"
+                                    height={120}
+                                    width={120}
                                     alt="User"
                                     draggable="false"
                                     className="rounded-full"
@@ -71,8 +71,8 @@ const TestimonialSection = () => {
                             <div className="grid place-content-center relative bottom-12 ">
                                 <Image
                                     src="https://i.ibb.co/JkNMfxn/horizontal-portrait-smiling-happy-young-pleasant-looking-female-wears-denim-shirt-stylish-glasses-wi.jpg"
-                                    height="120"
-                                    width="120"
+                                    height={120}
+                                    width={120}
                                     alt="User"
                                     draggable="false"
                                     className="rounded-full"
@@ -95,8 +95,8 @@ const TestimonialSection = () => {
                             <div className="grid place-content-center relative bottom-12">
                                 <Image
                                     src="https://i.ibb.co/B6NNNFT/rabbi.jpg"
-                                    height="120"
-                                    width="120"
+                                    height={120}
+                                    width={120}
                                     alt="User"
                                     draggable="false"
                                     className="rounded-full"
@@ -118,8 +118,8 @@ const TestimonialSection = () => {
                             <div className="grid place-content-center relative bottom-12">
                                 <Image
                                     src="https://i.ibb.co/vvphWfV/310747857-5400378163413295-811890902554305829-n.jpg"
-                                    height="120"
-                                    width="120"
+                                    height={120}
+                                    width={120}
                                     alt="User"
                                     draggable="false"
                                     className="rounded-full"

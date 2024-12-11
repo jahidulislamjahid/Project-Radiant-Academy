@@ -11,8 +11,8 @@ const MyCourseCard = ({ course, account }) => {
                     <Image
                         src={course?.image}
                         alt="Course Cover"
-                        width="300px"
-                        height="165px"
+                        width={300}
+                        height={165}
                         draggable="false"
                     />
                     <div className="pt-3">

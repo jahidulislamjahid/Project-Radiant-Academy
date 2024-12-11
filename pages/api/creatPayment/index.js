@@ -8,6 +8,8 @@ export default async function handler(req, res) {
 
     if (method === "POST") {
         const paymentInfo = req.body;
+        console.log('takkaaaa', paymentInfo?.ammont);
+        
         const date = Date.now()
         const initiatePaymentData = {
             store_id: "radia6745d56280b3c",
@@ -16,8 +18,8 @@ export default async function handler(req, res) {
             currency: "BDT",
             tran_id: paymentInfo?.ammont + date, // Replace with a unique transaction ID
             success_url: "http://localhost:3000/api/successPayment", // Replace with the actual URL
-            fail_url: "http://localhost:3000/api/failPayment", // Replace with the actual URL
-            cancel_url: "http://localhost:3000/api/cancelPayment", // Replace with the actual URL
+            fail_url: "http://localhost:3000", // Replace with the actual URL
+            cancel_url: "http://localhost:3000", // Replace with the actual URL
             cus_name: paymentInfo?.cus_name || "Customer Name",
             cus_email: paymentInfo?.cus_email || "customer@example.com",
             cus_add1: paymentInfo?.cus_add1 || "Customer Address 1",

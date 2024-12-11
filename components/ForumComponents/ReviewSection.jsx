@@ -77,8 +77,8 @@ const ReviewSection = ({ forum }) => {
                                         <Image
                                             src={user?.photo}
                                             alt="User Picture"
-                                            height="100px"
-                                            width="100px"
+                                            height={100}
+                                            width={100}
                                             className="rounded-full"
                                         />
                                     </div>

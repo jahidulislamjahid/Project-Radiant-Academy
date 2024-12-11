@@ -32,8 +32,8 @@ const ForumPostDetails = ({ forum }) => {
                                 <Image
                                     src={authorImg}
                                     alt="User Profile Picture"
-                                    width="100px"
-                                    height="100px"
+                                    width={100}
+                                    height={100}
                                     draggable="false"
                                     className='rounded-full'
                                 />
@@ -74,7 +74,7 @@ const ForumPostDetails = ({ forum }) => {
                                         <h2 className="text-xl mb-3 text-slate-700 dark:text-slate-200"><span className="text-purple-900 dark:text-violet-400">{author.split(' ').slice(-1).join(' ')}</span> Posted only once!</h2>
                                     </div>
                             }
-                            
+
                             <div className="my-2">
                                 {
                                     filtered.slice(0, 2).map(topic => (

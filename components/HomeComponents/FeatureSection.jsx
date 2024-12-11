@@ -35,8 +35,8 @@ const FeatureSection = () => {
                             <Image
                                 src={p2}
                                 alt="Landscape picture"
-                                width="90px"
-                                height="90px"
+                                width={90}
+                                height={90}
                                 draggable="false"
                             />
                         </div>
@@ -53,8 +53,8 @@ const FeatureSection = () => {
                             <Image
                                 src={p3}
                                 alt="Landscape picture"
-                                width="90px"
-                                height="90px"
+                                width={90}
+                                height={90}
                                 draggable="false"
                             />
                         </div>
@@ -71,8 +71,8 @@ const FeatureSection = () => {
                             <Image
                                 src={p4}
                                 alt="Landscape picture"
-                                width="90px"
-                                height="90px"
+                                width={90}
+                                height={90}
                                 draggable="false"
                             />
                         </div>

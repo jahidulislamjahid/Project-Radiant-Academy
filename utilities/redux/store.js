@@ -9,6 +9,7 @@ import userReducer from './slices/userSlice';
 import quizReducer from './slices/quizSlice';
 import voteReducer from './slices/voteSlice';
 import storage from 'redux-persist/lib/storage';
+import loginUserReducer from'../redux/slices/loginUserSlice'
 
 const rootReducer = combineReducers({
   courses: courseReducer,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   users: userReducer,
   quizzes: quizReducer,
   votes: voteReducer,
+  loginUser : loginUserReducer,
 })
 
 const persistConfig = {

@@ -34,8 +34,8 @@ const CourseCard = ({ course }) => {
                         src={course?.image}
                         alt="Course Cover"
                         className={Styles.courseCoverImage}
-                        height="165px"
-                        width="300px"
+                        height={165}
+                        width={300}
                         draggable="false"
                     />
                     <div className={Styles.middleBtn}>

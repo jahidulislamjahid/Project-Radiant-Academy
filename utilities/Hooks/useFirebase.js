@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../redux/slices/userSlice";
+import { removeAllFromCartlist } from "../redux/slices/courseSlice";
 
 initializeFirebase();
 const useFirebase = () => {
@@ -66,7 +67,7 @@ const useFirebase = () => {
                 const { accessToken } = userCredential?.user
                 console.log('token', accessToken);
 
-                const userPic = 'https://i.ibb.co/rHNS0zG/Photo-1.png'
+                const userPic = 'https://i.ibb.co.com/TwS4rK9/2289-Sk-VNQSBGQU1-PIDEw-Mjgt-MTIy.png'
                 const newUser = { email, displayName: name };
                 saveUser(email, name, userPic, accessToken, 'POST');
 
@@ -181,6 +182,7 @@ const useFirebase = () => {
             localStorage.removeItem('token');
             setUser({});
             router.push('/');
+            dispatch(removeAllFromCartlist())
             localStorage.removeItem('signedInUser')
             toast.success("Successfully signed out!", {
                 position: "top-center"
