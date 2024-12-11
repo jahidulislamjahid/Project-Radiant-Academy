@@ -13,8 +13,10 @@ export const fetchReviews = createAsyncThunk(
 export const addReview = createAsyncThunk(
     'review/addReview',
     async (review) => {
+        console.log(review);
+        
         try {
-            const response = await axios.post("http://localhost:3000/api/reviews", review);
+            const response = await axios.post("http://localhost:3000/api/reviews", review);            
             return response.data.data
         } catch (error) {
             console.log(error);

@@ -8,6 +8,10 @@ import DashboardSidebar from './DashboardSidebar';
 const ForumSection = () => {
     const { handleApprove, handleRemove } = useCrud();
     const allTopics = useSelector((state) => state.forums.forumsList);
+    const thisUser = useSelector((state) => state.loginUser.loginUser)
+    console.log(thisUser);
+    
+
     
     return (
         <div className='px-0 sm:px-6 lg:px-12 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200'>
@@ -18,9 +22,11 @@ const ForumSection = () => {
                 <section className='bg-white dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto'>
                     <div className="flex justify-between items-center px-3 mb-4">
                         <h3 className="text-2xl flex items-center"><FaClone className="mr-3" /> Forum Topics</h3>
-                        <Link href="/dashboard/forums/add-topic" passHref>
+
+                        <Link href={`${thisUser? '/dashboard/forums/add-topic' : '/login'}`} passHref>
                             <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Topics</button>
                         </Link>
+
                     </div>
                     <section className="overflow-x-auto">
                         <div>

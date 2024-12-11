@@ -165,7 +165,7 @@ const CourseDetailsSection = ({ course }) => {
                                                     <div className="px-2 pt-1.5 block w-[100px]">
                                                         <Image
                                                         className='rounded-2xl'
-                                                            src={review.img}
+                                                            src={review?.img}
                                                             alt="User Picture"
                                                             height={100}
                                                             width={100}

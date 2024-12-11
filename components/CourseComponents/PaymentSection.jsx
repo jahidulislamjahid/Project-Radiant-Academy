@@ -134,7 +134,7 @@ const PaymentSection = ({ course }) => {
                         <div key={item.id} className="bg-slate-200 dark:bg-slate-700 p-5 grid grid-rows-1 rounded-xl mb-3">
                             <div>
                                 <Image
-                                    src={item.image}
+                                    src={item?.image}
                                     alt="Course Cover"
                                     width={300}
                                     height={165}

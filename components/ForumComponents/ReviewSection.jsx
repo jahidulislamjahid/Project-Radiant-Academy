@@ -12,9 +12,9 @@ const ReviewSection = ({ forum }) => {
     const { _id, author, authorImg } = forum;
     const [rating, setRating] = useState(0);
     const [reviews, setReviews] = useState([]);
+    const { user } = useAuth()
     const allReviews = useSelector((state) => state.reviews.reviewsList);
-    const { user } = useAuth();
-    console.log(forum)
+    const thisUser = useSelector((state) => state.loginUser.loginUser)
 
     useEffect(() => {
         const thisReview = allReviews.filter(review => review.forumId === _id);
@@ -45,8 +45,13 @@ const ReviewSection = ({ forum }) => {
         const comment = commentRef.current.value;
         const forumId = _id;
         const status = true;
+        const commentorName = thisUser?.displayName
+        const commentorPic = thisUser?.photoURL
+        const commentorEmail = thisUser?.email
+        console.log('review', commentorName, commentorEmail);
 
-        const reviewData = { forumId, author, authorImg, comment, rating, status };
+
+        const reviewData = { forumId, author, authorImg, comment, rating, status, commentorEmail, commentorName , commentorPic};
         if (dispatch(addReview(reviewData))) {
             toast.dismiss(loading);
             toast.success("Successfully added your review!", {
@@ -64,18 +69,18 @@ const ReviewSection = ({ forum }) => {
     return (
         <div className="px-12 lg:px-20">
             <div className="lg:px-12 pb-10 h-full">
-            {reviews.length > 0 ? <button className="px-8 py-2 text-white rounded-lg text-lg mb-4 bg-[#F05133]">Comments ({reviews.length})</button>
-            : <button className="px-8 py-2 text-white rounded-lg text-lg mb-4 bg-[#F05133]">Comment ({reviews.length})</button>}
-                
+                {reviews?.length > 0 ? <button className="px-8 py-2 text-white rounded-lg text-lg mb-4 bg-[#F05133]">Comments ({reviews?.length})</button>
+                    : <button className="px-8 py-2 text-white rounded-lg text-lg mb-4 bg-[#F05133]">Comment ({reviews?.length})</button>}
+
                 <div className="bg-slate-100 pb-12 dark:bg-slate-700">
                     {/* Display Comment */}
                     <div>
                         {
-                            reviews.map((review) => (
+                            reviews?.map((review) => (
                                 <div className="p-2 sm:p-5 flex items-start" key={review._id}>
                                     <div className="px-2 pt-1.5 block w-[70px]">
                                         <Image
-                                            src={user?.photo}
+                                            src={review?.commentorPic}
                                             alt="User Picture"
                                             height={100}
                                             width={100}
@@ -84,13 +89,13 @@ const ReviewSection = ({ forum }) => {
                                     </div>
                                     <div className="w-full">
                                         <div className="flex items-baseline flex-wrap sm:flex-row px-2">
-                                            <h4 className="text-xl dark:text-slate-100">{user.name}</h4>
+                                            <h4 className="text-xl dark:text-slate-100">{review?.commentorName}</h4>
                                             &nbsp; - &nbsp;
-                                            <p className="text-stone-400">{moment(review.createdAt).fromNow()}</p>
+                                            <p className="text-stone-400">{moment(review?.createdAt).fromNow()}</p>
                                         </div>
-                                        <p className="text-sm px-2 pt-1 dark:text-slate-200">{review.comment}</p>
+                                        <p className="text-sm px-2 pt-1 dark:text-slate-200">{review?.comment}</p>
                                         <div className="ratings flex">
-                                            <ReactStars {...ratingCount} value={review.rating} edit={false} />
+                                            <ReactStars {...ratingCount} value={review?.rating} edit={false} />
                                             <style >{`
                                                 .ratings {
                                                     margin: 1rem;

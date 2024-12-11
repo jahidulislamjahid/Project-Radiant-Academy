@@ -8,6 +8,8 @@ import Linkify from 'react-linkify';
 
 const ForumPostDetails = ({ forum }) => {
     const { _id, title, author, authorImg, authorEmail, category, createdAt, desc, loves, views } = forum;
+    console.log(authorImg);
+    
     const allTopics = useSelector((state) => state.forums.forumsList);
     const userTopics = allTopics.filter(topic => topic.authorEmail === authorEmail);
     const filtered = userTopics.filter(topic => (_id !== topic._id && topic.status !== false));
