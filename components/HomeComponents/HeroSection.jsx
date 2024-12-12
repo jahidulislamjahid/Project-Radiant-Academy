@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
-import { useSelector } from "react-redux";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import useAuth from "../../utilities/Hooks/useAuth";
+import bannerIMG from "../../public/img/bannerImg.svg"
 
 const HeroSection = () => {
     var settings = {
@@ -95,9 +95,9 @@ const HeroSection = () => {
                         <div className="w-5/6 lg:w-[50%] py-5">
                             <div className="w-5/6 mx-auto">
                                 <Image
-                                    src="https://i.postimg.cc/qR1FkLYw/hero.png"
-                                    width={500}
-                                    height={432}
+                                    src={bannerIMG}
+                                    width={600}
+                                    height={500}
                                     alt="Hero Image"
                                     draggable="false"
                                 />

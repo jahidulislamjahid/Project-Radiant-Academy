@@ -30,61 +30,63 @@ const FeatureSection = () => {
                     {/*         </p> */}
                     {/*     </Link> */}
                     {/* </div> */}
-                    <div className="bg-slate-100 dark:bg-slate-700 dark:text-white rounded-lg px-4  py-5 mb-5">
-                        <div className="grid place-content-center my-5 ">
-                            <Image
-                                src={p2}
-                                alt="Landscape picture"
-                                width={90}
-                                height={90}
-                                draggable="false"
-                            />
-                        </div>
-                        <h3 className="text-center text-3xl	font-bold text-slate-700 dark:text-slate-100 mb-4">Code Editor</h3>
-                        <p className="text-center w-5/6 mx-auto text-slate-500 dark:text-slate-400">In built code editor for the purpose of practicing problems without leaving our site.</p>
-                        <Link href="/codeeditor" passHref>
+                    <Link href="/code-editor" passHref>
+                        <div className="bg-slate-100 dark:bg-slate-700 hover:scale-105 delay-150 duration-300  dark:text-white rounded-lg px-4 py-5 mb-5 shadow-md hover:shadow-zinc-400 dark:hover:shadow-violet-500 cursor-pointer">
+                            <div className="grid place-content-center my-5 ">
+                                <Image
+                                    src={p2}
+                                    alt="Landscape picture"
+                                    width={90}
+                                    height={90}
+                                    draggable="false"
+                                />
+                            </div>
+                            <h3 className="text-center text-3xl	font-bold text-slate-700 dark:text-slate-100 mb-4">Code Editor</h3>
+                            <p className="text-center w-5/6 mx-auto text-slate-500 dark:text-slate-400">In built code editor for the purpose of practicing problems without leaving our site.</p>
                             <p className="text-center text-1xl font-bold text-violet-800 dark:text-violet-400 my-4 flex justify-center items-center cursor-pointer">
                                 Learn More &nbsp; <FaArrowRight style={{ fontSize: '12px', marginTop: '3px' }} />
                             </p>
-                        </Link>
-                    </div>
-                    <div className="bg-slate-100 dark:bg-slate-700 dark:text-white rounded-lg px-4 py-5 mb-5">
-                        <div className="grid place-content-center my-5">
-                            <Image
-                                src={p3}
-                                alt="Landscape picture"
-                                width={90}
-                                height={90}
-                                draggable="false"
-                            />
                         </div>
-                        <h3 className="text-center text-3xl	font-bold text-slate-700 dark:text-slate-100 mb-4">Online Forum</h3>
-                        <p className="text-center w-5/6 mx-auto text-slate-500 dark:text-slate-400">Online forum for a category based question answering for the different coding problems.</p>
-                        <Link href="/forum" passHref>
-                            <p className="text-center text-1xl font-bold text-violet-800 dark:text-violet-400 my-4 flex justify-center items-center">
-                                Learn More &nbsp; <FaArrowRight style={{ fontSize: '12px', marginTop: '3px' }} />
-                            </p>
-                        </Link>
-                    </div>
-                    <div className="bg-slate-100 dark:bg-slate-700 dark:text-white rounded-lg px-4 py-5 mb-5">
-                        <div className="grid place-content-center my-5">
-                            <Image
-                                src={p4}
-                                alt="Landscape picture"
-                                width={90}
-                                height={90}
-                                draggable="false"
-                            />
-                        </div>
-                        <h3 className="text-center text-3xl	font-bold text-slate-700 dark:text-slate-100 mb-4">Digital Canvas</h3>
-                        <p className="text-center w-5/6 mx-auto text-slate-500 dark:text-slate-400">Digital Canvas let's one perform drawing and writting just like pen and paper but inside the web app.</p>
-                        <Link href="/canvas" passHref>
-                            <p className="text-center text-1xl font-bold text-violet-800 dark:text-violet-400 my-4 flex justify-center items-center">
-                                Learn More &nbsp; <FaArrowRight style={{ fontSize: '12px', marginTop: '3px' }} />
-                            </p>
-                        </Link>
-                    </div>
+                    </Link>
+                    <Link href="/forum" passHref>
+                        <div className="bg-slate-100 dark:bg-slate-700 hover:scale-105 delay-150 duration-300  dark:text-white rounded-lg px-4 py-5 mb-5 shadow-md hover:shadow-zinc-400 dark:hover:shadow-violet-500 cursor-pointer">
+                            <div className="grid place-content-center my-5">
+                                <Image
+                                    src={p3}
+                                    alt="Landscape picture"
+                                    width={90}
+                                    height={90}
+                                    draggable="false"
+                                />
+                            </div>
+                            <h3 className="text-center text-3xl	font-bold text-slate-700 dark:text-slate-100 mb-4">Online Forum</h3>
+                            <p className="text-center w-5/6 mx-auto text-slate-500 dark:text-slate-400">Online forum for a category based question answering for the different coding problems.</p>
 
+                            <p className="text-center text-1xl font-bold text-violet-800 dark:text-violet-400 my-4 flex justify-center items-center">
+                                Learn More &nbsp; <FaArrowRight style={{ fontSize: '12px', marginTop: '3px' }} />
+                            </p>
+                        </div>
+                    </Link>
+                    <Link href="/canvas" passHref>
+                        <div className="bg-slate-100 dark:bg-slate-700 hover:scale-105 delay-150 duration-300  dark:text-white rounded-lg px-4 py-5 mb-5 shadow-md hover:shadow-zinc-400 dark:hover:shadow-violet-500 cursor-pointer">
+                            <div className="grid place-content-center my-5 ">
+                                <Image
+                                    src={p4}
+                                    alt="Landscape picture"
+                                    width={90}
+                                    height={90}
+                                    draggable="false"
+                                />
+                            </div>
+                            <h3 className="text-center text-3xl	font-bold text-slate-700 dark:text-slate-100 mb-4">Digital Canvas</h3>
+                            <p className="text-center w-5/6 mx-auto text-slate-500 dark:text-slate-400">Digital Canvas let's one perform drawing and writting just like pen and paper but inside the web app.</p>
+
+                            <p className="text-center text-1xl font-bold text-violet-800 dark:text-violet-400 my-4 flex justify-center items-center">
+                                Learn More &nbsp; <FaArrowRight style={{ fontSize: '12px', marginTop: '3px' }} />
+                            </p>
+
+                        </div>
+                    </Link>
                 </div>
 
             </div>

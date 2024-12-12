@@ -28,7 +28,7 @@ const DashboardSection = () => {
     const allQuizzes = useSelector((state) => state.quizzes.quizzesList);
     const allUsers = useSelector((state) => state.users.usersList);
 
-    const thisUser = allUsers.find(userData => userData.email === user.email);
+    const thisUser = useSelector((state) => state.loginUser.loginUser)
 
     const pendingList = allTopics.filter(forum => {
         if(forum.status === false){
@@ -94,7 +94,7 @@ const DashboardSection = () => {
 
     return (
         <>
-         {(user.isSignedIn && thisUser.role === 'admin') &&
+         {(thisUser?.role === 'admin') &&
             <div className="px-0 sm:px-6 lg:px-12">
                 <div className="grid grid-rows-1 md:grid-cols-[250px_minmax(300px,_1fr)] lg:grid-cols-[250px_minmax(600px,_1fr)] p-8 gap-5">
                     <div>

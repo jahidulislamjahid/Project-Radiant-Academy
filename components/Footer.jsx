@@ -13,16 +13,16 @@ const Footer = () => {
 
     function helpLine(){
         const chatBtn = document.getElementById("chat-icon");
-        chatBtn.classList.toggle("expanded");
+        chatBtn?.classList.toggle("expanded");
     };
 
     window.onscroll = (function () {
         if (window.scrollY > 15) {
-            document.getElementById("sticky").classList.add("popup");
-            document.getElementById("sticky2").classList.add("popup2");
+            document.getElementById("sticky").classList?.add("popup");
+            document.getElementById("sticky2").classList?.add("popup2");
         } else {
-            document.getElementById("sticky").classList.remove("popup");
-            document.getElementById("sticky2").classList.remove("popup2");
+            document.getElementById("sticky").classList?.remove("popup");
+            document.getElementById("sticky2").classList?.remove("popup2");
         }
     });
 

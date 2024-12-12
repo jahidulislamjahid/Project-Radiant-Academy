@@ -3,8 +3,38 @@ import { FaStar, FaStarHalf } from "react-icons/fa";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import AKM from '../../public/img/AKM.jpg'
+
 
 const TestimonialSection = () => {
+
+    const testimonials = [
+        {
+            "name": "Shafiul Islam",
+            "image": "https://i.ibb.co/vLncdVC/346064333-949333756309325-621565237007494427-n-1.jpg",
+            "review": "I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help",
+            "rating": "4"
+        },
+        {
+            "name": "A K M Monzurul Islam",
+            "image": "https://i.ibb.co.com/b5Mg75H/AKM.jpg",
+            "review": "Radiant academy is a great platform to explore new technologies. Developers of this team had a great opertunity to make this site future of our upcomming generation",
+            "rating": "4.5"
+        },
+        {
+            "name": "Fazzle Rabbi",
+            "image": "https://i.ibb.co/B6NNNFT/rabbi.jpg",
+            "review": "They have course variation that help student like me to find the right course from a user friendly educational platform. Really their services and behavior are awesome",
+            "rating": "5"
+        },
+        {
+            "name": "Jahidul Islam",
+            "image": "https://i.ibb.co.com/bW89ZgQ/310747857-5400378163413295-811890902554305829-n.jpg",
+            "review": "Impressive !! A educational platform like this was the demand of time. Now its time to take the benifits from them. Young and energatic peoples are giving this type of services. Its just wow",
+            "rating": "4.5"
+        }
+    ]
+
 
     var settings = {
         slidesToShow: 3,
@@ -12,7 +42,7 @@ const TestimonialSection = () => {
         dots: true,
         arrows: false,
         infinite: true,
-        // autoplay: true,
+        autoplay: true,
         autoplaySpeed: 3000,
         speed: 700,
         responsive: [
@@ -43,101 +73,39 @@ const TestimonialSection = () => {
                 <h1 className="text-4xl	font-bold text-violet-800 dark:text-violet-400 pt-20 text-center">Ours Reviews</h1>
                 <div className="my-6 review-card">
                     <Slider {...settings}>
-                        <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
-                            <div className="grid place-content-center relative bottom-12">
-                                <Image
-                                    src="https://i.ibb.co/vLncdVC/346064333-949333756309325-621565237007494427-n-1.jpg"
-                                    height={120}
-                                    width={120}
-                                    alt="User"
-                                    draggable="false"
-                                    className="rounded-full"
-                                />
-                            </div>
-                            <h1 className="text-center dark:text-white">Shafiul Islam</h1>
-                            <p className="text-center dark:text-white">Rate : 4.5</p>
-                            <div className="flex justify-center">
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStarHalf /></span>
-                            </div>
-                            <div>
-                                <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-7">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
-                            </div>
-                        </div>
-                        <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
-                            <div className="grid place-content-center relative bottom-12 ">
-                                <Image
-                                    src="https://i.ibb.co/JkNMfxn/horizontal-portrait-smiling-happy-young-pleasant-looking-female-wears-denim-shirt-stylish-glasses-wi.jpg"
-                                    height={120}
-                                    width={120}
-                                    alt="User"
-                                    draggable="false"
-                                    className="rounded-full"
-                                />
-                            </div>
-                            <h1 className="text-center dark:text-white">Jesica</h1>
-                            <p className="text-center dark:text-white">Rate : 5</p>
-                            <div className="flex justify-center">
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                            </div>
-                            <div>
-                                <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-7">“I Just completed their HTML course it was amaizing I have learn a lots of things. Now i can build a static dynamic web page clearly according to the figma file”</p>
-                            </div>
-                        </div>
-                        <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
-                            <div className="grid place-content-center relative bottom-12">
-                                <Image
-                                    src="https://i.ibb.co/B6NNNFT/rabbi.jpg"
-                                    height={120}
-                                    width={120}
-                                    alt="User"
-                                    draggable="false"
-                                    className="rounded-full"
-                                />
-                            </div>
-                            <h1 className="text-center dark:text-white">Fazzle Rabbi</h1>
-                            <p className="text-center dark:text-white">Rate : 4</p>
-                            <div className="flex justify-center">
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                            </div>
-                            <div>
-                                <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-7">“They have course variation that help student like me to find the right course from a user friendly educational platform. Really their services and behavior with students are awesome”</p>
-                            </div>
-                        </div>
-                        <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl  hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
-                            <div className="grid place-content-center relative bottom-12">
-                                <Image
-                                    src="https://i.ibb.co/vvphWfV/310747857-5400378163413295-811890902554305829-n.jpg"
-                                    height={120}
-                                    width={120}
-                                    alt="User"
-                                    draggable="false"
-                                    className="rounded-full"
-                                />
-                            </div>
-                            <h1 className="text-center dark:text-white">Jahidul Islam</h1>
-                            <p className="text-center dark:text-white">Rate : 4.5</p>
-                            <div className="flex justify-center">
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                <span className="text-center text-xl text-rose-500 px-1"><FaStarHalf /></span>
-                            </div>
-                            <div>
-                                <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-7">“Impressive !! A educational platform like this was the demand of time. Now its time to take the benifits from them. Young and energatic peoples are giving this type of services. Its just wow”</p>
-                            </div>
-                        </div>
+                      
+                            {
+                                testimonials?.map((testimonial , idx) =>
+                                    <div 
+                                    key={idx}
+                                    className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 max-w-[480px]  dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                                        <div className="grid place-content-center relative bottom-5">
+                                            <Image
+                                                src={testimonial?.image}
+                                                height={120}
+                                                width={120}
+                                                alt={testimonial?.name}
+                                                draggable="false"
+                                                className="rounded-full"
+                                            />
+                                        </div>
+                                        <h1 className="text-center dark:text-white">{testimonial?.name}</h1>
+                                        <p className="text-center dark:text-white">{testimonial?.rating}</p>
+                                        <div className="flex justify-center">
+                                            <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
+                                            <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
+                                            <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
+                                            <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
+                                            <span className="text-center text-xl text-rose-500 px-1"><FaStarHalf /></span>
+                                        </div>
+                                        <div>
+                                            <p className="text-slate-500 text-center dark:text-slate-400 my-5 w-5/6 mx-auto  pb-7">"{testimonial?.review.slice(0,190)+'...'}"</p>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                    
+
                     </Slider>
                     <style >
                         {`

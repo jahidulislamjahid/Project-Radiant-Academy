@@ -28,7 +28,7 @@ const CourseCard = ({ course }) => {
 
     return (
         <div>
-            <div className="bg-slate-100 dark:bg-[#37465b] p-5 grid grid-rows-1 rounded-lg card-single">
+            <div className="bg-slate-100 dark:bg-[#37465b] shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 p-5 grid grid-rows-1 rounded-lg card-single">
                 <div className={Styles.imgContainer}>
                     <Image
                         src={course?.image}
