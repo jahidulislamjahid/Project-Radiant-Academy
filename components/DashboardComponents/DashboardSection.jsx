@@ -102,39 +102,39 @@ const DashboardSection = () => {
                         </div>
 
                         <div className="bg-slate-100 dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto">
-                            <div className="rounded-md p-5 font-semibold bg-slate-200 dark:bg-slate-600 dark:text-slate-200 shadow-md" >
+                            <div className="rounded-md p-5 text-slate-700 font-semibold bg-slate-200 dark:bg-slate-600 dark:text-slate-200 shadow-md" >
                                 <h5 className="text-lg">Site Overview</h5>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-8 pb-1 px-4">
-                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-violet-700 dark:border-l-slate-400">
+                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-slate-700 dark:border-l-slate-400">
                                         <h3 className="text-2xl">{pendingList.length}</h3>
                                         <p>Pending Submissions</p>
                                     </div>
-                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-violet-700 dark:border-l-slate-400">
+                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-slate-700 dark:border-l-slate-400">
                                         <h3 className="text-2xl">{allTopics.length}</h3>
                                         <p>Submissions</p>
                                     </div>
-                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-violet-700 dark:border-l-slate-400">
+                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-slate-700 dark:border-l-slate-400">
                                         <h3 className="text-2xl">{allUsers.length}</h3>
                                         <p>Total Accounts</p>
                                     </div>
-                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-violet-700 dark:border-l-slate-400">
+                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-slate-700 dark:border-l-slate-400">
                                         <h3 className="text-2xl">2</h3>
                                         <p>Subscribers</p>
                                     </div>
-                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-violet-700 dark:border-l-slate-400">
+                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-slate-700 dark:border-l-slate-400">
                                         <h3 className="text-2xl">{allCourses.length}</h3>
                                         <p>Total Courses</p>
                                     </div>
-                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-violet-700 dark:border-l-slate-400">
+                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-slate-700 dark:border-l-slate-400">
                                         <h3 className="text-2xl">{allQuizzes.length}</h3>
                                         <p>Total Quizzes</p>
                                     </div>
-                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-violet-700 dark:border-l-slate-400">
+                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-slate-700 dark:border-l-slate-400">
                                         <h3 className="text-2xl">{allTopics.length}</h3>
                                         <p>Forum Posts</p>
                                     </div>
-                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-violet-700 dark:border-l-slate-400">
+                                    <div className="flex flex-col items-start pl-4 border-l-2 mb-2 border-l-slate-700 dark:border-l-slate-400">
                                         <h3 className="text-2xl">{allReviews.length}</h3>
                                         <p>Total Reviews</p>
                                     </div>
@@ -143,7 +143,7 @@ const DashboardSection = () => {
                             <div className="grid grid-rows-1 md:grid-cols-[300px_minmax(200px,_1fr)] lg:grid-cols-[350px_minmax(400px,_1fr)] gap-5 mt-5">
                                 <div>
                                     <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 course-card dark:bg-slate-600">
-                                        <div className="flex items-center justify-between text-violet-900 dark:text-white">
+                                        <div className="flex items-center justify-between text-slate-700 dark:text-white">
                                             <div className="flex items-center">
                                                 <FaClone className="mr-2 text-lg" />
                                                 <h5 className="text-lg font-semibold">{allCourses.length} Courses</h5>
@@ -185,12 +185,12 @@ const DashboardSection = () => {
                                                             </div>
                                                             <div className="mt-5">
                                                                 <div className="flex items-center justify-center text-sm">
-                                                                    <FaCopy className="mr-2" />
-                                                                    <h5>New Order Placed: <span className="font-semibold">25</span></h5>
+                                                                    <FaCopy className="mr-2 dark:text-white" />
+                                                                    <h5 className="dark:text-white">New Order Placed: <span className="font-semibold dark:text-white">25</span></h5>
                                                                 </div>
                                                                 <div className="flex items-center justify-center text-sm">
-                                                                    <FaCopy className="mr-2" />
-                                                                    <h5>Today&apos;s Total Sales: <span className="font-semibold">52</span></h5>
+                                                                    <FaCopy className="mr-2 dark:text-white" />
+                                                                    <h5 className="dark:text-white">Today&apos;s Total Sales: <span className="font-semibold dark:text-white">52</span></h5>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -237,88 +237,88 @@ const DashboardSection = () => {
                                         </style>
                                     </div>
                                     <div className="bg-slate-200 dark:bg-slate-600 shadow-md rounded-md p-5 h-auto mb-5">
-                                        <div className="flex items-center justify-between text-violet-900 dark:text-violet-100">
+                                        <div className="flex items-center justify-between text-slate-700 dark:text-white">
                                             <div className="flex items-center">
                                                 <FaInfoCircle className="mr-2 text-lg" />
                                                 <h5 className="text-lg font-semibold">Account Info</h5>
                                             </div>
-                                            <button className="px-4 py-1.5 hover:bg-stone-100 rounded-lg flex items-center uppercase hover:text-slate-800"><FaEdit className="mr-2" /> Edit</button>
+                                            {/* <button className="px-4 py-1.5 hover:bg-stone-100 rounded-lg flex items-center uppercase hover:text-slate-800"><FaEdit className="mr-2" /> Edit</button> */}
                                         </div>
-                                        <div className="border-[1px] border-stone-300 dark:border-stone-400 my-2"></div>
-                                        <table className="table-compact text-slate-700 dark:text-slate-200">
+                                        <div className="border-[1px] border-slate-700 dark:border-white my-2"></div>
+                                        <table className="table-compact text-slate-700 dark:text-white">
                                             <tbody>
                                                 <tr>
                                                     <td className="flex items-center">
-                                                        <FaIdCardAlt /> &nbsp; Name
+                                                        <FaIdCardAlt className="mr-2"/>Name
                                                     </td>
-                                                    <td>:&nbsp; {user.name}</td>
+                                                    <td>:&nbsp; {thisUser.displayName}</td>
                                                 </tr>
                                                 <tr>
                                                     <td className="flex items-center">
-                                                        <FaBookmark /> &nbsp; Role
+                                                        <FaBookmark className="mr-2"/>Role
                                                     </td>
-                                                    <td>:&nbsp; {user.role}</td>
+                                                    <td className="uppercase">:&nbsp; {thisUser.role}</td>
                                                 </tr>
+                                                {/* <tr>
+                                                    <td className="flex items-center">
+                                                        <FaPhoneSquareAlt className="mr-2" />Phone
+                                                    </td>
+                                                    <td>: +880 1765456</td>
+                                                </tr> */}
                                                 <tr>
                                                     <td className="flex items-center">
-                                                        <FaPhoneSquareAlt /> &nbsp; Phone
-                                                    </td>
-                                                    <td>:&nbsp; +880 123456</td>
-                                                </tr>
-                                                <tr>
-                                                    <td className="flex items-center">
-                                                        <FaEnvelope /> &nbsp; Email
+                                                        <FaEnvelope className="mr-2" />Email
                                                     </td>
                                                     <td>{user.email}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <div className="flex justify-end mt-3">
+                                        {/* <div className="flex justify-end mt-3">
                                             <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 text-violet-900 dark:text-violet-300 dark:hover:bg-slate-700">See More Info <BsArrowRight className="ml-2 text-[15px] text-red-600 dark:text-red-400" /></button>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                                 <div>
                                     <div className="bg-slate-200 shadow-md rounded-md p-5 h-auto mb-5 dark:bg-slate-600">
-                                        <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 text-violet-900 dark:text-white border-stone-300 dark:border-white">
+                                        <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 text-slate-700 dark:text-white border-slate-700 dark:border-white">
                                             <MdPending className="mr-2" />
                                             <h3>Pending Submissions: {pendingList.length}</h3>
                                         </div>
                                         <Slider {...settings}>
                                             {
                                                 pendingList.map(forum => (
-                                                    <div className="p-5 dark:border-2 rounded-xl border-slate-500 shadow-md" key={forum._id}>
-                                                        <h4 className="text-lg font-semibold mb-1 dark:text-slate-200">
+                                                    <div className="p-5 border-2 rounded-xl border-slate-500 shadow-md" key={forum._id}>
+                                                        <h4 className="text-lg font-semibold mb-1 dark:text-white">
                                                             {forum.title}
                                                         </h4>
-                                                        <p className="text-[0.9em] text-gray-600 dark:text-slate-200 mb-1">
+                                                        <p className="text-[0.9em] text-gray-600 dark:text-white mb-1">
                                                             {forum.desc.split(' ').slice(0, 40).toString().replace(/,/g, ' ')}...
                                                         </p>
                                                         <div className="flex items-center justify-between mt-3">
                                                             <span className="flex items-center">
-                                                                <FaClock className="mr-2 text-sm" />
-                                                                <p className="text-[0.9em] dark:text-slate-200">January 12</p>
+                                                                <FaClock className="mr-2 text-sm dark:text-white" />
+                                                                <p className="text-[0.9em] dark:text-white">January 12</p>
                                                             </span>
                                                             <span className="flex items-center">
-                                                                <FaHashtag className="mr-2 text-sm" />
-                                                                <p className="text-[0.9em] dark:text-slate-200">{forum.category}</p>
+                                                                <FaHashtag className="mr-2 text-sm dark:text-white" />
+                                                                <p className="text-[0.9em] dark:text-white">{forum.category}</p>
                                                             </span>
                                                             <span className="flex items-center">
-                                                                <FaEye className="mr-2 text-sm text-purple-800" />
+                                                                <FaEye className="mr-2 text-sm dark:text-white" />
                                                                 <p className="text-[0.9em] dark:text-slate-200">{forum.views}</p>
                                                             </span>
                                                             <span className="flex items-center">
-                                                                <FaHeart className="mr-2 text-sm text-red-500" />
+                                                                <FaHeart className="mr-2 text-sm dark:text-white" />
                                                                 <p className="text-[0.9em] dark:text-slate-200">{forum.reacts}</p>
                                                             </span>
                                                             <span className="flex items-center">
                                                                 <button onClick={() => handleApprove(forum._id, 'topic')}>
-                                                                    <BsCheck2Circle className="mr-2 text-lg dark:text-slate-200" />
+                                                                    <BsCheck2Circle className="mr-2 text-lg dark:text-white font-semibold" />
                                                                 </button>
                                                             </span>
                                                             <Link href={`/forum/${forum._id}`} passHref>
                                                                 <button>
-                                                                    <CgArrowRightO className="dark:text-slate-200 text-lg" />
+                                                                    <CgArrowRightO className="dark:text-white text-lg" />
                                                                 </button>
                                                             </Link>
                                                         </div>
@@ -334,12 +334,12 @@ const DashboardSection = () => {
                                         `}
                                         </style>
 
-                                        <div className="flex justify-center mt-3">
+                                        {/* <div className="flex justify-center mt-3">
                                             <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 text-violet-900 dark:text-violet-300 dark:hover:bg-slate-700">See More Submissions <BsArrowRight className="ml-2 text-[15px] text-red-600" /></button>
-                                        </div>
+                                        </div> */}
                                     </div>
                                     <div className="bg-slate-200 dark:bg-slate-600 shadow-md rounded-md p-5 h-auto mb-5 ">
-                                        <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 border-stone-300 text-violet-900 dark:text-violet-100 dark:border-stone-400">
+                                        <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 border-stone-300 text-slate-700 dark:text-white dark:border-white">
                                             <FaNewspaper className="mr-2" />
                                             <h3>Newsletter</h3>
                                         </div>
