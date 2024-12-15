@@ -13,6 +13,7 @@ const ProfileSection = ({ account }) => {
     const dispatch = useDispatch();
     
     const thisUser = useSelector((state) => state.loginUser.loginUser)
+    
 
     useEffect(() => {
         dispatch(fetchQuizzes());

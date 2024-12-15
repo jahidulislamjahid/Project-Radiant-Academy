@@ -50,7 +50,7 @@ const PaymentSection = ({ course }) => {
 
     const payAndEnroll = async (user) => {
         try {
-            const res = await axios.put(`https://radiant-academy-ius.vercel.app/api/users/enroll/${thisUser._id}/${course.data._id}`, user.data);
+            const res = await axios.put(`${process.env.NEXT_PUBLIC_API}/api/users/enroll/${thisUser._id}/${course.data._id}`, user.data);
             if (res.status === 201) {
                 Swal.fire(
                     'Payment Complete',

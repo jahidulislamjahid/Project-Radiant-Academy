@@ -96,12 +96,23 @@ const useFirebase = () => {
         signInWithPopup(auth, githubProvider)
             .then((result) => {
                 // The signed-in user info.
-                const user = result.user;
-                setUser(user);
-                router.replace('/profile');
+                const { accessToken, email, displayName, photoURL } = result?.user
+                console.log(accessToken, email, displayName, photoURL);
+                const signedInUser = {
+                    isSignedIn: true,
+                    email: email,
+                };
+                localStorage.setItem('signedInUser', JSON.stringify(signedInUser));
+
+                // const user = result.user;                
+                saveUser(email, displayName, photoURL, accessToken, 'POST');
+                // setUser(user);
+                router.replace('/');
                 setAuthError('');
             })
             .catch((error) => {
+                console.log(error.message);
+
                 setAuthError(error.message)
             })
 
@@ -204,7 +215,7 @@ const useFirebase = () => {
         } else {
             const role = 'user';
             const user = { email, displayName, photoURL, accessToken, role };
-            fetch('https://radiant-academy-ius.vercel.app/api/users', {
+            fetch(`${process.env.NEXT_PUBLIC_API}/api/users`, {
                 method: method,
                 headers: {
                     'content-type': 'application/json'

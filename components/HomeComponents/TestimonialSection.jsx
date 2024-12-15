@@ -3,7 +3,6 @@ import { FaStar, FaStarHalf } from "react-icons/fa";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import AKM from '../../public/img/AKM.jpg'
 
 
 const TestimonialSection = () => {
@@ -71,14 +70,14 @@ const TestimonialSection = () => {
         <div className="bg-white dark:bg-slate-800">
             <div className="w-5/6 mx-auto py-20 ">
                 <h1 className="text-4xl	font-bold text-violet-800 dark:text-violet-400 pt-20 text-center">Ours Reviews</h1>
-                <div className="my-6 review-card">
+                <div className=" review-card text-center">
                     <Slider {...settings}>
                       
                             {
                                 testimonials?.map((testimonial , idx) =>
                                     <div 
                                     key={idx}
-                                    className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 max-w-[480px]  dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                                    className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400  dark:hover:shadow-violet-500 transition duration-300  mb-7 my-20 md:mb-0 ">
                                         <div className="grid place-content-center relative bottom-5">
                                             <Image
                                                 src={testimonial?.image}
@@ -90,16 +89,10 @@ const TestimonialSection = () => {
                                             />
                                         </div>
                                         <h1 className="text-center dark:text-white">{testimonial?.name}</h1>
-                                        <p className="text-center dark:text-white">{testimonial?.rating}</p>
-                                        <div className="flex justify-center">
-                                            <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                            <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                            <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                            <span className="text-center text-xl text-rose-500 px-1"><FaStar /></span>
-                                            <span className="text-center text-xl text-rose-500 px-1"><FaStarHalf /></span>
-                                        </div>
+                                        <p className="text-center text-orange-200 ">Rating : {testimonial?.rating}</p>
+                                       
                                         <div>
-                                            <p className="text-slate-500 text-center dark:text-slate-400 my-5 w-5/6 mx-auto  pb-7">"{testimonial?.review.slice(0,190)+'...'}"</p>
+                                            <p className="text-slate-500 text-center dark:text-slate-400 my-5 w-5/6 mx-auto  ">"{testimonial?.review.slice(0,100)+'...'}"</p>
                                         </div>
                                     </div>
                                 )

@@ -42,6 +42,8 @@ const HeroSection = () => {
     const { user } = useAuth();
 
 
+    
+
     return (
         <>
             <div className="bg-white dark:bg-slate-800">

@@ -22,7 +22,7 @@ const FindTopic = ({ forums }) => {
 };
 
 export const getServerSideProps = async () => {
-    const url = 'https://radiant-academy-ius.vercel.app/api/forums';
+    const url = `${process.env.NEXT_PUBLIC_API}/api/forums`;
     const res = await fetch(url);
     const data = await res.json();
 

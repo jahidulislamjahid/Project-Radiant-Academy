@@ -21,7 +21,7 @@ const EditTopicPage = ({ forum }) => {
 };
 
 export async function getServerSideProps({ params }) {
-    const res = await fetch(`https://radiant-academy-ius.vercel.app/api/forums/${params.forumId}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/forums/${params.forumId}`)
     const forum = await res.json()
 
     return { props: { forum } }

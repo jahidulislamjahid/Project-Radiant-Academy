@@ -39,7 +39,7 @@ const Courses = ({ course }) => {
 export async function getServerSideProps({ params }) {
     // params contains the forum `id`.
     // If the route is like /forums/1, then params.id is 1
-    const res = await fetch(`https://radiant-academy-ius.vercel.app/api/courses/${params.courseId}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/courses/${params.courseId}`)
     const course = await res.json()
 
     // Pass forum data to the page via props
