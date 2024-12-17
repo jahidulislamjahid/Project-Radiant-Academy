@@ -41,9 +41,9 @@ const ProfileDetailsSection = ({ account }) => {
                 <Tabs>
                     <TabList className="grid grid-cols-4 mb-5 text-center gap-2 border-b-2 border-black text-slate-700 dark:text-slate-200">
                         <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium cursor-pointer">Courses</Tab>
-                        <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium cursor-pointer">Topics</Tab>
+                        {/* <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium cursor-pointer">Topics</Tab>
                         <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium cursor-pointer">Progress</Tab>
-                        <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium cursor-pointer">Settings</Tab>
+                        <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium cursor-pointer">Settings</Tab> */}
                     </TabList>
 
                     <div className="tab-panes bg-slate-200 dark:bg-slate-700">
@@ -54,7 +54,7 @@ const ProfileDetailsSection = ({ account }) => {
                                         {
                                             account.data.length !== 0 ?
                                                 enrolledChecker.map(course => (
-                                                    <div className="container grid md:grid-cols-8 xs:grid-cols-1 bg-slate-700 text-slate-200 dark:text-slate-800 dark:bg-slate-200 pl-3 rounded-md mb-2 items-center" key={course._id}>
+                                                    <div className="container grid md:grid-cols-5 xs:grid-cols-1 bg-slate-700 text-slate-200 dark:text-slate-800 dark:bg-slate-200 pl-3 rounded-md mb-2 items-center" key={course._id}>
                                                         <h1 className="font-semibold md:col-span-2 my-2">{course.title}</h1>
                                                         <h1>
                                                             <span className="flex items-center my-2">
@@ -63,17 +63,17 @@ const ProfileDetailsSection = ({ account }) => {
                                                             </span>
                                                         </h1>
                                                         <h1 className=" text-green-600 font-semibold uppercase my-2">Premium</h1>
-                                                        <h1>
+                                                        {/* <h1>
                                                             <span className="flex items-center my-2">
                                                                 <FaUserFriends className="text-2xl mr-1.5 text-purple-800" /> {course.enrolled}
                                                             </span>
-                                                        </h1>
-                                                        <h1>
+                                                        </h1> */}
+                                                        {/* <h1>
                                                             <span className="flex items-center my-2">
                                                                 <FaHeart className="mr-1.5 text-red-500" /> 304
                                                             </span>
-                                                        </h1>
-                                                        <h1 className=" text-orange-500 font-semibold my-2">Pending</h1>
+                                                        </h1> */}
+                                                        {/* <h1 className=" text-orange-500 font-semibold my-2">Pending</h1> */}
                                                         <h1>
                                                             <button className="btn btn-ghost py-0  uppercase my-2" onClick={() => handleQuiz(course)}>
                                                                 START

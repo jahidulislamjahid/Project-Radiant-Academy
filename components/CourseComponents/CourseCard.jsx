@@ -10,6 +10,8 @@ import toast from 'react-hot-toast';
 const CourseCard = ({ course }) => {
     const dispatch = useDispatch();
     const { wishList } = useSelector((state) => state.courses);
+    const thisUser = useSelector((state) => state.loginUser.loginUser)
+
     const isAddedToCart = wishList.find((cart) => cart._id === course._id);
 
     const handleCartADD = (course) => {
@@ -39,7 +41,7 @@ const CourseCard = ({ course }) => {
                         draggable="false"
                     />
                     <div className={Styles.middleBtn}>
-                        <Link href={`/courses/${course?._id}`} passHref>
+                        <Link href={thisUser? `/courses/${course?._id}` : '/login' } passHref>
                             <button className="bg-slate-600 dark:bg-slate-400 text-white px-5 py-1.5 rounded-full flex items-center hover:shadow-lg">
                                 Details <BsArrowRight className="ml-2" />
                             </button>

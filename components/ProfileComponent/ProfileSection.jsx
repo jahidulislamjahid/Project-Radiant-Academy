@@ -4,16 +4,32 @@ import React, { useEffect, useState } from 'react';
 import { FaBookmark, FaClock, FaHeart, FaPenNib } from "react-icons/fa";
 import ReactStars from "react-rating-stars-component";
 import { useDispatch, useSelector } from 'react-redux';
-import useAuth from '../../utilities/Hooks/useAuth';
+import { FcMoneyTransfer } from "react-icons/fc";
 import { fetchQuizzes } from '../../utilities/redux/slices/quizSlice';
 import ProfileDetailsSection from './ProfileDetailsSection';
 
 const ProfileSection = ({ account }) => {
+    const thisUser = useSelector((state) => state.loginUser.loginUser)
+
     const [rating, setRating] = useState(0);
     const dispatch = useDispatch();
-    
-    const thisUser = useSelector((state) => state.loginUser.loginUser)
-    
+
+
+    const userCreatDate = new Date(thisUser.createdAt)
+
+    const allCourses = useSelector((state) => state.courses.coursesList);
+    const purchaseCourses = thisUser.enrolledCourses;
+
+    const totalSpend = allCourses
+    .filter((course) => purchaseCourses.some((item) => item.courseId === course._id))
+    .reduce((total, course) => total + course.price, 0);
+
+
+
+
+
+
+
 
     useEffect(() => {
         dispatch(fetchQuizzes());
@@ -26,7 +42,7 @@ const ProfileSection = ({ account }) => {
         count: 5,
         color: "black",
         activeColor: "red",
-        value: 0,
+        value:thisUser.enrolledCourses.length,
         a11y: true,
         isHalf: true,
         emptyIcon: <i className="far fa-star" />,
@@ -38,6 +54,18 @@ const ProfileSection = ({ account }) => {
     };
 
     // !signInUserData && router.replace('/login');
+
+    const formateDate = (date) => {
+        const dateOption = {
+            month: '2-digit',
+            day: '2-digit',
+            year: 'numeric',
+
+        }
+        return new Intl.DateTimeFormat('es-US', dateOption).format(date).replace(',', '')
+    }
+
+    const userFormatedDate = formateDate(userCreatDate)
 
     return (
         <div>
@@ -60,21 +88,21 @@ const ProfileSection = ({ account }) => {
                             </div>
                             <div>
                                 <p className="mt-3 flex items-center mb-1">
-                                    <FaClock className="mr-2" />Joined: Feb 01, 2022
+                                    <FaClock className="mr-2" />{userFormatedDate}
                                 </p>
                                 <p className="flex items-center mb-1">
-                                    <FaPenNib className="mr-2" />Topics: 13</p>
+                                    <FaPenNib className="mr-2" />Enrolled Courses : {thisUser?.enrolledCourses.length}</p>
                                 <p className="flex items-center mb-1">
-                                    <FaHeart className="mr-2 text-rose-700 dark:text-rose-500" />Reputations: 1214
+                                    <FcMoneyTransfer className="mr-2 " />Total Spent : {totalSpend} BDT
                                 </p>
-                                <p className="flex items-center mb-1">
-                                    <FaBookmark className="mr-2 text-orange-500 dark:text-orange-400" />Rank: Newbie
+                                <p className="flex items-center mb-1 uppercase">
+                                    <FaBookmark className="mr-2 text-orange-500 dark:text-orange-400 " />Rank : {thisUser?.role}
                                 </p>
                             </div>
                             <div className="py-3 text-center">
                                 <h5 className="text-lg">Overall Rating</h5>
                                 <div className="ratings flex">
-                                    <ReactStars {...ratingCount} value={rating} edit={false} /> (0)
+                                    <ReactStars {...ratingCount} value={thisUser.enrolledCourses.length} edit={false} /> ({thisUser?.enrolledCourses.length})
                                     <style >
                                         {`
                                         .ratings {

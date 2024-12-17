@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FaClone } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
-import useAuth from '../../utilities/Hooks/useAuth';
 import DashboardSidebar from './DashboardSidebar';
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from "next/router";

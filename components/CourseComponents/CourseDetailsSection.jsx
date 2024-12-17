@@ -4,10 +4,19 @@ import { BsCheck2All, BsCheck2Circle } from 'react-icons/bs';
 import ReactStars from "react-rating-stars-component";
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 const CourseDetailsSection = ({ course }) => {
     const [rating, setRating] = useState(4.5);
-    const reviews = course?.data.reviews
+    const reviews = course?.data?.reviews
+    const thisUser = useSelector((state) => state.loginUser.loginUser);
+    const userEnrolled = thisUser?.enrolledCourses || [];
+
+    // Check if the user has purchased the course 
+    const isPurchase = userEnrolled.some((item) => item.courseId == course.data._id);
+ 
+
+    
 
 
 
@@ -49,7 +58,7 @@ const CourseDetailsSection = ({ course }) => {
                         <div className='text-3xl font-bold py-3 text-center'>
                             <h2> <span>৳</span> {course?.data?.price}</h2>
                         </div>
-                        <Link href={`/courses/payment/${course?.data._id}`} passHref><button className="bg-rose-500 px-5 py-3 text-white uppercase rounded-md font-medium">Enroll Now</button></Link>
+                        <Link href={`/courses/payment/${course?.data?._id}`} passHref><button className="bg-rose-500 px-5 py-3 text-white uppercase rounded-md font-medium">Enroll Now</button></Link>
                         <p className="text-sm text-stone-300 mt-4 mx-4">* <span className='text-orange-500'>1025</span> Already Enrolled!</p>
                     </div>
                 </div>
@@ -66,16 +75,20 @@ const CourseDetailsSection = ({ course }) => {
                 <div className="mt-8 py-8">
                     <section id="#about-the-course">
                         <div className='flex justify-center pb-14'>
-                            <iframe
-                                width="1200"
-                                height="600"
-                                src={course.data.courseVideo}
-                                title="YouTube video player"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                                draggable="false"
-                            ></iframe>
+                            {
+                                isPurchase ?
+                                <iframe
+                                    width="1200"
+                                    height="600"
+                                    src={course?.data?.courseVideo}
+                                    title="YouTube video player"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    draggable="false"
+                                ></iframe> :<h1 className='font-bold text-rose-500 animate-[pulse_1s_ease-in-out_infinite] mb-5 text-center'>**** Plese Enroll to watch video ***</h1>
+
+                            }
                         </div>
                         <div className="flex items-center">
                             <div>
@@ -164,7 +177,7 @@ const CourseDetailsSection = ({ course }) => {
                                                 <div className="p-2 sm:p-5 flex items-start">
                                                     <div className="px-2 pt-1.5 block w-[100px]">
                                                         <Image
-                                                        className='rounded-2xl'
+                                                            className='rounded-2xl'
                                                             src={review?.img}
                                                             alt="User Picture"
                                                             height={100}
@@ -173,11 +186,11 @@ const CourseDetailsSection = ({ course }) => {
                                                     </div>
                                                     <div className="w-full">
                                                         <div className="flex items-baseline flex-wrap sm:flex-row px-2">
-                                                            <h4 className="text-xl">{review.name}</h4>
+                                                            <h4 className="text-xl">{review?.name}</h4>
                                                             &nbsp; - &nbsp;
                                                             <p className="text-stone-400">2 days ago</p>
                                                         </div>
-                                                        <p className="text-sm px-2 pt-1">{review.reviewTxt}</p>
+                                                        <p className="text-sm px-2 pt-1">{review?.reviewTxt}</p>
                                                         <div className="ratings flex">
                                                             <ReactStars {...ratingCount} value={rating} edit={false} />
                                                         </div>

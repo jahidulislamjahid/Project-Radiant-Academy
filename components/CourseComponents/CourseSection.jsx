@@ -22,7 +22,7 @@ const CourseSection = () => {
                 </div>
 
                 <div className="px-16 pb-20">
-                    <div className="my-3">
+                    {/* <div className="my-3">
                         <div className="p-2 mb-1 flex items-center">
                             <label className="swap swap-flip">
                                 <input type="checkbox" className="hidden" />
@@ -30,13 +30,13 @@ const CourseSection = () => {
                             <h3 className="text-2xl font-medium">Up Next in HTML Specialization</h3>
                         </div>
                         <CourseSlider allCourses={allCourses} category={category2}/>
-                    </div>
+                    </div> */}
                     <div>
                         <div className="p-2 mb-1 flex items-center">
                             <label className="swap swap-flip">
                                 <input type="checkbox" className="hidden" />
                             </label>
-                            <h3 className="text-2xl font-medium">Up Next in CSS Specialization</h3>
+                            <h3 className="text-2xl font-medium">CSS Specialization</h3>
                         </div>
                         <CourseSlider allCourses={allCourses} category={category3}/>
                     </div>
@@ -45,7 +45,7 @@ const CourseSection = () => {
                             <label className="swap swap-flip">
                                 <input type="checkbox" className="hidden" />
                             </label>
-                            <h3 className="text-2xl font-medium">Up Next in Javascript Specialization</h3>
+                            <h3 className="text-2xl font-medium">Javascript Specialization</h3>
                         </div>
                         <CourseSlider allCourses={allCourses} category={category4}/>
                     </div>
