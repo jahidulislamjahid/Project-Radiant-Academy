@@ -16,6 +16,8 @@ export default async function handler(req, res) {
             res.redirect(302, '/successPayment');
             // res.writeHead(302, { Location: "https://radiant-academy-ius.vercel.app" });
         } catch (error) {
+            console.log('pay' , error);
+            
             res.status(500).json({ success: false, error: error.message });
         }
     }

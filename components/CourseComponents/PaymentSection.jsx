@@ -36,13 +36,20 @@ const PaymentSection = ({ course }) => {
     }
 
     const handleSSLPayment = async () => {
-        const res = await axios.post('../../api/creatPayment', {
-            ammont: course?.data.price,
-            currency: 'BDt'
-        })
-        const redirectURL = res?.data?.data.GatewayPageURL
-        if (redirectURL) {
-            window.location.replace(redirectURL)
+        try{
+            const res = await axios.post(`../../api/creatPayment` , {
+                ammont: course?.data.price,
+                currency: 'BDt'
+            })
+            const redirectURL = res?.data?.data.GatewayPageURL
+            if (redirectURL) {
+                window.location.replace(redirectURL)
+            }
+
+        }
+        catch(err){
+            console.log(err);
+            
         }
 
     }

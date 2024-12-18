@@ -41,6 +41,9 @@ export default async function handler(req, res) {
             product_profile: 'education'
         };
 
+        console.log('data' , initiatePaymentData);
+        
+
         try {
             const response = await axios({
                 method: 'POST',
@@ -54,7 +57,7 @@ export default async function handler(req, res) {
             res.status(200).json({ success: true, data: response.data });
 
         } catch (error) {
-            console.error(error.response?.data || error.message); // Log the error for debugging
+            console.error("ssl fail reason", error.response?.data || error.message); // Log the error for debugging
             res.status(500).json({ success: false, error: error.response?.data || error.message });
         }
     } else {

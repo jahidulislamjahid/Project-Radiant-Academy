@@ -13,7 +13,7 @@ const CourseDetailsSection = ({ course }) => {
     const userEnrolled = thisUser?.enrolledCourses || [];
 
     // Check if the user has purchased the course 
-    const isPurchase = userEnrolled.some((item) => item.courseId == course.data._id);
+    const isPurchase = userEnrolled?.some((item) => item.courseId == course.data._id);
  
 
     

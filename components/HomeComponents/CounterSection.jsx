@@ -17,7 +17,7 @@ const CounterSection = () => {
                 <div className="flex justify-center">
                     <div className="text-center px-3 mb-8 sm:mb-3">
                         <h1 className="text-5xl text-rose-500 font-bold mb-3">
-                            {allCourses.length}
+                            {allCourses?.length}
                         </h1>
                         <h3 className="text-2xl font-bold text-violet-800 dark:text-violet-400">
                             Total Courses
@@ -27,7 +27,7 @@ const CounterSection = () => {
                 <div className="flex justify-center">
                     <div className="text-center px-3 mb-8 sm:mb-3">
                         <h1 className="text-5xl text-rose-500 font-bold mb-3">
-                            {totalUsers.length}
+                            {totalUsers?.length}
                         </h1>
                         <h3 className="text-2xl font-bold text-violet-800 dark:text-violet-400">
                             Our Users
@@ -37,7 +37,7 @@ const CounterSection = () => {
                 <div className="flex justify-center">
                     <div className="text-center px-3 mb-8 sm:mb-3">
                         <h1 className="text-5xl text-rose-500 font-bold mb-3">
-                            {totalForums.length}
+                            {totalForums?.length}
                         </h1>
                         <h3 className="text-2xl font-bold text-violet-800 dark:text-violet-400">
                         Total Forum posts

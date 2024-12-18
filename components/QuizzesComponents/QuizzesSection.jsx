@@ -58,32 +58,35 @@ const QuizzesSection = () => {
 
     const nextQuestion = (questionId) => {
         // dispatch(addToAnsweredList(answered));
+        console.log('question ID', questionId);
+        
         setOptionsList([]);
         const question = enrolledQuizzes.find((val) => val.surveyStep === questionId);
-        const next = '';
+        let next = ''; 
         if (question && !question.isFinalQuestion) {
-            next = question.surveyStep + 1;
+            next = question?.surveyStep + 1;
         }
-
+    
         if (question && question.options != null) {
             document.getElementById('questionText').innerText = question.questionText;
-
+    
             setOptionsList(question.options);
             setNextId(next);
-
-            //progress here
+    
+            // Progress here
             const answered = question.surveyStep - 1;
             const stepsTotal = question.totalSurveySteps;
             let progress = (answered / stepsTotal) * 100;
             const speed = progress * 20;
             setProgressValue(progress);
-
+    
         } else {
             let progress = 100;
             setProgressValue(progress);
             validateScreen();
         }
-    }
+    };
+    
 
     const startExpire = (duration, display) => {
         var timer = duration, minutes, seconds;
@@ -121,6 +124,8 @@ const QuizzesSection = () => {
             dispatch(addToScore(score + 1));
         }
         nextQuestion(nextId);
+        console.log('next id' , nextId);
+        
     };
 
     return (
@@ -145,7 +150,7 @@ const QuizzesSection = () => {
                     </div>
                     <div className="flex justify-center">
                         {
-                            enrolledQuizzes.length === 0 ? <p className="text-xl font-medium text-rose-500">No quizzes avaiable in this course!</p> :
+                            enrolledQuizzes?.length === 0 ? <p className="text-xl font-medium text-rose-500">No quizzes avaiable in this course!</p> :
                                 <button
                                     onClick={startQuizzes}
                                     className="bg-rose-500 animate-[pulse_1s_ease-in-out_infinite] rounded-md text-white px-7 py-3 flex justify-center items-center uppercase"
