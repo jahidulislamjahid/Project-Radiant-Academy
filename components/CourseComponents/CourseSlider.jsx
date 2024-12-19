@@ -30,8 +30,6 @@ const CourseSlider = ({ allCourses, category }) => {
                         />)
                     }
                 
-
-               
             </div>
         </>
     );

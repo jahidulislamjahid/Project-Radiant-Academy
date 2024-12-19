@@ -12,8 +12,8 @@ export default async function handler(req, res) {
         
         const date = Date.now()
         const initiatePaymentData = {
-            store_id: "radia6745d56280b3c",
-            store_passwd: "radia6745d56280b3c@ssl",
+            store_id: "radia67646af6ac894",
+            store_passwd: "radia67646af6ac894@ssl",
             total_amount: paymentInfo?.ammont || "0", // Default value if ammont is undefined
             currency: "BDT",
             tran_id: paymentInfo?.ammont + date, // Replace with a unique transaction ID
@@ -49,7 +49,7 @@ export default async function handler(req, res) {
         try {
             const response = await axios({
                 method: 'POST',
-                url: 'https://sandbox.sslcommerz.com/gwprocess/v4/api.php',
+                url: 'https://sandbox.sslcommerz.com/gwprocess/v3/api.php',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded' // Ensures data is URL-encoded
                 },

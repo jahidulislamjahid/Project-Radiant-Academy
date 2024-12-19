@@ -49,7 +49,7 @@ const PaymentSection = ({ course }) => {
             if (redirectURL) {
                 window.location.replace(redirectURL ? redirectURL : '/')
             } else {
-                console.log('url paayy nai');
+                window.location.replace( 'http://localhost:3000')
             }
 
         }
