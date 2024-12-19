@@ -26,6 +26,14 @@ const PaymentSection = ({ course }) => {
 
 
     const [totalPrice, setTotalPrice] = useState(0);
+
+    const handleEmail = (e) => {
+        setUserEmail(e.target.value)
+    }
+    const handleName = (e) => {
+        setUserName(e.target.value)
+    }
+
     useEffect(() => {
         let total = 0;
         cart.forEach((item, i) => {
@@ -63,12 +71,6 @@ const PaymentSection = ({ course }) => {
             console.log(err);
         }
     };
-    const handleEmail = (e) => {
-        setUserEmail(e.target.value)
-    }
-    const handleName = (e) => {
-        setUserName(e.target.value)
-    }
 
     // PAYPAL VALUES
     const amount = "2";

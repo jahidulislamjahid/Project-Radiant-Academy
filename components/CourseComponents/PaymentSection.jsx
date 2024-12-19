@@ -22,6 +22,8 @@ const PaymentSection = ({ course }) => {
     const router = useRouter();
 
     const item = course?.data
+    console.log(item.price);
+
 
     const thisUser = useSelector((state) => state.loginUser.loginUser)
 
@@ -36,20 +38,24 @@ const PaymentSection = ({ course }) => {
     }
 
     const handleSSLPayment = async () => {
-        try{
-            const res = await axios.post(`../../api/creatPayment` , {
-                ammont: course?.data.price,
-                currency: 'BDt'
+        try {
+            const res = await axios.post(`../../api/creatPayment`, {
+                ammont: item?.price,
+                currency: 'BDT'
             })
             const redirectURL = res?.data?.data.GatewayPageURL
+            console.log('url', redirectURL);
+
             if (redirectURL) {
-                window.location.replace(redirectURL)
+                window.location.replace(redirectURL ? redirectURL : '/')
+            } else {
+                console.log('url paayy nai');
             }
 
         }
-        catch(err){
-            console.log(err);
-            
+        catch (err) {
+            console.log('errrrrrrrrrrrr', err);
+
         }
 
     }
