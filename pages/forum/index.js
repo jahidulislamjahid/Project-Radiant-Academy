@@ -4,8 +4,15 @@ import React from 'react';
 import BrowseCategorySection from "../../components/ForumComponents/BrowseCategorySection";
 import FeaturedTopicSection from '../../components/ForumComponents/FeaturedTopicSection';
 import TopicSearch from "../../components/ForumComponents/TopicSearch";
+import useLoading from "../../utilities/Hooks/useLoading";
 
 const index = ({ forums }) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { loading, LoadingIndicator } = useLoading()
+  if (loading) {
+    return LoadingIndicator
+}
+
   return (
     <div className="bg-white dark:bg-slate-800">
       <Head>

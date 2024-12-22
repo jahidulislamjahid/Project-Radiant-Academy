@@ -31,7 +31,7 @@ const CourseCard = ({ course }) => {
     return (
         <Link href={thisUser ? `/courses/${course?._id}` : '/login'} passHref>
             <div className='cursor-pointer'>
-                <div className="bg-slate-100 dark:bg-[#37465b] shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 p-5 grid grid-rows-1 rounded-lg card-single">
+                <div className="bg-slate-300  dark:bg-[#37465b] shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 p-5 grid grid-rows-1 rounded-lg card-single">
                     <div className={Styles.imgContainer}>
                         <Image
                             src={course?.image}
@@ -41,12 +41,12 @@ const CourseCard = ({ course }) => {
                             width={300}
                             draggable="false"
                         />
-                        <div className={Styles.middleBtn}>
+                        {/* <div className={Styles.middleBtn}>
 
                             <button className="bg-slate-600 dark:bg-slate-400 text-white px-5 py-1.5 rounded-full flex items-center hover:shadow-lg">
                                 Details <BsArrowRight className="ml-2" />
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                     <div>
                         <h4 className="font-semibold text-lg text-slate-700 dark:text-slate-200">{course?.title}</h4>

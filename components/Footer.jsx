@@ -106,13 +106,13 @@ const Footer = () => {
                 <div className="h-[150px] sm:h-[60px] flex justify-around items-end px-5 md:px-12 lg:px-5 flex-col sm:flex-row" style={{ backgroundColor: '#32007E' }}>
                     <div className="flex justify-center items-center">
                         <Image src="https://i.postimg.cc/W4PCStgG/search-logo.png" alt="Logo" width={90} height={90} className="mb-4" draggable="false" />
-                        <div className="px-4 pt-3 md:pt-5 lg:pt-7">
-                            <p className="text-white font-sm">Search for H2H coding competitions to win 100% bonus up to 100 Radiant points*</p>
+                        <div className="px-4 pt-3 md:pt-5 lg:pt-7 text-center">
+                            <p className="text-white font-sm text-center">Find Your Topics From Our Forums</p>
                         </div>
                     </div>
                     <div className="h-full flex items-center">
                         <button className=" bg-rose-500 text-white px-4 md:px-8 py-2 text-md font-bold rounded-full shadow-md sm:w-[120px] md:w-[150px]  lg:w-full">
-                            <Link href="/courses">Start Now!</Link>
+                            <Link href="/forum">Find Now!</Link>
                         </button>
                     </div>
                 </div>`

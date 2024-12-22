@@ -49,7 +49,7 @@ export default async function handler(req, res) {
         try {
             const response = await axios({
                 method: 'POST',
-                url: 'https://sandbox.sslcommerz.com/gwprocess/v3/api.php',
+                url: 'https://sandbox.sslcommerz.com/gwprocess/v4/api.php',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded' // Ensures data is URL-encoded
                 },

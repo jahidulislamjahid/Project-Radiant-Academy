@@ -52,6 +52,10 @@ const PaymentSchema = new mongoose.Schema(
       type: String,
       required: true, // Store the risk title
     },
+    cus_email: {
+      type: String,
+      required: true, // Store the risk title
+    },
     // Add more fields if necessary
   },
   { timestamps: true }

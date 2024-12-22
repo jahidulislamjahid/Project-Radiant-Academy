@@ -37,14 +37,15 @@ const PaymentSection = ({ course }) => {
         setUserName(e.target.value)
     }
 
-    const handleSSLPayment = async () => {
+    const handleSSLPayment = async (e) => {
+        e.preventDefault()        
         try {
             const res = await axios.post(`../../api/creatPayment`, {
                 ammont: item?.price,
-                currency: 'BDT'
+                currency: 'BDT',
+                cus_email:thisUser?.email
             })
-            const redirectURL = res?.data?.data.GatewayPageURL
-            console.log('url', redirectURL);
+            const redirectURL = res?.data?.data.GatewayPageURL            
 
             if (redirectURL) {
                 window.location.replace(redirectURL ? redirectURL : '/')
@@ -80,7 +81,7 @@ const PaymentSection = ({ course }) => {
 
     // PAYPAL VALUES
     const amount = "2";
-    const currency = "BDT";
+    const currency = "USD";
     const style = { "layout": "vertical" };
 
 
@@ -180,17 +181,17 @@ const PaymentSection = ({ course }) => {
                                         <td>:&nbsp;{thisUser?.displayName}</td>
                                     </tr>
                                     <tr>
-                                        <td className="flex items-center">
+                                        <td className="flex items-center ">
                                             <FaBookmark /> &nbsp; Role
                                         </td>
-                                        <td>:&nbsp; User</td>
+                                        <td className='uppercase'>:&nbsp; {thisUser?.role}</td>
                                     </tr>
-                                    <tr>
+                                    {/* <tr>
                                         <td className="flex items-center">
                                             <FaPhoneSquareAlt /> &nbsp; Phone
                                         </td>
                                         <td>:&nbsp; +880 123456</td>
-                                    </tr>
+                                    </tr> */}
                                     <tr>
                                         <td className="flex items-center">
                                             <FaEnvelope /> &nbsp; Email

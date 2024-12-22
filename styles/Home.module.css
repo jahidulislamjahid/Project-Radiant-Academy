@@ -25,6 +25,7 @@
 
 .imgContainer:hover .courseCoverImage {
     opacity: 0.3;
+    scale: 112%;
 }
 
 .imgContainer:hover .middleBtn {

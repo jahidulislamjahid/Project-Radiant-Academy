@@ -7,22 +7,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FcMoneyTransfer } from "react-icons/fc";
 import { fetchQuizzes } from '../../utilities/redux/slices/quizSlice';
 import ProfileDetailsSection from './ProfileDetailsSection';
+import useLoading from '../../utilities/Hooks/useLoading'
 
 const ProfileSection = ({ account }) => {
-    const thisUser = useSelector((state) => state.loginUser.loginUser)
+    const { loading, LoadingIndicator } = useLoading()
+
+  
+    const thisUser = useSelector((state) => state?.loginUser?.loginUser)
 
     const [rating, setRating] = useState(0);
     const dispatch = useDispatch();
 
 
-    const userCreatDate = new Date(thisUser.createdAt)
+    const userCreatDate = new Date(thisUser?.createdAt)
 
     const allCourses = useSelector((state) => state.courses.coursesList);
-    const purchaseCourses = thisUser.enrolledCourses;
+    const purchaseCourses = thisUser?.enrolledCourses;
 
     const totalSpend = allCourses
-    .filter((course) => purchaseCourses.some((item) => item.courseId === course._id))
-    .reduce((total, course) => total + course.price, 0);
+    .filter((course) => purchaseCourses?.some((item) => item?.courseId === course?._id))
+    .reduce((total, course) => total + course?.price, 0);
 
 
 
@@ -66,6 +70,9 @@ const ProfileSection = ({ account }) => {
     }
 
     const userFormatedDate = formateDate(userCreatDate)
+    if (loading) {
+        return LoadingIndicator
+    }
 
     return (
         <div>

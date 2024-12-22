@@ -43,10 +43,13 @@ const PaymentSection = ({ course }) => {
     }, [cart]);
 
 
-    const handleSSLPayment = async () => {
+    const handleSSLPayment = async (e) => {
+        e.preventDefault()        
+
         const res = await axios.post('../../api/creatPayment', {
             ammont: totalPrice,
-            currency: 'BDt'
+            currency: 'BDT',
+            cus_email:thisUser?.email
         })
         const redirectURL = res?.data?.data.GatewayPageURL
         if (redirectURL) {
