@@ -45,17 +45,18 @@ const PaymentSection = ({ course }) => {
                 currency: 'BDT',
                 cus_email:thisUser?.email
             })
-            const redirectURL = res?.data?.data.GatewayPageURL            
+            const redirectURL = res?.data?.data.GatewayPageURL
+            console.log('url', redirectURL);
+            
+
 
             if (redirectURL) {
-                window.location.replace(redirectURL ? redirectURL : '/')
-            } else {
-                window.location.replace( 'http://localhost:3000')
-            }
+                window.location.replace(redirectURL)
+            } 
 
         }
         catch (err) {
-            console.log('errrrrrrrrrrrr', err);
+            console.log('error', err);
 
         }
 

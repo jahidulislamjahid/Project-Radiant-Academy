@@ -1,8 +1,11 @@
 import Payment from '../../../models/PaymentModel';
 import dbConnect from '../../../utilities/mongoose';
 
+// const user = localStorage.getItem('signedInUser')
+    // const thisUser = useSelector((state) => state?.loginUser?.loginUser)
+
+
 export default async function handler(req, res) {
-    const user = localStorage.getItem('signedInUser')
     const { method } = req;
 
     await dbConnect()
@@ -10,13 +13,9 @@ export default async function handler(req, res) {
     if (method === "POST") {
         try {
             const successData = req.body;
-            const userPaymentInfo = {successData , userEmail : user?.email}
-            
-
-            const saveData = await Payment.create(userPaymentInfo);
-
-            // Redirect to the success payment page
+            const saveData = await Payment.create(successData);
             res.redirect(302, '/successPayment');
+            res.status(200).json({ success: 'success', res: successData });
             // res.writeHead(302, { Location: "https://radiant-academy-ius.vercel.app" });
         } catch (error) {
             console.log('pay', error);
@@ -24,6 +23,7 @@ export default async function handler(req, res) {
             res.status(500).json({ success: false, error: error.message });
         }
     }
+  
 
 
 }

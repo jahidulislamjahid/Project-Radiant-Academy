@@ -12,8 +12,11 @@ import useLoading from '../../utilities/Hooks/useLoading'
 const ProfileSection = ({ account }) => {
     const { loading, LoadingIndicator } = useLoading()
 
-  
+
     const thisUser = useSelector((state) => state?.loginUser?.loginUser)
+    console.log(thisUser);
+
+
 
     const [rating, setRating] = useState(0);
     const dispatch = useDispatch();
@@ -23,16 +26,14 @@ const ProfileSection = ({ account }) => {
 
     const allCourses = useSelector((state) => state.courses.coursesList);
     const purchaseCourses = thisUser?.enrolledCourses;
-
-    const totalSpend = allCourses
-    .filter((course) => purchaseCourses?.some((item) => item?.courseId === course?._id))
-    .reduce((total, course) => total + course?.price, 0);
+    console.log(allCourses);
+    console.log('purchase course', purchaseCourses);
 
 
-
-
-
-
+    const totalSpend = allCourses?.filter((course) =>
+        purchaseCourses?.some((item) => item?.courseId === course?._id))?.reduce(
+            (total, course) => total + course?.price, 0);
+    console.log('totalspend', totalSpend);
 
 
     useEffect(() => {
@@ -46,7 +47,7 @@ const ProfileSection = ({ account }) => {
         count: 5,
         color: "black",
         activeColor: "red",
-        value:thisUser.enrolledCourses.length,
+        value: thisUser?.enrolledCourses.length,
         a11y: true,
         isHalf: true,
         emptyIcon: <i className="far fa-star" />,

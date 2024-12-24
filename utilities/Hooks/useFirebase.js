@@ -47,7 +47,7 @@ const useFirebase = () => {
                 localStorage.setItem('signedInUser', JSON.stringify(signedInUser));
                 setUser(signedInUser);
                 dispatch(fetchUsers());
-                router.replace(`/profile/${signedInUser.email}`);
+                router.replace(`/`);
                 toast.success("Successfully signed in!", {
                     position: "top-center"
                 });
@@ -153,9 +153,7 @@ const useFirebase = () => {
                 console.log(signInUserData);
                 setUser(signInUserData)
                 toast.success("Logged In")
-
-                const destination = location?.state?.from || '/';
-                history.replace(destination);
+                router.replace('/');
                 setAuthError('');
             })
             .catch((error) => {
@@ -213,6 +211,8 @@ const useFirebase = () => {
         if (alreadyUser) {
             console.log('already user!');
         } else {
+            // console.log(`${process.env.NEXT_PUBLIC_API}`);
+            
             const role = 'user';
             const user = { email, displayName, photoURL, accessToken, role };
             fetch(`${process.env.NEXT_PUBLIC_API}/api/users`, {

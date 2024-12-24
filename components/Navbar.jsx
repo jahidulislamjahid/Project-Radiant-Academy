@@ -14,6 +14,7 @@ import { setUserData } from "../utilities/redux/slices/loginUserSlice";
 const Navbar = () => {
     const dispatch = useDispatch();
     const { user, logout } = useAuth();
+    console.log(`${process.env.NEXT_PUBLIC_API}`);
 
     const signInUserData = JSON.parse(localStorage.getItem('signedInUser'));
     
@@ -38,7 +39,7 @@ const Navbar = () => {
         });
     }
     const allUsers = useSelector((state) => state.users.usersList);
-    const logInUser = allUsers.find(userData => userData.email === signInUserData?.email );    
+    const logInUser = allUsers?.find(userData => userData.email === signInUserData?.email );    
     dispatch(setUserData(logInUser))
 
     const thisUser = useSelector((state) => state.loginUser.loginUser)

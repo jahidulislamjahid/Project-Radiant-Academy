@@ -8,6 +8,8 @@ import useCrud from '../../utilities/Hooks/useCrud';
 import { setWhichCourse } from '../../utilities/redux/slices/quizSlice';
 
 const ProfileDetailsSection = ({ account }) => {
+    console.log(account);
+    
     const router = useRouter();
     const dispatch = useDispatch();
     const { handleRemove } = useCrud();
@@ -15,11 +17,14 @@ const ProfileDetailsSection = ({ account }) => {
     const allCourses = useSelector((state) => state.courses.coursesList);
 
     const allTopics = useSelector((state) => state.forums.forumsList);
-    const userTopics = allTopics.filter(topic => topic.authorEmail === account.data[0].email);
+    console.log(allTopics);
+    
+
+    
 
     const enrolled = account?.data[0]?.enrolledCourses;
     const enrolledChecker = account.data.length !== 0 ? enrolled.map(enroll => {
-        let index = allCourses.findIndex(course => enroll.courseId === course._id);
+        let index = allCourses?.findIndex(course => enroll.courseId === course._id);
         if (index > -1) {
             return allCourses[index];
         }

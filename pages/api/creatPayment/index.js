@@ -8,7 +8,6 @@ export default async function handler(req, res) {
 
     if (method === "POST") {
         const paymentInfo = req.body;
-        console.log('takkaaaa', paymentInfo?.ammont);
         
         const date = Date.now()
         const initiatePaymentData = {
@@ -41,7 +40,6 @@ export default async function handler(req, res) {
             product_profile: 'education'
         };
 
-        console.log('data' , initiatePaymentData);
 
         
         
