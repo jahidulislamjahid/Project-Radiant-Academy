@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import React from 'react';
-import { FaBookmark, FaClone, FaDollarSign, FaEdit, FaHeart, FaPlus, FaTrashAlt, FaUserFriends } from 'react-icons/fa';
+import {  FaClone, FaPlus} from 'react-icons/fa';
 import { useSelector } from 'react-redux';
-import useCrud from '../../utilities/Hooks/useCrud';
 import DashboardSidebar from './DashboardSidebar';
+import CourseListRow from './CourseListRow';
 
 const CourseSection = () => {
-    const { handleRemove } = useCrud();
+
     const allCourses = useSelector((state) => state.courses.coursesList);
 
     return (
@@ -22,66 +22,41 @@ const CourseSection = () => {
                             <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Courses</button>
                         </Link>
                     </div>
-                    <section className="overflow-x-auto">
-                        <div>
-                            {
-                                allCourses.map(course => (
-                                    <div className='container grid md:grid-cols-7 xs:grid-cols-1 align-center items-center justify-around px-3 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={course._id}>
-                                        <div className='col-span-2'>
-                                            <h2 className='inline-flex'><span className="text-orange-500 my-auto mr-1.5">
-                                                <FaBookmark />
-                                            </span>
-                                                {course.title}
-                                            </h2>
-                                        </div>
-                                        <div className='flex justify-center'>
-                                            <h2 className='inline-flex'>
-                                                <span className='text-rose-500 dark:text-rose-400 my-auto mr-1 font-semibold'>
-                                                    ৳
-                                                    {/* <FaDollarSign /> */}
-                                                </span>
-                                                {course.price}
-                                            </h2>
-                                        </div>
-                                        <div className='flex justify-center'>
-                                            <h2 className='inline-flex'>
-                                                <span className='text-violet-800 dark:text-violet-400 my-auto mr-1'>
-                                                    <FaUserFriends />
-                                                </span>
-                                                1648
-                                            </h2>
-                                        </div>
-                                        <div className='flex justify-center'>
-                                            <h2 className='inline-flex font-base'>
-                                                <span className='my-auto text-rose-600 dark:text-rose-400 mr-1'>
-                                                    <FaHeart />
-                                                </span>
-                                                {course.rating}
-                                            </h2>
-                                        </div>
-                                        <div className='flex justify-center'>
-                                            <h2 className='text-green-700 dark:text-green-500 font-semibold'>
-                                                PREMIUM
-                                            </h2>
-                                        </div>
-                                        <div className='flex justify-end'>
-                                            <h2 className='inline-flex'>
-                                                <span className='text-slate-700 dark:text-slate-200 mr-3 cursor-pointer'>
-                                                    <Link href={`/dashboard/courses/edit-course/${course._id}`} passHref>
-                                                        <FaEdit />
-                                                    </Link>
-                                                </span>
-                                                <span className='text-red-500 dark:text-red-400 cursor-pointer'>
-                                                    <FaTrashAlt onClick={() => handleRemove(course._id, 'course')} />
-                                                </span>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    </section>
+
+                    <div className="overflow-x-auto ">
+                        <table className="table w-full dark:text-white uppercase">
+                            {/* head */}
+                            <thead className=''>
+                                <tr className='border-b border-white'>
+
+                                    <th className='dark:bg-slate-600 bg-slate-200'></th>
+                                    <th className='dark:bg-slate-600 bg-slate-200'>Course Title</th>
+                                    <th className='dark:bg-slate-600 bg-slate-200'>Price</th>
+                                    <th className='dark:bg-slate-600 bg-slate-200'>Rating</th>
+                                    <th className='dark:bg-slate-600 bg-slate-200'>Category</th>
+                                    <th className='dark:bg-slate-600 bg-slate-200'>Edit</th>
+                                    <th className='dark:bg-slate-600 bg-slate-200'>Delete</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    allCourses.map(course =>
+                                        <CourseListRow
+                                            key={course.id}
+                                            course={course}
+                                        />
+                                    )
+                                }
+                            </tbody>
+                            {/* foot */}
+                            {/* <tfoot>
+                                    
+                                </tfoot> */}
+                        </table>
+                    </div>
                 </section>
+
             </div>
         </div>
     );

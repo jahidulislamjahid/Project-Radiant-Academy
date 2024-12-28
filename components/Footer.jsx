@@ -57,7 +57,7 @@ const Footer = () => {
                                         <Link href="/" passHref>
                                             <span className="mb-1 hover:text-rose-600 cursor-pointer">Home</span>
                                         </Link><br />
-                                        <Link href="/problem-solving" passHref>
+                                        <Link href="/code-editor" passHref>
                                             <span className="mb-1 hover:text-rose-600 cursor-pointer">Problem Solving</span>
                                         </Link>
                                     </div>

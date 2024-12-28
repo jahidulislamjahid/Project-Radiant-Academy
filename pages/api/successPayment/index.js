@@ -13,7 +13,10 @@ export default async function handler(req, res) {
     if (method === "POST") {
         try {
             const successData = req.body;
-            const saveData = await Payment.create(successData);
+            
+            // TODO : UPDATE PAYMENT STATAS TRUE
+
+            const saveData = await Payment.create(successData );
             res.redirect(302, '/successPayment');
             res.status(200).json({ success: 'success', res: successData });
             // res.writeHead(302, { Location: "https://radiant-academy-ius.vercel.app" });

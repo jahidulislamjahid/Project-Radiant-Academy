@@ -8,7 +8,6 @@ export default async function handler(req, res) {
 
     if (method === "POST") {
         const paymentInfo = req.body;
-        
         const date = Date.now()
         const initiatePaymentData = {
             store_id: "radia67646af6ac894",
@@ -41,7 +40,7 @@ export default async function handler(req, res) {
         };
 
 
-        
+        // TODO : POST PAYMENT DATA HERE , PAYMENT STATAU FALSE
         
 
         try {
