@@ -341,29 +341,10 @@ const DashboardSection = () => {
                                     <div className="bg-slate-200 dark:bg-slate-600 shadow-md rounded-md p-5 h-auto mb-5 ">
                                         <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 border-stone-300 text-slate-700 dark:text-white dark:border-white">
                                             <FaNewspaper className="mr-2" />
-                                            <h3>Newsletter</h3>
+                                            <h3>Admin profit will dislay here</h3>
                                         </div>
-                                        <Slider {...settings}>
-                                            <div className="p-5 text-violet-900 dark:text-violet-200">
-                                                <h4 className="text-lg font-semibold mb-1">Email Subject</h4>
-                                                <p className="text-[0.9em] text-slate-700 dark:text-slate-200 mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae rerum pariatur debitis omnis consequatur perferendis nisi cumque corrupti iure repudiandae.</p>
-                                                <div className="flex items-center justify-end text-slate-700 dark:text-slate-200">
-                                                    <FaClock className="mr-2 text-right text-sm" />
-                                                    <p className="text-[0.9em]">January 12</p>
-                                                </div>
-                                            </div>
-                                            <div className="p-5 text-slate-700 dark:text-slate-200">
-                                                <h4 className="text-lg font-semibold mb-1 text-violet-900 dark:text-violet-200">Email Subject</h4>
-                                                <p className="text-[0.9em] mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae rerum pariatur debitis omnis consequatur perferendis nisi cumque corrupti iure repudiandae.</p>
-                                                <div className="flex items-center justify-end">
-                                                    <FaClock className="mr-2 text-right text-sm" />
-                                                    <p className="text-[0.9em]">January 12</p>
-                                                </div>
-                                            </div>
-                                        </Slider>
-                                        <div className="flex justify-center mt-3 text-violet-900 dark:text-violet-300">
-                                            <button className="text-sm flex items-center px-4 py-1 font-semibold rounded-full hover:bg-stone-100 dark:hover:bg-slate-700">See More Newsletters <BsArrowRight className="ml-2 text-[15px] text-red-600 dark:text-red-400" /></button>
-                                        </div>
+                                        <h1>Profit is comming soon</h1>
+                                      
                                     </div>
                                 </div>
                             </div>

@@ -20,33 +20,26 @@ const AdminsSection = () => {
                         <h3 className="text-2xl flex items-center"><FaUsers className="mr-3" /> Admins</h3>
                     </div>
                     <section className="overflow-x-auto">
-                    {
-                                allAdmins.map(admin => (
-                        <div className='container grid md:grid-cols-4 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={admin._id}>
-                            <div className='col-span-2 flex'>
-                                <h2 className='my-auto'>
-                                    {admin.displayName}
-                                </h2>
-                            </div>
-                            <div className='flex justify-center'>
-                                <h2 className='inline-flex my-auto'>
-                                    <span className="text-blue-500 my-auto mr-1.5">
-                                        <FaBookmark />
-                                    </span>
-                                    {admin.role}
-                                </h2>
-                            </div>
-                            <div className='flex justify-center'>
-                                <h2 className=' inline-flex'>
-                                    <span className="text-blue-500 my-auto mr-1.5">
-                                        <MdEmail />
-                                    </span> 
-                                    Send Email
-                                </h2>
-                            </div>
-                        </div>
+                        {
+                            allAdmins.map(admin => (
+                                <div className='container flex justify-between px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={admin._id}>
+                                    <div className=' '>
+                                        <h2 className='my-auto'>
+                                            {admin.displayName}
+                                        </h2>
+                                    </div>
+                                    <div className=''>
+                                        <h2 className='inline-flex my-auto'>
+                                            <span className="text-blue-500 my-auto mr-1.5">
+                                                <FaBookmark />
+                                            </span>
+                                            {admin.role}
+                                        </h2>
+                                    </div>
+
+                                </div>
                             ))
-                            }
+                        }
                     </section>
                 </div>
             </div>

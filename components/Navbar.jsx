@@ -17,7 +17,7 @@ const Navbar = () => {
     console.log(`${process.env.NEXT_PUBLIC_API}`);
 
     const signInUserData = JSON.parse(localStorage.getItem('signedInUser'));
-    
+
 
     const [isDarkMode, toggleDarkMode] = useDarkMode();
 
@@ -39,12 +39,12 @@ const Navbar = () => {
         });
     }
     const allUsers = useSelector((state) => state.users.usersList);
-    const logInUser = allUsers?.find(userData => userData.email === signInUserData?.email );    
+    const logInUser = allUsers?.find(userData => userData.email === signInUserData?.email);
     dispatch(setUserData(logInUser))
 
     const thisUser = useSelector((state) => state.loginUser.loginUser)
-   
-    
+
+
 
     return (
         <>
@@ -117,12 +117,12 @@ const Navbar = () => {
                                             ))
                                         }
                                         <div className="p-4 justify-center flex">
-                                            <Link href={`${thisUser? '/chekout' : '/login'}`} passHref>
+                                            <Link href={`${thisUser ? '/chekout' : '/login'}`} passHref>
                                                 <button className="text-sm undefined hover:scale-110 focus:outline-none
                                                     flex justify-center px-4 py-2 rounded font-bold
                                                     hover:bg-rose-700 hover:text-white bg-violet-500 
                                                     text-white border duration-200 ease-in-out border-white-600 transition " >
-                                                    Checkout ৳ {totalPrice} 
+                                                    Checkout ৳ {totalPrice}
                                                 </button>
                                             </Link>
                                         </div>

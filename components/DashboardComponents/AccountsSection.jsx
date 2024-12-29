@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaPenNib, FaPlus, FaTrashAlt, FaUserFriends, FaUsers, FaUsersCog, FaBuffer, FaSyncAlt } from "react-icons/fa";
+import { IoBook } from "react-icons/io5";
+
 import DashboardSidebar from './DashboardSidebar';
 import { useSelector } from 'react-redux';
 import useCrud from '../../utilities/Hooks/useCrud';
@@ -21,11 +23,11 @@ const AccountsSection = () => {
                         <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Accounts</button>
                     </div>
                     <section className="overflow-x-auto">
-                        <div>
+                        <div >
                             {
                                 allUsers?.map(user => (
-                                    <div className='container grid md:grid-cols-6 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={user._id}>
-                                        <h2 className='text-white inline-flex col-span-1'>
+                                    <div className='container grid md:grid-cols-6 xs:grid-cols-1 px-5 bg-slate-200 dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={user._id}>
+                                        <h2 className='dark:text-white inline-flex col-span-1'>
                                             <span className="text-orange-500 my-auto mr-1.5">
                                                 <FaUserFriends />
                                             </span>
@@ -40,15 +42,15 @@ const AccountsSection = () => {
                                         </h2>
                                         <h2 className='inline-flex font-base justify-center'>
                                             <span className='my-auto text-orange-600 dark:text-orange-400 mr-1'>
-                                                <FaBuffer />
+                                                <IoBook />
                                             </span>
                                             {user.enrolledCourses.length}
                                         </h2>
-                                        <h2 className='text-green-700 dark:text-green-500 font-semibold flex justify-center'>
+                                        <h2 className='text-green-700 dark:text-green-500 font-semibold flex '>
                                             <span className='my-auto text-orange-600 dark:text-orange-400 mr-1 text-lg'>
                                                 <FaUsersCog/>
                                             </span>
-                                            ROLE: <span>{user.role}</span>
+                                            ROLE: <span className='uppercase'>{user.role}</span>
                                         </h2>
                                         <h2 className='inline-flex justify-end'>
                                             <span className='text-slate-700 dark:text-slate-200 mr-3 cursor-pointer'>

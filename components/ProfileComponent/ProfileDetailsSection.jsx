@@ -67,7 +67,7 @@ const ProfileDetailsSection = ({ account }) => {
                 <Tabs>
                     <TabList className="grid grid-cols-4 mb-5 text-center gap-2 border-b-2 border-black text-slate-700 dark:text-slate-200">
                         <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium cursor-pointer">Courses</Tab>
-                        <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium cursor-pointer">Topics</Tab>
+                        <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium cursor-pointer">Payment History</Tab>
                         {/* <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium cursor-pointer">Progress</Tab>
                         <Tab className="bg-transparent border-0 shadow-none text-lg px-2 py-1.5 mx-1 font-medium cursor-pointer">Settings</Tab> */}
                     </TabList>

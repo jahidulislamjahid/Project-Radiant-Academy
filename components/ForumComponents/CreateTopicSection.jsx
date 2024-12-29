@@ -7,16 +7,18 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const CreateTopicSection = () => {
     const { user } = useAuth();
+    const thisUser = useSelector((state) => state?.loginUser?.loginUser)
+
     const router = useRouter();
     const categories = useSelector((state) => state.categories.categoriesList);
     console.log(user.email);
 
-    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: `${user.name}`, authorEmail: `${user.email}`, authorImg: `${user.photo}`, loves: 0, views: 0, status: false, featured: false });
+    const [postData, setPostData] = useState({ title: '', category: '', desc: '', author: `${thisUser?.displayName}`, authorEmail: `${thisUser?.email}`, authorImg: `${thisUser?.photoURL}`, loves: 0, views: 0, status: false, featured: false });
 
     const dispatch = useDispatch();
     const postTopic = e => {
-        const loading = toast.loading('Please wait ...');
-        toast.dismiss(loading);
+        // const loading = toast.loading('Please wait ...');
+        // toast.dismiss(loading);
         if (dispatch(topicCreate(postData))) {
             toast.dismiss(loading);
             toast.success("Your submission is under review!", {

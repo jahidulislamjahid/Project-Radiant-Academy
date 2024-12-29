@@ -240,28 +240,7 @@
   },
   "__v": 0
 },
-{
-  "_id": {
-    "$oid": "62eb28745b446db661a5f51e"
-  },
-  "category": "welcome",
-  "title": "nhhkhk",
-  "desc": " jhkjhjkh  hjg hg fg ggkjhkhjk jkh kjhkjh",
-  "author": "undefined",
-  "authorImg": "undefined",
-  "authorEmail": "undefined",
-  "featured": false,
-  "status": false,
-  "loves": 0,
-  "views": 0,
-  "createdAt": {
-    "$date": "2022-08-04T02:01:24.767Z"
-  },
-  "updatedAt": {
-    "$date": "2022-08-04T02:01:24.767Z"
-  },
-  "__v": 0
-},
+
 {
   "_id": {
     "$oid": "635f512159332b7385988220"

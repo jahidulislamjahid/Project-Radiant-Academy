@@ -10,6 +10,7 @@ const CourseSection = () => {
     const allCourses = useSelector((state) => state.courses.coursesList);
     console.log(allCourses);
     const category1 = '';
+   const  category2 ='upcoming'
     const category3 = 'css';
     const category4 = 'javascript';
 
@@ -30,15 +31,15 @@ const CourseSection = () => {
                 </div>
 
                 <div className="px-16 pb-20">
-                    {/* <div className="my-3">
+                    <div className="my-3">
                         <div className="p-2 mb-1 flex items-center">
                             <label className="swap swap-flip">
                                 <input type="checkbox" className="hidden" />
                             </label>
-                            <h3 className="text-2xl font-medium">Up Next in HTML Specialization</h3>
+                            <h3 className="text-2xl font-medium">Upcoming </h3>
                         </div>
                         <CourseSlider allCourses={allCourses} category={category2}/>
-                    </div> */}
+                    </div>
                     <div>
                         <div className="p-2 mb-1 flex items-center">
                             <label className="swap swap-flip">
