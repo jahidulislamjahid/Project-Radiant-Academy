@@ -39,6 +39,9 @@ const CourseSchema = new mongoose.Schema({
         type: String, 
         // required: true,
     }],
+    courseVideo :{
+        type : String
+    }
 },
     { timestamps: true }
 );

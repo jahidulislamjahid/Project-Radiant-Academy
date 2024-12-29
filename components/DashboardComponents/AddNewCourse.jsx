@@ -14,31 +14,31 @@ const AddNewCourse = () => {
     const categories = [
         {
             "id": 1,
-            "category": "premium",
+            "category": "Premium",
         },
         {
             "id": 2,
-            "category": "free",
+            "category": "Free",
         },
         {
             "id": 3,
-            "category": "upcoming",
+            "category": "Upcoming",
         },
         {
             "id": 4,
-            "category": "html",
+            "category": "HTML",
         },
         {
             "id": 5,
-            "category": "css",
+            "category": "CSS",
         },
         {
             "id": 6,
-            "category": "javascript",
+            "category": "Javascript",
         },
     ]
 
-    const [postData, setPostData] = useState({ title: '', subtitle: '', category: '', description: '', image: '', price: 0, rating: 4.5, enrolled: 0, contents: [] });
+    const [postData, setPostData] = useState({ title: '', subtitle: '', category: '', description: '', image: '', price: 0, rating: 4.5, enrolled: 0, contents: [] , courseVideo:'' });
     console.log(postData);
 
     const dispatch = useDispatch();
@@ -116,7 +116,6 @@ const AddNewCourse = () => {
                                         placeholder="Course Price"
                                         className="bg-slate-200 w-full py-2 px-3 outline-none mt-3.5 text-lg rounded-lg font-semibold"
                                         required
-                                        value={postData.price}
                                         onChange={(e) => setPostData({ ...postData, price: e.target.value })}
                                     />
                                     <select
@@ -146,6 +145,16 @@ const AddNewCourse = () => {
                                     required
                                     value={postData.subtitle}
                                     onChange={(e) => setPostData({ ...postData, subtitle: e.target.value })}
+                                />
+                                {/* video input */}
+                                <input
+                                    type="text"
+                                    name="course video"
+                                    placeholder="Course video Content"
+                                    className="bg-slate-200 w-full py-2 px-3 outline-none mt-3.5 text-lg rounded-lg font-semibold mb-4"
+                                    required
+                                    value={postData.courseVideo}
+                                    onChange={(e) => setPostData({ ...postData, courseVideo: e.target.value })}
                                 />
                                 <textarea
                                     name="description"
