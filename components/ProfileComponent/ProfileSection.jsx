@@ -8,13 +8,14 @@ import { FcMoneyTransfer } from "react-icons/fc";
 import { fetchQuizzes } from '../../utilities/redux/slices/quizSlice';
 import ProfileDetailsSection from './ProfileDetailsSection';
 import useLoading from '../../utilities/Hooks/useLoading'
+import axios from 'axios';
 
 const ProfileSection = ({ account }) => {
     const { loading, LoadingIndicator } = useLoading()
 
 
     const thisUser = useSelector((state) => state?.loginUser?.loginUser)
-    console.log(thisUser);
+    // console.log(thisUser);
 
 
 
@@ -26,21 +27,20 @@ const ProfileSection = ({ account }) => {
 
     const allCourses = useSelector((state) => state.courses.coursesList);
     const purchaseCourses = thisUser?.enrolledCourses;
-    console.log(allCourses);
-    console.log('purchase course', purchaseCourses);
+    // console.log(allCourses);
+    // console.log('purchase course', purchaseCourses);
 
 
     const totalSpend = allCourses?.filter((course) =>
         purchaseCourses?.some((item) => item?.courseId === course?._id))?.reduce(
             (total, course) => total + course?.price, 0);
-    console.log('totalspend', totalSpend);
 
 
     useEffect(() => {
         dispatch(fetchQuizzes());
     }, [dispatch]);
 
-
+   
     //rating system
     const ratingCount = {
         size: 0,
@@ -71,6 +71,7 @@ const ProfileSection = ({ account }) => {
     }
 
     const userFormatedDate = formateDate(userCreatDate)
+    
     if (loading) {
         return LoadingIndicator
     }

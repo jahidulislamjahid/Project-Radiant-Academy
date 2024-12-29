@@ -40,8 +40,8 @@ const PaymentSection = ({ course }) => {
             const res = await axios.post(`../../api/creatPayment`, {
                 ammont: item?.price,
                 currency: 'BDT',
-                cus_email:thisUser?.email,
-                cus_name:thisUser?.displayName,
+                cus_email:userName,
+                cus_name:userName,
                 purchaseCourse : [item?._id]
             })
             const redirectURL = res?.data?.data.GatewayPageURL

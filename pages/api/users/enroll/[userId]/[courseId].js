@@ -9,9 +9,7 @@ export default async function handler(req, res) {
 
     if (method === "PUT") {
         const filter = {_id: userId};
-        const update =  { $push : { "enrolledCourses": 
-                                            {"courseId" : courseId}} 
-                                  };
+        const update =  { $push : { "enrolledCourses": {"courseId" : courseId}} };
 
         try {
             const updatedUser = await User.findOneAndUpdate(filter, update);

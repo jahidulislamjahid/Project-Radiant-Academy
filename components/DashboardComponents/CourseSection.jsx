@@ -43,7 +43,7 @@ const CourseSection = () => {
                                 {
                                     allCourses.map(course =>
                                         <CourseListRow
-                                            key={course.id}
+                                            key={course?._id}
                                             course={course}
                                         />
                                     )
