@@ -1,8 +1,7 @@
 import Payment from '../../../models/PaymentModel';
 import dbConnect from '../../../utilities/mongoose';
 
-// const user = localStorage.getItem('signedInUser')
-    // const thisUser = useSelector((state) => state?.loginUser?.loginUser)
+
 
 
 export default async function handler(req, res) {
@@ -12,21 +11,34 @@ export default async function handler(req, res) {
 
     if (method === "POST") {
         try {
-            const successData = req.body;
-            
-            // TODO : UPDATE PAYMENT STATAS TRUE
+            const paymentResponse = req.body;
 
-            const saveData = await Payment.create(successData );
+            // Update the payment record with additional details
+            const updatedPayment = await Payment.findOneAndUpdate(
+                { tran_id: paymentResponse.tran_id }, // Find by transaction ID
+                {
+                    val_id: paymentResponse.val_id,
+                    card_type: paymentResponse.card_type,
+                    store_amount: paymentResponse.store_amount,
+                    bank_tran_id: paymentResponse.bank_tran_id,
+                    status: paymentResponse.status,
+                    card_issuer: paymentResponse.card_issuer,
+                    card_brand: paymentResponse.card_brand,
+                    risk_level: paymentResponse.risk_level,
+                    risk_title: paymentResponse.risk_title,
+                },
+                { new: true } // Return the updated document
+            );
             res.redirect(302, '/successPayment');
-            res.status(200).json({ success: 'success', res: successData });
-            // res.writeHead(302, { Location: "https://radiant-academy-ius.vercel.app" });
+            res.status(200).json({ success: 'success', res: updatedPayment });
+
         } catch (error) {
             console.log('pay', error);
 
             res.status(500).json({ success: false, error: error.message });
         }
     }
-  
+
 
 
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MdDeleteForever } from "react-icons/md";
-import { CiEdit } from "react-icons/ci";
+import { FaEdit } from "react-icons/fa";
 import useCrud from "../../utilities/Hooks/useCrud";
 import { FaStar } from "react-icons/fa";
 
@@ -45,7 +45,7 @@ const CourseListRow = ({ course }) => {
             <td className='dark:bg-slate-600  bg-slate-200'>
                 <Link href={`/dashboard/courses/edit-course/${course._id}`} passHref>
                     <button >
-                        <CiEdit className='h-6 w-6 hover:text-blue-500'></CiEdit>
+                        <FaEdit className='h-6 w-6 hover:text-blue-500'></FaEdit>
                     </button>
                 </Link>
             </td>

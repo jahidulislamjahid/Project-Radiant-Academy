@@ -1,5 +1,6 @@
 import axios from 'axios';
 import dbConnect from '../../../utilities/mongoose';
+import Payment from '../../../models/PaymentModel';
 
 export default async function handler(req, res) {
     const { method } = req;
@@ -7,27 +8,36 @@ export default async function handler(req, res) {
     await dbConnect();
 
     if (method === "POST") {
-        const paymentInfo = req.body;
+        const {ammont, currency , cus_email , cus_name , purchaseCourse} = req.body;
         const date = Date.now()
+        
+        const incompletePaymentInfo ={
+            tran_id: ammont + date, 
+            status :'incomplete',
+            cus_email :cus_email,
+            cus_name : cus_name, 
+            purchaseCourse : purchaseCourse
+        }
+
         const initiatePaymentData = {
             store_id: "radia67646af6ac894",
             store_passwd: "radia67646af6ac894@ssl",
-            total_amount: paymentInfo?.ammont || "0", // Default value if ammont is undefined
-            currency: "BDT",
-            tran_id: paymentInfo?.ammont + date, // Replace with a unique transaction ID
+            total_amount: ammont || "0", // Default value if ammont is undefined
+            currency: currency,
+            tran_id: ammont + date, // Replace with a unique transaction ID
             success_url: `${process.env.NEXT_PUBLIC_API}/api/successPayment`, // Replace with the actual URL
             fail_url: `${process.env.NEXT_PUBLIC_API}`, // Replace with the actual URL
             cancel_url: `${process.env.NEXT_PUBLIC_API}`, // Replace with the actual URL
-            cus_name: paymentInfo?.cus_name || "Customer Name",
-            cus_email: paymentInfo?.cus_email || "customer@example.com",
-            cus_add1: paymentInfo?.cus_add1 || "Customer Address 1",
-            cus_add2: paymentInfo?.cus_add2 || "",
-            cus_city: paymentInfo?.cus_city || "City",
-            cus_state: paymentInfo?.cus_state || "State",
-            cus_postcode: paymentInfo?.cus_postcode || "1000",
-            cus_country: paymentInfo?.cus_country || "Bangladesh",
-            cus_phone: paymentInfo?.cus_phone || "01711111111",
-            cus_fax: paymentInfo?.cus_fax || "",
+            cus_name: cus_name ,
+            cus_email: cus_email ,
+            cus_add1: "Customer Address 1",
+            cus_add2:  "",
+            cus_city: "City",
+            cus_state: "State",
+            cus_postcode:  "1000",
+            cus_country:  "Bangladesh",
+            cus_phone: "01711111111",
+            cus_fax: "",
             shipping_method: 'NO',
             multi_card_name: "",
             value_a: "",
@@ -39,8 +49,7 @@ export default async function handler(req, res) {
             product_profile: 'education'
         };
 
-
-        // TODO : POST PAYMENT DATA HERE , PAYMENT STATAU FALSE
+        const saveData = await Payment.create(incompletePaymentInfo);
         
 
         try {

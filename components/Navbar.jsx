@@ -43,6 +43,8 @@ const Navbar = () => {
     dispatch(setUserData(logInUser))
 
     const thisUser = useSelector((state) => state.loginUser.loginUser)
+   
+    
 
     return (
         <>

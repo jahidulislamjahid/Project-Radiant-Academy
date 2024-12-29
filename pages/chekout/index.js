@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import { FaInfoCircle, FaEnvelope, FaPhoneSquareAlt, FaBookmark, FaIdCardAlt, FaCcVisa } from 'react-icons/fa';
-import { BsArrowRight } from 'react-icons/bs';
+import { FaInfoCircle, FaEnvelope, FaBookmark, FaIdCardAlt, FaCcVisa } from 'react-icons/fa';
 import coverImg from '../../public/img/css_flexbox 1.png';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -34,6 +33,12 @@ const PaymentSection = ({ course }) => {
         setUserName(e.target.value)
     }
 
+    const cartCourseId=[]
+
+    const couseIds = cart.forEach(item=> cartCourseId.push(item?._id))
+
+    
+
     useEffect(() => {
         let total = 0;
         cart.forEach((item, i) => {
@@ -49,7 +54,8 @@ const PaymentSection = ({ course }) => {
         const res = await axios.post('../../api/creatPayment', {
             ammont: totalPrice,
             currency: 'BDT',
-            cus_email:thisUser?.email
+            cus_email:thisUser?.email,
+            purchaseCourse : cartCourseId
         })
         const redirectURL = res?.data?.data.GatewayPageURL
         if (redirectURL) {

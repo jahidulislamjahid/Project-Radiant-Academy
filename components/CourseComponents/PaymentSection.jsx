@@ -1,12 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import { FaInfoCircle, FaEnvelope, FaPhoneSquareAlt, FaBookmark, FaIdCardAlt, FaCcVisa } from 'react-icons/fa';
+import { FaInfoCircle, FaEnvelope,  FaBookmark, FaIdCardAlt, FaCcVisa } from 'react-icons/fa';
 
-import { BsArrowRight } from 'react-icons/bs';
-import coverImg from '../../public/img/css_flexbox 1.png';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import useAuth from '../../utilities/Hooks/useAuth';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import Swal from 'sweetalert2'
@@ -15,7 +12,6 @@ import {
     PayPalButtons,
     usePayPalScriptReducer,
 } from "@paypal/react-paypal-js";
-import { data } from 'autoprefixer';
 
 
 const PaymentSection = ({ course }) => {
@@ -26,6 +22,7 @@ const PaymentSection = ({ course }) => {
 
 
     const thisUser = useSelector((state) => state.loginUser.loginUser)
+    
 
     const [userEmail, setUserEmail] = useState(thisUser?.email ? thisUser?.email : '')
     const [userName, setUserName] = useState(thisUser?.displayName ? thisUser?.displayName : '')
@@ -43,7 +40,9 @@ const PaymentSection = ({ course }) => {
             const res = await axios.post(`../../api/creatPayment`, {
                 ammont: item?.price,
                 currency: 'BDT',
-                cus_email:thisUser?.email
+                cus_email:thisUser?.email,
+                cus_name:thisUser?.displayName,
+                purchaseCourse : [item?._id]
             })
             const redirectURL = res?.data?.data.GatewayPageURL
             console.log('url', redirectURL);
