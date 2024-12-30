@@ -138,8 +138,8 @@ const Footer = () => {
             <div id="chat-bot">
                     <div className="icon" id="chat-icon" onClick={() => helpLine()}>
                         <Link href="/support" passHref>
-                            <div className="user">
-                             Need help? Book a meeting
+                            <div className="user pr-1">
+                             Need help? Set a meeting 
                             </div>
                         </Link>
                         <FaHeadset className="text-4xl"/>
