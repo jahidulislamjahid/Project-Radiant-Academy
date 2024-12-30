@@ -1,6 +1,6 @@
 import { ArcElement, Chart } from 'chart.js';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { BsArrowRight, BsCheck2Circle } from 'react-icons/bs';
 import { FaBookmark, FaClock, FaClone, FaCopy, FaEdit, FaEnvelope, FaEye, FaHashtag, FaHeart, FaIdCardAlt, FaInfoCircle, FaNewspaper, FaPhoneSquareAlt, FaPlus } from 'react-icons/fa';
@@ -14,13 +14,82 @@ import DashboardSidebar from './DashboardSidebar';
 import useAuth from '../../utilities/Hooks/useAuth';
 import useCrud from '../../utilities/Hooks/useCrud';
 import { useRouter } from 'next/router';
+import axios from 'axios';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
+
 
 Chart.register(ArcElement);
 
 const DashboardSection = () => {
+
+    const [monthlyEarnings, setMonthlyEarnings] = useState([]);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+
     const router = useRouter();
     const { user } = useAuth();
     const { handleApprove } = useCrud();
+
+    // load all payment data
+    useEffect(() => {
+        const fetchPayments = async () => {
+            try {
+                const res = await axios.get('/api/AdminProfit');
+                const payments = res?.data;
+
+                // Process data to calculate monthly earnings
+                const earningsByMonth = payments?.reduce((acc, payment) => {
+                    const month = new Date(payment.tran_date).toLocaleString('default', { month: 'long' });
+                    const year = new Date(payment.tran_date).getFullYear();
+                    const key = `${month} ${year}`;
+
+                    const storeAmount = parseFloat(payment.store_amount) || 0;
+
+                    if (!acc[key]) {
+                        acc[key] = storeAmount;
+                    } else {
+                        acc[key] += storeAmount;
+                    }
+
+                    return acc;
+                }, {});
+
+                // Convert object to an array for Recharts
+                const formattedData = Object.keys(earningsByMonth).map(month => ({
+                    month,
+                    earnings: earningsByMonth[month],
+                }));
+
+                setMonthlyEarnings(formattedData);
+            } catch (error) {
+                console.error("Error fetching payments:", error);
+            }
+        };
+
+        fetchPayments();
+    }, []);
+
+    useEffect(() => {
+        // Detect dark mode
+        const rootElement = document.documentElement;
+        setIsDarkMode(rootElement.classList.contains('dark'));
+
+        const observer = new MutationObserver(() => {
+            setIsDarkMode(rootElement.classList.contains('dark'));
+        });
+
+        observer.observe(rootElement, { attributes: true });
+
+        return () => observer.disconnect();
+    }, []);
+
+
+
+
+
+
+
+
 
     const allCourses = useSelector((state) => state.courses.coursesList);
     const allTopics = useSelector((state) => state.forums.forumsList);
@@ -249,13 +318,13 @@ const DashboardSection = () => {
                                             <tbody>
                                                 <tr>
                                                     <td className="flex items-center">
-                                                        <FaIdCardAlt className="mr-2"/>Name
+                                                        <FaIdCardAlt className="mr-2" />Name
                                                     </td>
                                                     <td>:&nbsp; {thisUser.displayName}</td>
                                                 </tr>
                                                 <tr>
                                                     <td className="flex items-center">
-                                                        <FaBookmark className="mr-2"/>Role
+                                                        <FaBookmark className="mr-2" />Role
                                                     </td>
                                                     <td className="uppercase">:&nbsp; {thisUser.role}</td>
                                                 </tr>
@@ -341,10 +410,28 @@ const DashboardSection = () => {
                                     <div className="bg-slate-200 dark:bg-slate-600 shadow-md rounded-md p-5 h-auto mb-5 ">
                                         <div className="flex items-center text-xl font-semibold pt-1 pb-4 border-b-2 border-stone-300 text-slate-700 dark:text-white dark:border-white">
                                             <FaNewspaper className="mr-2" />
-                                            <h3>Admin profit will dislay here</h3>
+                                            <h3>Earning </h3>
                                         </div>
-                                        <h1>Profit is comming soon</h1>
-                                      
+                                        <ResponsiveContainer width="100%" height={400}>
+                                            <BarChart data={monthlyEarnings}>
+                                                <CartesianGrid strokeDasharray="3 3" stroke={isDarkMode ? "#444" : "#ccc"} />
+                                                <XAxis
+                                                    dataKey="month"
+                                                    tick={{ fill: isDarkMode ? "#fff" : "#000" }}
+                                                />
+                                                <YAxis
+                                                    tick={{ fill: isDarkMode ? "#fff" : "#000" }}
+                                                />
+                                                <Tooltip
+                                                    contentStyle={{
+                                                        backgroundColor: isDarkMode ? "#333" : "#fff",
+                                                        color: isDarkMode ? "#fff" : "#000",
+                                                    }}
+                                                />
+                                                <Bar dataKey="earnings" fill="#8884d8" />
+                                            </BarChart>
+                                        </ResponsiveContainer>
+
                                     </div>
                                 </div>
                             </div>
