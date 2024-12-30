@@ -5,7 +5,7 @@ export const fetchVotes = createAsyncThunk(
     'vote/fetchVotes',
     async () => {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/vote`)
-            .then(res => res.json())
+            .then(res => res.json())            
         return response.data
     }
 )

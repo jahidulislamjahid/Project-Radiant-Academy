@@ -137,15 +137,14 @@ const Footer = () => {
             </button>
 
             <div id="chat-bot">
-               
-                    {/* <div className="icon" id="chat-icon" onClick={() => helpLine()}>
-                        <Link href="/video-chat" passHref>
-                            <div className="user">
-                                Call Radiant Help Center!
+                    <div className="icon" id="chat-icon" onClick={() => helpLine()}>
+                        <Link href="/support" passHref>
+                            <div className="user pr-1">
+                             Need help? Set a meeting 
                             </div>
                         </Link>
                         <FaHeadset className="text-4xl"/>
-                    </div> */}
+                    </div>
                 <style >
                         {`
                             #chat-bot {

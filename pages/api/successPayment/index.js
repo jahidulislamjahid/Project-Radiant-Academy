@@ -45,11 +45,16 @@ export default async function handler(req, res) {
                 },
             };
 
-            // TODO increse enroll count
-            // const enrollIncrease = 
-
             try {
                 const updatedUser = await User.findOneAndUpdate(filter, update, { new: true });
+
+                // increase enroll count 
+
+                for (const courseID of newPurchaseCourse) {
+                    await Course.findByIdAndUpdate(courseID, {
+                        $inc: { enrolled: 1 }
+                    })
+                }
             } catch (error) {
             }
 
