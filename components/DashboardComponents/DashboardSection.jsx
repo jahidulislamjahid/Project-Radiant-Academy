@@ -105,26 +105,28 @@ const DashboardSection = () => {
         }
     })
 
-    const config = {
-        type: 'doughnut',
-        data: data,
-    };
 
-    const data = {
-        labels: [
-            'Enrolled',
-            'Available'
-        ],
-        datasets: [{
-            label: 'Enrollment Chart',
-            data: [250, 50],
-            backgroundColor: [
-                'rgb(50, 0, 126)',
-                'rgb(255, 202, 48)'
-            ],
-            hoverOffset: 2
-        }]
-    };
+
+    // const config = {
+    //     type: 'doughnut',
+    //     data: data,
+    // };
+
+    // const data = {
+    //     labels: [
+    //         'Enrolled',
+    //         'Available'
+    //     ],
+    //     datasets: [{
+    //         label: 'Enrollment Chart',
+    //         data: [250, 50],
+    //         backgroundColor: [
+    //             'rgb(50, 0, 126)',
+    //             'rgb(255, 202, 48)'
+    //         ],
+    //         hoverOffset: 2
+    //     }]
+    // };
 
     const settings = {
         slidesToShow: 1,
@@ -225,48 +227,59 @@ const DashboardSection = () => {
                                         </div>
                                         <Slider {...settings}>
                                             {
-                                                allCourses.map(course => (
-                                                    <div className="course-items" key={course}>
-                                                        <div className="my-5 flex justify-center items-center text-white py-1.5 px-2 bg-violet-700 dark:bg-gray-400  rounded-md">
-                                                            <h5>{course.title}</h5>
-                                                        </div>
-                                                        <div className="my-4 flex justify-between items-center py-1.5 px-2 border-b-2 border-purple-800 dark:border-white">
-                                                            <p className="text-red-600 dark:text-white text-sm font-medium">Enrollment</p>
-                                                            <p className="text-red-600 dark:text-white text-sm font-medium">Price: ৳ {course.price}</p>
-                                                        </div>
-                                                        <div className="mt-2 py-3 grid grid-rows-1">
-                                                            <div className="flex flex-col sm:flex-row justify-center items-center">
-                                                                <div className="w-1/4 sm:mr-3">
-                                                                    <Doughnut data={data} options={config} />
-                                                                </div>
-                                                                <div>
-                                                                    <div className="flex items-center">
-                                                                        <div className=" mr-2 rounded-md" style={{ backgroundColor: '#32007E', width: '15px', height: '15px' }}></div>
-                                                                        <p className="text-sm text-black dark:text-white">Enrolled - <span className="text-black dark:text-white">250</span></p>
+                                                allCourses.map(course => {
+                                                    // Set dynamic values for enrolled and available based on course data
+                                                    const config = {
+                                                        type: 'doughnut',
+                                                        data: data,
+                                                    };
+                                                    const data = {
+                                                        labels: ['Enrolled', 'Available'],
+                                                        datasets: [{
+                                                            label: 'Enrollment Chart',
+                                                            data: [course.enrolled, 100 - course.enrolled], // Example: Total capacity is 1000
+                                                            backgroundColor: [
+                                                                'rgb(50, 0, 126)',
+                                                                'rgb(255, 202, 48)'
+                                                            ],
+                                                            hoverOffset: 2
+                                                        }]
+                                                    };
+
+                                                    return (
+                                                        <div className="course-items" key={course._id}> {/* Ensure unique key */}
+                                                            <div className="my-5 flex justify-center items-center text-white py-1.5 px-2 bg-violet-700 dark:bg-gray-400 rounded-md">
+                                                                <h5>{course.title}</h5>
+                                                            </div>
+                                                            <div className="my-4 flex justify-between items-center py-1.5 px-2 border-b-2 border-purple-800 dark:border-white">
+                                                                <p className="text-red-600 dark:text-white text-sm font-medium">Enrollment: {course.enrolled}</p>
+                                                                <p className="text-red-600 dark:text-white text-sm font-medium">Price: ৳ {course.price}</p>
+                                                            </div>
+                                                            <div className="mt-2 py-3 grid grid-rows-1">
+                                                                <div className="flex flex-col sm:flex-row justify-center items-center">
+                                                                    <div className="w-1/4 sm:mr-3">
+                                                                        <Doughnut data={data} options={config} />
                                                                     </div>
-                                                                    <div className="flex items-center">
-                                                                        <div className="mr-2 rounded-md" style={{
-                                                                            backgroundColor: '#FFCA30', width: '15px', height: '15px'
-                                                                        }}></div>
-                                                                        <p className="text-sm text-black dark:text-white">Available - <span className="text-black dark:text-white">50</span></p>
+                                                                    <div>
+                                                                        <div className="flex items-center">
+                                                                            <div className=" mr-2 rounded-md" style={{ backgroundColor: '#32007E', width: '15px', height: '15px' }}></div>
+                                                                            <p className="text-sm text-black dark:text-white">Enrolled - <span className="text-black dark:text-white">{course.enrolled}</span></p>
+                                                                        </div>
+                                                                        <div className="flex items-center">
+                                                                            <div className="mr-2 rounded-md" style={{
+                                                                                backgroundColor: '#FFCA30', width: '15px', height: '15px'
+                                                                            }}></div>
+                                                                            <p className="text-sm text-black dark:text-white">Available - <span className="text-black dark:text-white">{100 - course.enrolled} </span></p>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div className="mt-5">
-                                                                <div className="flex items-center justify-center text-sm">
-                                                                    <FaCopy className="mr-2 dark:text-white" />
-                                                                    <h5 className="dark:text-white">New Order Placed: <span className="font-semibold dark:text-white">25</span></h5>
-                                                                </div>
-                                                                <div className="flex items-center justify-center text-sm">
-                                                                    <FaCopy className="mr-2 dark:text-white" />
-                                                                    <h5 className="dark:text-white">Today&apos;s Total Sales: <span className="font-semibold dark:text-white">52</span></h5>
-                                                                </div>
-                                                            </div>
                                                         </div>
-                                                    </div>
-                                                ))
+                                                    );
+                                                })
                                             }
                                         </Slider>
+
                                         <style >
                                             {`
                                             .course-card .slick-list{

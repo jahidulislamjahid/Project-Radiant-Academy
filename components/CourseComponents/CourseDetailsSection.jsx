@@ -12,10 +12,12 @@ const CourseDetailsSection = ({ course }) => {
     const reviews = course?.data?.reviews
     const thisUser = useSelector((state) => state.loginUser.loginUser);
     const userEnrolled = thisUser?.enrolledCourses || [];
+    
 
 
     // Check if the user has purchased the course 
     const isPurchase = userEnrolled?.some((item) => item.courseId == course.data._id);
+    
 
 
 
