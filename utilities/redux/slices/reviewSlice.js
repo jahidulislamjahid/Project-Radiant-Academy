@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchReviews = createAsyncThunk(
     'review/fetchReviews',
     async () => {
-        const response = await fetch('http://localhost:3000/api/reviews')
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/reviews`)
             .then(res => res.json())
         return response.data
     }
@@ -13,8 +13,10 @@ export const fetchReviews = createAsyncThunk(
 export const addReview = createAsyncThunk(
     'review/addReview',
     async (review) => {
+        console.log(review);
+        
         try {
-            const response = await axios.post("http://localhost:3000/api/reviews", review);
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_API}/api/reviews`, review);            
             return response.data.data
         } catch (error) {
             console.log(error);

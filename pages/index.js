@@ -41,7 +41,7 @@ export default function Home() {
       <FeatureSection />
       <TalentSection />
       <QuizSection />
-      <PackageSection />
+      {/* <PackageSection /> */}
       <TestimonialSection />
       <CounterSection />
       <PrivacyPolicySection />

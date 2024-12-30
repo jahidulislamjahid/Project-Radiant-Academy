@@ -22,7 +22,7 @@ const FindTopic = ({ forums }) => {
 };
 
 export const getServerSideProps = async () => {
-    const url = 'http://localhost:3000/api/forums';
+    const url = `${process.env.NEXT_PUBLIC_API}/api/forums`;
     const res = await fetch(url);
     const data = await res.json();
 

@@ -1,9 +1,11 @@
 import emailjs from '@emailjs/browser';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const contact = () => {
     const sendEmail = (e) => {
         e.preventDefault();
+        toast.success('Email Send Succesfully')
 
         emailjs.sendForm('gmail', 'radiant_academy', e.target, 'user_YkJkSWKqQwdoELEotZTxP')
             .then((result) => {
@@ -26,25 +28,25 @@ const contact = () => {
                             type="text"
                             name="name"
                             placeholder="Type Your Name"
-                            className="bg-slate-200 w-full py-2 px-3 outline-none rounded-lg mb-4"
+                            className="bg-slate-200 w-full py-2 px-3 outline-none rounded-lg mb-4 dark:text-black"
                             required
                         />
                         <input
                             type="text"
                             name="email"
                             placeholder="Type Your Email"
-                            className="bg-slate-200 w-full py-2 px-3 outline-none rounded-lg mb-4"
+                            className="bg-slate-200 w-full py-2 px-3 outline-none rounded-lg mb-4 dark:text-black"
                             required
                         />
                         <input
                             type="text"
                             name="subject"
                             placeholder="Type Your Subject"
-                            className="bg-slate-200 w-full py-2 px-3 outline-none rounded-lg mb-4"
+                            className="bg-slate-200 w-full py-2 px-3 outline-none rounded-lg mb-4 dark:text-black"
                             required
                         />
                         <textarea
-                            className="bg-slate-200 border-2 w-full h-[120px] outline-none py-2 px-3 resize-none rounded-lg mb-4"
+                            className="bg-slate-200 border-2 w-full h-[120px] outline-none py-2 px-3 resize-none rounded-lg mb-4 dark:text-black"
                             name="message"
                             placeholder="Type your comment here!"
                             required

@@ -8,13 +8,14 @@ import { useSelector } from 'react-redux';
 
 const BrowseCategorySection = () => {
   const categories = useSelector((state) => state.categories.categoriesList);
+  const thisUser = useSelector((state) => state.loginUser.loginUser)
 
   return (
     <div className='bg-white dark:bg-slate-800'>
       <section className='container mx-auto px-2 lg:px-4'>
         <div className='container mx-auto px-5'>
           <h1 className='text-4xl font-bold text-center mt-[5rem] mb-8 text-violet-800 dark:text-violet-400'>Browse By Category</h1>
-          <Link href="/forum/create-topic" passHref>
+          <Link href={`${thisUser? '/forum/create-topic':'/login'}`} passHref>
             <button className='rounded-md bg-rose-500 text-white font-semibold px-4 py-2 hover:bg-slate-700 duration-300 inline-flex'>
               New Topic <span className='ml-2 mt-1'><BsPencil /></span>
             </button>

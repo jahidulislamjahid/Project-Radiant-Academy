@@ -6,10 +6,10 @@ import { useSelector } from 'react-redux';
 const MyCourseSection = ({ account }) => {
     const allCourses = useSelector((state) => state.courses.coursesList);
     const allUsers = useSelector((state) => state.users.usersList);
-    const enrolled = (account.account.data[0].enrolledCourses);
+    const enrolled = (account?.account?.data[0]?.enrolledCourses);
 
-    const enrolledChecker = enrolled.map(enroll => {
-        let index = allCourses.findIndex(course => enroll.courseId === course._id);
+    const enrolledChecker = enrolled?.map(enroll => {
+        let index = allCourses?.findIndex(course => enroll?.courseId === course?._id);
         if (index > -1) {
             return allCourses[index];
         }
@@ -22,7 +22,7 @@ const MyCourseSection = ({ account }) => {
                     My Course
                 </h1>
                 <div className="px-16 pb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">{
-                    enrolledChecker.map(course => (
+                    enrolledChecker?.map(course => (
                         <MyCourseCard course={course} key={course._id} />
                     )
                     )

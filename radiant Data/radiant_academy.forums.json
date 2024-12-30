@@ -1,0 +1,265 @@
+[{
+  "_id": {
+    "$oid": "623c1ba64bdf7ba193da99a8"
+  },
+  "category": "general",
+  "title": "Radiant Academy turned 3 Weeks today!",
+  "desc": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+  "author": "Iftikhar Rasha",
+  "authorImg": "https://lh3.googleusercontent.com/a-/AOh14GiJciuAieUfN7fxxRp83rvylW9aB8EGH2eMRLhr8Mk=s96-c",
+  "authorEmail": "iftikharrasha@gmail.com",
+  "featured": false,
+  "status": true,
+  "loves": 110,
+  "views": 77,
+  "createdAt": {
+    "$date": "2022-03-24T07:20:06.035Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-18T21:32:09.801Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "623c1ba64bdf7ba193da99a9"
+  },
+  "category": "feedback",
+  "title": "Best Platform i have ever found",
+  "desc": "I have tried a lot of online platforms these days, but all other seemed very little helpful for me lately. So i felt very depressed and stopped doing these kind of online courses. Fortunately one day while i was browsing the internet this website surfaced up to me and for no intention i just clicked in it and found their courses and enrolled a free course than i said to myself completing that course, If their free course is this much knowledge rich how will be their paid services. And then i subscribed to their pro-plus plan and now i am a pro in problem solving in Hacker rank. I encourage everyone to do at least the pro plan if not just do the free ones and build your skills.",
+  "author": "Md. Shahriar Mehedi",
+  "authorImg": "https://lh3.googleusercontent.com/a-/AOh14GiTz4E-pqslss2GSizlLW8H-ITWt5ENoN34hSGLQQ=s96-c",
+  "authorEmail": "sau.shahriar@gmail.com",
+  "featured": false,
+  "status": true,
+  "loves": 10,
+  "views": 15,
+  "createdAt": {
+    "$date": "2022-03-24T07:20:06.036Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-02T06:03:41.809Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "623c1ba64bdf7ba193da99ac"
+  },
+  "category": "question",
+  "title": "7 Best Courses to learn Data Structure and Algorithms",
+  "desc": "Hello guys, both Data Structures and Algorithms are one of the most essential topics for programmers and if you want to learn Data Structure and Algorithms in 2022 then you have come to the right place.The best thing about them is that they never get out-of-date, and any investment you made in terms of time and money will pay rich dividends for a long time. I have also found that people good at algorithms and data structures are often a better programmer than others.They tend to improve your programming skill and coding sense, and that’s the main reason I suggest all kinds of programmers, from junior to senior to spend some time revising, refreshing, and honing your data structure and algorithm skills.Most of us first heard about them in school and colleges but didn’t understand at that time. At least I can say that to me. I first heard about the array and linked list of my engineering college. That time I didn’t know what is the real use of an array and linked list because most of the questions we face were based on theoretical knowledge without any practical application.",
+  "author": "Mostofa Kabir",
+  "authorImg": "https://lh3.googleusercontent.com/a-/AOh14GgBatGa7L8rJ0UOGY8EWu8vFQuOz8eQ0Ol0V00czA=s96-c",
+  "authorEmail": "mksunnybd@gmail.com",
+  "featured": false,
+  "status": true,
+  "loves": 15,
+  "views": 13,
+  "createdAt": {
+    "$date": "2022-03-24T07:20:06.036Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-17T15:32:41.487Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "623c1ba64bdf7ba193da99ab"
+  },
+  "category": "learning",
+  "title": "Please anyone help me suggesting a course to be good in python",
+  "desc": "Guys i want to learn programming, but i am not from computer sicence background. And i have zero knowledge about programming so which language should i learn as a complete newbie, some says i should start with java, some says i should have start with c or c++. So my learned fellow brothers and sisters please suggest me which language should i dive in as a beeginer. Thanks all in advance.",
+  "author": "Iftikhar Rasha",
+  "authorImg": "https://lh3.googleusercontent.com/a-/AOh14GiJciuAieUfN7fxxRp83rvylW9aB8EGH2eMRLhr8Mk=s96-c",
+  "authorEmail": "iftikharrasha@gmail.com",
+  "featured": false,
+  "status": true,
+  "loves": 10,
+  "views": 25,
+  "createdAt": {
+    "$date": "2022-03-24T07:20:06.036Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-17T15:32:37.863Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "623c1ba64bdf7ba193da99aa"
+  },
+  "category": "question",
+  "title": "Which should I follow object oriented language c# or python?",
+  "desc": "I have a question that is bugging me a lot lately. the question is which language should I follow for object oriented language c# and python.i have knowledge about c nad c++ but no knowledge on c# and also i have a little knowledge on python. So which language should I learn for objec oriented language? Please help me, I have the pro-plus subcription so course costing is not an issue for me.",
+  "author": "Jahidul islam",
+  "authorImg": "https://lh3.googleusercontent.com/a-/AOh14GjIyx0KzFymFQKXUGq5-3myNWK7HtnPha9h4BMc=s96-c",
+  "authorEmail": "info.jahidulislamjahid@gmail.com",
+  "featured": false,
+  "status": true,
+  "loves": 11,
+  "views": 11,
+  "createdAt": {
+    "$date": "2022-03-24T07:20:06.036Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-18T21:32:43.686Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "623c1ba64bdf7ba193da99b0"
+  },
+  "category": "learning",
+  "title": "Optimize React Application Performance",
+  "desc": "Today we will learn about Optimize React Application Performance in this tutorial.\n\nReact.Js is an open-source JavaScript UI library for building user interfaces. Nowadays React is the most popular for frontend design. It’s especially used to building single-page applications. You can create large applications in React that can transform data without reloading the page. The main purpose of React is fast, scalable, and simple. Literally, React has the ability to use several clever technics to minimize costly DOM operations required to update the UI. But for some large applications, you need to optimize your React application performance. There are several ways to speed up your React applications, let’s learn about them -\n\nImmutable Data Structures - Data immutability is an inflexible way of writing code. It has many benefits such as Zero side effects, Easier to track changes, Simpler to create, test and use.\nProduction Build - If you are experiencing performance problems in React assure that you are testing with the minified production build.\nDependency Optimization - It means removing the methods/functions that you never used in your application. It will optimize the bundle size.\nMemorize React Components - Use the useMemo() hook to memorize/store the expensive functions result to use when the same input occurs again.\nAnimations - There are many packages/libraries for Animations. So don’t use CSS Animations instead use those libraries or packages.\nAvoid using Index as key - Using the key as the index can show wrong data as it is being used to identify DOM elements.\nReact.PureComponent - React.PureComponent optimizes components by reducing wasted renders.\nVirtualize Long List - It’s a way to improve performance when rendering a long list of data.\nServer-Side Rendering - Server-side rendered applications have a better user experience because users receive viewable content faster than client-side rendered applications.\nLazy Loading - If you use numerous images in an application then you should use Lazy Loading to avoid rendering all of the images at once to improve the page load time.\nMultiple Chunk Files - If you split your large files into smaller files it will help the browser to catch less and reduce loading time.\nReselect in Redux - It’s a simple selector library for Redux, it’s used for building memorized selectors.\nUsing a CDN - CDN delivers static content more quickly and efficiently.\nWeb Worker - JavaScript is single-threaded. To prevent slowed/ blocked down, web workers run a script in background threads. We can create & run it parallel to the main thread without hampering the UI flow.\nuseCallback() - It’s same like useMemo() but useMemo() memorize the results and useCallback() memorize the function declarations.\nThere are many ways to optimize a react application. You have to know the core concepts about React after optimization. Optimization without measuring is almost premature, so you should measure performance first so that you can easily figure it out.\n\nThanks for reading this tutorial.\n\nPosted by Iftakher Hossen\nOriginal Post on https://dev.to/iftakher_hossen/optimize-react-application-performance-467d",
+  "author": "Md. Shahriar Mehedi",
+  "authorImg": "https://lh3.googleusercontent.com/a-/AOh14GiTz4E-pqslss2GSizlLW8H-ITWt5ENoN34hSGLQQ=s96-c",
+  "authorEmail": "sau.shahriar@gmail.com",
+  "featured": false,
+  "status": true,
+  "loves": 11,
+  "views": 49,
+  "createdAt": {
+    "$date": "2022-03-24T07:20:06.036Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-17T15:32:36.096Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "623c1ba64bdf7ba193da99af"
+  },
+  "category": "learning",
+  "title": "Redux Toolkit — The cheat sheet for Redux development",
+  "desc": "Managing the state and configuring the redux store with too much boilerplate code can be a huge challenge. Also it requires too many packages to be added for different purposes which is a common concern for the developers out there. Redux-Toolkit on the other hand solves these issues when it comes to redux development by speeding up the process.\n\nIt is always encouraged to use Redux Toolkit since it gives us a clean coding convention which makes the complex system more manageable and boosts the process. Also the package Redux-thunk is already installed inside of it which is a cherry on the top when it comes to work with API’s.\nIf you are a beginner in redux and want to learn the core concepts of it before stepping into redux toolkit I’d recommend you to go through the article I’ve published at devgenious below and come back to this blog to get started with redux toolkit.\n\nAlso dropping here this simple “Book Shelf” project from my github that I’m using as an example to demonstrate redux toolkit on this article so that you can check out the code as well as the folder setup whenever you want. There are separate branches on this project for core redux, redux-toolkit and redux-thunk so you can toggle them and learn their differences in a single project.\n\nSo let’s get started from installation process! With just one command we can install all the packages we need to get our hands dirty with Redux-toolkit. This will ease our pain and install everything that we need.\n\nNow that redux-toolkit is installed, we do not have to worry about creating actions, reducers etc. separately from scratch rather we just have to follow the toolkits coding conventions and give our input there. It’s that simple.\nSlice: While working on redux-toolkit instead of creating separate actions and reducers we will create a slice with createSlice function. A “slice” in redux-toolkit is a collection of actions and reducer’s logic wrapped up inside the same file for your app. We will create as many slices as we want inside of our slices folder.\nSay for example we are working with books, so books can have different actions and reducers so we will create a slice named after bookSlice and define the actions and reducers inside of it.\n\nHere we’ve created a bookSlice and given it a name and then stored it’s initialState property coming from our fakeData. (We will see how we can fetch data from our API with redux-thunk in the later part of this article. Just keeping it simple for now).\n\nAfter that we will be adding reducers:\nNow looking at this setup above you might be asking where our actions are? All we can see is a reducers, right? Fun part here is we can write the name of reducers as plural which seems like actions themselves. It actually performs the action and reducer in the same method. This is the significance of react-toolkit. It helps us write less code. We can write more reducers if needed.\nAnother cool thing about this reducer function is it let’s us mutate directly which wasn’t possible before. Thanks to the “Immer Library” installed inside of the redux-toolkit. That’s why instead of copying a state by ternary operator we can directly push an element to the array since it is mutable here. We couldn’t have done it before!\n\nI will cover Redux Persist and it’s core implementations on a separate blog. Big appreciation if you read till this snippet, if you find this useful and informative drop a clap! Thank you.\n",
+  "author": "Iftikhar Rasha",
+  "authorImg": "https://lh3.googleusercontent.com/a-/AOh14GiJciuAieUfN7fxxRp83rvylW9aB8EGH2eMRLhr8Mk=s96-c",
+  "authorEmail": "iftikharrasha@gmail.com",
+  "featured": false,
+  "status": true,
+  "loves": 12,
+  "views": 25,
+  "createdAt": {
+    "$date": "2022-03-24T07:20:06.036Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-09T14:33:51.043Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "623c1ba64bdf7ba193da99ae"
+  },
+  "category": "learning",
+  "title": "Http Requests using Fetch API and Axios",
+  "desc": "Hi meows! In this tutorial we’ll be discussing how fetch and axios works individually, learn how to fetch data from an HTTP server in a reactJS application using fetch / axios, why axios is preferred over fetch. We’ll also be highlighting the major differences between the both these API’s.Why do we need Fetch or Axios? One of the fundamental tasks of any web application is to communicate with servers through the HTTP protocol. This can be easily achieved using Fetch or Axios.It’s simple fetch / Axios are used to fetch the data from the API endpoint (i.e to make AJAX calls) asynchronously, so the developer can integrate it in their application.Fetch and Axios are very similar in functionality. Some developers prefer Axios over built-in APIs for its ease of use. However, Fetch API is perfectly capable of reproducing the key features of Axios.Now we’ll be discussing the workflows of fetch and axios separately to understand them better when we do an individual comparison analysis towards the end of the article.the fetch API provides a JS interface for accessing and manipulating parts of the HTTP pipeline such as requests and responses. its also provides a global fetch() method that provides an easy and logical way to fetch resources asynchronously across the network.The Fetch API provides a fetch() method defined on the window object. It also provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline (requests and responses).The fetch method has one mandatory argument- the URL of the resource to be fetched. This method returns a Promise that can be used to retrieve the response of the request.Fetch is supported in the latest versions of Chrome, Firefox, Safari and Opera. However, it is not supported in IE 11. To make it work there, you have to include some polyfills like isomorphic-fetch.",
+  "author": "Iftikhar Rasha",
+  "authorImg": "https://lh3.googleusercontent.com/a-/AOh14GiJciuAieUfN7fxxRp83rvylW9aB8EGH2eMRLhr8Mk=s96-c",
+  "authorEmail": "iftikharrasha@gmail.com",
+  "featured": false,
+  "status": true,
+  "loves": 11,
+  "views": 55,
+  "createdAt": {
+    "$date": "2022-03-24T07:20:06.036Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-18T21:05:08.731Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "623c1ba64bdf7ba193da99ad"
+  },
+  "category": "general",
+  "title": "Next 10 years of Node.js — Understanding the needs of the Node.js constituencies",
+  "desc": "TLDR; We need your help to make sure the Next 10 years of Node.js are as successful as the first. We are launching a survey, you can take it here to help us do that. To get a bit more context on why this survey is important, read on….Node.js had a very successful first 10 years of Node.js and the project is working to make the next 10 years even better. As part of that we’ve kicked off the Next-10 effort to document what we think is important for that to happen. You can follow the ongoing work of that team in this repo: https://github.com/nodejs/next-10.Without a handy crystal ball, it turns out that it’s a lot harder than just diving in and discussing our favorite technologies to see what the keys to success are going to be. Are things like WebAssembly, Typescript, etc. important to the people who use Node.js? I guess we need to better understand/document who uses Node.js first.So far the team has spent most of its time laying the foundation on which we hope to base discussions around specific technologies.We started by documenting our understanding of the project’s technical values as these will help us balance different aspects when necessary: https://github.com/nodejs/node/blob/master/doc/guides/technical-values.md. It’s not as simple as X overrides Y but instead highlight what key values need to be factored into decisions. For example, there was consensus that good developer experience has been a key part of the success of Node.js and that it’s important for future success that we maintain that.",
+  "author": "Iftikhar Rasha",
+  "authorImg": "https://lh3.googleusercontent.com/a-/AOh14GiJciuAieUfN7fxxRp83rvylW9aB8EGH2eMRLhr8Mk=s96-c",
+  "authorEmail": "iftikharrasha@gmail.com",
+  "featured": false,
+  "status": true,
+  "loves": 10,
+  "views": 77,
+  "createdAt": {
+    "$date": "2022-03-24T07:20:06.036Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-09T14:33:51.873Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "624c12c334762a1ebb022b87"
+  },
+  "category": "learning",
+  "title": "Top Interview Questions - HTML",
+  "desc": "1. What is the difference between HTML4 & HTML5?\nAns: The main difference between HTML 4 and HTML 5 is that HTML 4 is the older version of HTML with fewer features and tags and HTML5 is the new version with simple features and new tags.\n\n2. What are semantic tags in HTML? Give me some examples.\nAns: A semantic tag clearly describes its meaning to both developers and browsers. It’s the new feature of HTML5. Such as article, table, form, nav, figure, header, footer, section, and time.\n\n3. What is the purpose of Article, div, section, nav, aside?\nAns: The purpose of Article is it represents independent self-contained content. Div is like a box it holds provided contents. It’s a block element. Section is like a container that holds many divs, header, and footer. Nav represents a section where you can get all navigation links. Aside represents a section of a page whose content is indirectly related to the main content.\n\n4. Why will you use the Meta tag?\nAns: Meta tags impact your traffic and engagement rates. Meta tags are an important part of a solid SEO strategy.\n\n5. What is the difference between inline, inline-block, and block?\nAns: Inline means it will occupy the initial width of the element. Inline-Block means it will occupy the whole line. Block means it will occupy the full available width.\n\n6. Difference between strong, b, bold, em, i?\nAns: b, bold, i mean you want the text to be displayed as Bold and Italic. Strong and em means you want the text to be displayed in a way that the user understands the importance.\n\n7. What are the properties and attributes in HTML?\nAns: Properties are defined by Document Object Model and Attributes are defined by HTML. Properties are the results of an object and attributes are the additional information.\n\n8. What is a Viewport?\nAns: Viewport is the visible part of the window screen. It depends on monitor size.\n\n9. What is the difference between the ‘id’ attribute and the ‘class’ attribute of HTML elements?\nAns: You can use id only once. But you can use the class many times. Id defines a unique value, whereas class defines common values.\n\n10. Explain the concept of web storage in HTML5?\nAns: Web storage helps to store data in browsers. There are two types of web storage that are used to store data in HTML5. And they are -\nLocal Storage: Local storage stores data till you delete it.\nSession Storage: Session storage deletes data when the user closes the browser. It’s one time.\n\n11. What is Microdata in HTML?\nAns: It helps site crawlers and search engines to extract data.\n\n12. What are Applets in HTML?\nAns: It's a small program that can be embedded within the web pages that are used for some specific functionality. Applets are written in Java Language.\n\n13. What is the canvas element in HTML?\nAns: It helps you to create charts, graphs, and 2D images in HTML.\n\n14. What is the image map?\nAns: You can make a single image addressing many links with Image Map.\n\n15. What is the purpose of using alternative texts in the images?\nAns: The purpose of alternative texts is to define the image in one word.\n\n\nPosted by Iftakher Hossen\n3.58 PM | 05-April-2022",
+  "author": "Iftakher Hossen",
+  "authorImg": "https://lh3.googleusercontent.com/a-/AOh14GjZw-YPBE0LrVrSR9k-uIErlu85PVwIem08h4wlbn0=s96-c",
+  "authorEmail": "iftakher.one@gmail.com",
+  "featured": false,
+  "status": true,
+  "loves": 10,
+  "views": 36,
+  "createdAt": {
+    "$date": "2022-04-05T09:58:27.531Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-06T09:33:46.175Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62e6d4d836e996935b2b4ebe"
+  },
+  "category": "welcome",
+  "title": "gfhg",
+  "desc": "fdgsdafasdfsdafasd",
+  "author": "Muhammad Shafi",
+  "authorImg": "https://lh3.googleusercontent.com/a-/AFdZucopua7fdwpynFIs9nmGmVWU2JT1-6OEKWUNFrQcqA=s96-c",
+  "authorEmail": "shahedali734@gmail.com",
+  "featured": false,
+  "status": false,
+  "loves": 1,
+  "views": 2,
+  "createdAt": {
+    "$date": "2022-07-31T19:15:36.061Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-26T09:10:21.182Z"
+  },
+  "__v": 0
+},
+
+{
+  "_id": {
+    "$oid": "635f512159332b7385988220"
+  },
+  "category": "learning",
+  "title": "Explore Express.js",
+  "desc": "Today we will learn about the Node.Js web application framework Express.Js.\n\nWhat is Express.js?\nExpress.js is a free, open-source, simple, tiniest web application framework of Node.js. It is used for backend design & development. Express.js requires only JavaScript that’s why it’s easier to build single-page, multiple-page, hybrid web applications & API without any effort. Express.js supports MVC architecture.\n\nWhy we should use Express.js?\nJavaScript has Node.js for backend development. Node.js has many frameworks to make easier backend development. Such as Express.js, Koa.js, Meteor.js, Nest.js, Socket.io, Total.js, etc. So, if you are a JavaScript developer then it’s easier for you to use Express.js for backend development. Express.js offers simplicity, flexibility, efficiency, minimalism, and scalability that’s why it’s more popular.\n\nFeatures\nExpress.js has many features. Let’s learn about them -\n\nMiddleware - Middleware is a function that is used to get access request and response objects.\nFaster server-side development - Express.js provides many readymade functions from Node.js it’s made easier to develop.\nRouting - Express.js provides an admiringly advanced routing mechanism.\nTemplating - Template engines allow you to build dynamic content in web applications.\nDebugging - Express.js has a debugging mechanism that can find bugs easily.\nAdvantages\nExpress.js is fast & easier to learn.\nIt’s easier to configure & customize.\nHuge community support.\nSupported by Google V8 Engine.\nEasy to connect with databases such as MongoDB, MySQL, etc.\nEasy to integrate with different templates.\nAllows you to define routes based on HTTP methods & URLs.\nEasy to serve static files and resources.\nFlexible middleware module.\nDisadvantages\nThere are problems with the callback or event-driven nature but the last update of Node.js brings async/await that prevents this problem.\nClient request problem with middleware system.\nHow to Install Express\nInstall with npm - npm install express -g\n\nHow to Start\nFirst, create a directory named simpleExpress. Change to it, and run npm init. Then install express as a dependency. In the directory create a file named index.js and write the following code.\n\nExpress Example Code\n\n\nHello World Example with Express.js\nRun the app with the following command - $ node index.js\nThen open the browser and visit “localhost:5000” to see the output.\n\nVisit Express.js official site to read documentations and know more in details.\n\nThanks for reading this tutorial!\n\n\nWritten By Iftakher Hossen\nOriginal Post - https://dev.to/iftakher_hossen/explore-expreesjs-4mjo",
+  "author": "Kaizen IT Students",
+  "authorImg": "https://lh3.googleusercontent.com/a/ALm5wu1UxKqPgDPnOjXVmxoMD4slM46dE5l2wDxGTRzm=s96-c",
+  "authorEmail": "kaizenitstudents@gmail.com",
+  "featured": false,
+  "status": false,
+  "loves": 1,
+  "views": 1,
+  "createdAt": {
+    "$date": "2022-10-31T04:37:53.328Z"
+  },
+  "updatedAt": {
+    "$date": "2022-10-31T04:38:37.681Z"
+  },
+  "__v": 0
+}]

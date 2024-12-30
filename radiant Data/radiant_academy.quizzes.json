@@ -1,0 +1,208 @@
+[{
+  "_id": {
+    "$oid": "6227c5cbd83040bb724cfb0e"
+  },
+  "courseId": "62210778b2708b4fc8ba9c64",
+  "questionText": "Fill in the blank. Javascript is a ____?",
+  "totalSurveySteps": 2,
+  "surveyStep": 1,
+  "isFinalQuestion": false,
+  "options": [
+    {
+      "answerText": "Framework",
+      "answerNo": 1,
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6227c5cbd83040bb724cfb0f"
+      }
+    },
+    {
+      "answerText": "Compiler",
+      "answerNo": 2,
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6227c5cbd83040bb724cfb10"
+      }
+    },
+    {
+      "answerText": "Programming Language",
+      "answerNo": 3,
+      "isCorrect": true,
+      "_id": {
+        "$oid": "6227c5cbd83040bb724cfb11"
+      }
+    },
+    {
+      "answerText": "Library",
+      "answerNo": 4,
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6227c5cbd83040bb724cfb12"
+      }
+    }
+  ],
+  "answer": 3,
+  "createdAt": {
+    "$date": "2022-03-08T21:08:27.183Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-08T21:08:27.183Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6227c5fcd83040bb724cfb14"
+  },
+  "courseId": "62210778b2708b4fc8ba9c64",
+  "questionText": "State can be managed by ____?",
+  "totalSurveySteps": 2,
+  "surveyStep": 2,
+  "isFinalQuestion": true,
+  "options": [
+    {
+      "answerText": "Redux",
+      "answerNo": 1,
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6227c5fcd83040bb724cfb15"
+      }
+    },
+    {
+      "answerText": "Props",
+      "answerNo": 2,
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6227c5fcd83040bb724cfb16"
+      }
+    },
+    {
+      "answerText": "Context API",
+      "answerNo": 3,
+      "isCorrect": false,
+      "_id": {
+        "$oid": "6227c5fcd83040bb724cfb17"
+      }
+    },
+    {
+      "answerText": "All of them above",
+      "answerNo": 4,
+      "isCorrect": true,
+      "_id": {
+        "$oid": "6227c5fcd83040bb724cfb18"
+      }
+    }
+  ],
+  "answer": 4,
+  "createdAt": {
+    "$date": "2022-03-08T21:09:16.341Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-08T21:09:16.341Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "623d656e49aef0ca75bc3410"
+  },
+  "courseId": "62210973b2708b4fc8ba9c78",
+  "questionText": "Which property references the DOM object that dispatched an event?",
+  "totalSurveySteps": 2,
+  "surveyStep": 1,
+  "isFinalQuestion": false,
+  "options": [
+    {
+      "answerText": "self",
+      "answerNo": 1,
+      "isCorrect": false,
+      "_id": {
+        "$oid": "623d656e49aef0ca75bc3411"
+      }
+    },
+    {
+      "answerText": "object",
+      "answerNo": 2,
+      "isCorrect": false,
+      "_id": {
+        "$oid": "623d656e49aef0ca75bc3412"
+      }
+    },
+    {
+      "answerText": "target",
+      "answerNo": 3,
+      "isCorrect": true,
+      "_id": {
+        "$oid": "623d656e49aef0ca75bc3413"
+      }
+    },
+    {
+      "answerText": "source",
+      "answerNo": 4,
+      "isCorrect": false,
+      "_id": {
+        "$oid": "623d656e49aef0ca75bc3414"
+      }
+    }
+  ],
+  "answer": 3,
+  "createdAt": {
+    "$date": "2022-03-25T06:47:10.666Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-25T06:47:10.666Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "623d668549aef0ca75bc3416"
+  },
+  "courseId": "62210973b2708b4fc8ba9c78",
+  "questionText": "Which method converts JSON data to a JavaScript object?",
+  "totalSurveySteps": 2,
+  "surveyStep": 2,
+  "isFinalQuestion": true,
+  "options": [
+    {
+      "answerText": "JSON.fromString();",
+      "answerNo": 1,
+      "isCorrect": false,
+      "_id": {
+        "$oid": "623d668549aef0ca75bc3417"
+      }
+    },
+    {
+      "answerText": "JSON.parse()",
+      "answerNo": 2,
+      "isCorrect": true,
+      "_id": {
+        "$oid": "623d668549aef0ca75bc3418"
+      }
+    },
+    {
+      "answerText": "JSON.toObject()",
+      "answerNo": 3,
+      "isCorrect": false,
+      "_id": {
+        "$oid": "623d668549aef0ca75bc3419"
+      }
+    },
+    {
+      "answerText": "JSON.stringify()",
+      "answerNo": 4,
+      "isCorrect": false,
+      "_id": {
+        "$oid": "623d668549aef0ca75bc341a"
+      }
+    }
+  ],
+  "answer": 2,
+  "createdAt": {
+    "$date": "2022-03-25T06:51:49.928Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-25T06:51:49.928Z"
+  },
+  "__v": 0
+}]

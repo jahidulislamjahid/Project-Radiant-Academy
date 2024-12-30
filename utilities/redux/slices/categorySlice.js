@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchCategories = createAsyncThunk(
     'category/fetchCategories',
     async () => {
-        const response = await fetch('http://localhost:3000/api/categories')
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/categories`)
             .then(res => res.json())
         return response.data
     }

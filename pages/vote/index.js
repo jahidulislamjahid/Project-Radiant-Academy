@@ -16,4 +16,14 @@ const index = () => {
     );
 };
 
+export const getServerSideProps = async () => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/vote`)
+    const vote = await res.json()
+    return {
+        props: {
+            vote,
+        }
+    }
+}
+
 export default index;

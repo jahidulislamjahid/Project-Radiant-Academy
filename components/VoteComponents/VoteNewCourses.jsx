@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 const VoteNewCourses = () => {
     const allVotes = useSelector((state) => state.votes.votesList);
     const [totalPrice, setTotalPrice] = useState(0);
+    console.log(allVotes);
+    
     useEffect(() => {
         let total = 0;
         allVotes.forEach((item, i) => {

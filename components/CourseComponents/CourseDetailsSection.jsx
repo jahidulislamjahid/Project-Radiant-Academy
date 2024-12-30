@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { FaBookmark, FaStar, FaStarHalf, FaLink } from 'react-icons/fa';
 import { BsCheck2All, BsCheck2Circle } from 'react-icons/bs';
 import ReactStars from "react-rating-stars-component";
 import Image from 'next/image';
 import Link from 'next/link';
-import CourseCard from './CourseCard';
+import { useSelector } from 'react-redux';
+import { Triangle } from 'react-loader-spinner';
 
 const CourseDetailsSection = ({ course }) => {
     const [rating, setRating] = useState(4.5);
+    const reviews = course?.data?.reviews
+    const thisUser = useSelector((state) => state.loginUser.loginUser);
+    const userEnrolled = thisUser?.enrolledCourses || [];
+
+
+    // Check if the user has purchased the course 
+    const isPurchase = userEnrolled?.some((item) => item.courseId == course.data._id);
+
+
 
     //rating system
     const ratingCount = {
@@ -27,6 +37,7 @@ const CourseDetailsSection = ({ course }) => {
     };
 
     return (
+
         <div className='bg-white dark:bg-[#2f3c4f]'>
             <div className="py-12 px-10 lg:px-32 text-white bg-slate-800 dark:bg-slate-800">
                 <div className="flex flex-col md:flex-row justify-between items-center">
@@ -35,20 +46,22 @@ const CourseDetailsSection = ({ course }) => {
                             {course?.data?.title}
                         </h1>
                         <p className="flex items-center">
-                            <FaBookmark className="text-orange-500" /> &nbsp; Radiant Academy Certificate Included
+                            <FaBookmark className="text-orange-500" /> &nbsp; {course?.data?.subtitle}
                         </p>
-                        <div className="flex items-center text-rose-500 my-3">
-                            <span className="flex items-center text-2xl"><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf /></span>
-                            <span className="text-white text-[1em]">(45)</span>
-                        </div>
-                        <p className="text-sm mt-2">● 10 Quizzes ● 10 Articles ● 10 Problem Solving</p>
+
+
                     </div>
                     <div className="flex flex-col py-10 md:py-0">
                         <div className='text-3xl font-bold py-3 text-center'>
-                            <h2> <span>$</span> {course?.data?.price}</h2>
+                            {isPurchase ? '' :
+                                <h2> <span>৳</span> {course?.data?.price}</h2>
+                            }
                         </div>
-                        <Link href={`/courses/payment/${course?.data._id}`} passHref><button className="bg-rose-500 px-5 py-3 text-white uppercase rounded-md font-medium">Enroll Now</button></Link>
-                        <p className="text-sm text-stone-300 mt-4 mx-4">* <span className='text-orange-500'>1025</span> Already Enrolled!</p>
+                        {
+                            isPurchase ? <h1 className='text-rose-500'>You are already in this course</h1> :
+                                <Link href={`/courses/payment/${course?.data?._id}`} passHref><button className="bg-rose-500 px-5 py-3 text-white uppercase rounded-md font-medium">Enroll Now</button></Link>
+                        }
+                        <p className="text-sm text-stone-300 mt-4 mx-4">* <span className='text-orange-500'>{course?.data?.enrolled}</span> Already Enrolled!</p>
                     </div>
                 </div>
             </div>
@@ -64,13 +77,20 @@ const CourseDetailsSection = ({ course }) => {
                 <div className="mt-8 py-8">
                     <section id="#about-the-course">
                         <div className='flex justify-center pb-14'>
-                            <Image
-                                src={course?.data?.image}
-                                alt="Course Cover"
-                                height="330px"
-                                width="600px"
-                                draggable="false"
-                            />
+                            {
+                                isPurchase ?
+                                    <iframe
+                                        width="1200"
+                                        height="600"
+                                        src={course?.data?.courseVideo}
+                                        title="YouTube video player"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                        draggable="false"
+                                    ></iframe> : <h1 className='font-bold text-rose-500 animate-[pulse_1s_ease-in-out_infinite] mb-5 text-center'>**** Plese Enroll to watch video ***</h1>
+
+                            }
                         </div>
                         <div className="flex items-center">
                             <div>
@@ -85,7 +105,7 @@ const CourseDetailsSection = ({ course }) => {
                         </div>
                         <hr className="my-3" />
                         <div>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&apos;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&apos;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&apos;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                            <p>{course?.data?.description}</p>
                         </div>
                     </section>
                 </div>
@@ -150,47 +170,40 @@ const CourseDetailsSection = ({ course }) => {
                         </div>
                         <div>
                             <div className="p-2 sm:p-5 flex items-start">
-                                <div className="px-2 pt-1.5 block w-[70px]">
-                                    <Image
-                                        src="https://i.postimg.cc/4dNK0r0W/people-1.png"
-                                        alt="User Picture"
-                                        height="100px"
-                                        width="100px"
-                                    />
-                                </div>
-                                <div className="w-full">
-                                    <div className="flex items-baseline flex-wrap sm:flex-row px-2">
-                                        <h4 className="text-xl">Iftakher Hossen</h4>
-                                        &nbsp; - &nbsp;
-                                        <p className="text-stone-400">a day ago</p>
-                                    </div>
-                                    <p className="text-sm px-2 pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque maxime natus sit mollitia odit cumque?</p>
-                                    <div className="ratings flex">
-                                        <ReactStars {...ratingCount} value={rating} edit={false} />
-                                    </div>
-                                </div>
+
+                                {
+                                    reviews && (
+                                        reviews.map(review =>
+                                            <div key={review}>
+
+                                                <div className="p-2 sm:p-5 flex items-start">
+                                                    <div className="px-2 pt-1.5 block w-[100px]">
+                                                        <Image
+                                                            className='rounded-2xl'
+                                                            src={review?.img}
+                                                            alt="User Picture"
+                                                            height={100}
+                                                            width={100}
+                                                        />
+                                                    </div>
+                                                    <div className="w-full">
+                                                        <div className="flex items-baseline flex-wrap sm:flex-row px-2">
+                                                            <h4 className="text-xl">{review?.name}</h4>
+                                                            &nbsp; - &nbsp;
+                                                            <p className="text-stone-400">2 days ago</p>
+                                                        </div>
+                                                        <p className="text-sm px-2 pt-1">{review?.reviewTxt}</p>
+                                                        <div className="ratings flex">
+                                                            <ReactStars {...ratingCount} value={rating} edit={false} />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    )
+                                }
                             </div>
-                            <div className="p-2 sm:p-5 flex items-start">
-                                <div className="px-2 pt-1.5 block w-[70px]">
-                                    <Image
-                                        src="https://i.postimg.cc/4dNK0r0W/people-1.png"
-                                        alt="User Picture"
-                                        height="100px"
-                                        width="100px"
-                                    />
-                                </div>
-                                <div className="w-full">
-                                    <div className="flex items-baseline flex-wrap sm:flex-row px-2">
-                                        <h4 className="text-xl">Iftakher Hossen</h4>
-                                        &nbsp; - &nbsp;
-                                        <p className="text-stone-400">2 days ago</p>
-                                    </div>
-                                    <p className="text-sm px-2 pt-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, natus.</p>
-                                    <div className="ratings flex">
-                                        <ReactStars {...ratingCount} value={rating} edit={false} />
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </section>
                 </div>
@@ -216,6 +229,7 @@ const CourseDetailsSection = ({ course }) => {
                 </div>
             </div>
         </div>
+
     );
 };
 

@@ -54,7 +54,7 @@ export default function EditorBox(props) {
                         lineNumbers: true
                     }}
                 />
-                <style jsx global>
+                <style >
                     {`
                         .CodeMirror {
                             font-family: monospace;

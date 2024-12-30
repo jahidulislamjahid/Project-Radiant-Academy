@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
-import { FaBookmark, FaClone, FaEdit, FaEye, FaHeart, FaPlus, FaTrashAlt } from 'react-icons/fa';
+import Link from 'next/link';
+import { FaBookmark, FaClone, FaEdit, FaHeart, FaPlus, FaTrashAlt, FaEye } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import useCrud from '../../utilities/Hooks/useCrud';
 import DashboardSidebar from './DashboardSidebar';
@@ -8,6 +9,10 @@ import DashboardSidebar from './DashboardSidebar';
 const ForumSection = () => {
     const { handleApprove, handleRemove } = useCrud();
     const allTopics = useSelector((state) => state.forums.forumsList);
+    const thisUser = useSelector((state) => state.loginUser.loginUser)
+    console.log(thisUser);
+    
+
     
     return (
         <div className='px-0 sm:px-6 lg:px-12 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200'>
@@ -18,17 +23,18 @@ const ForumSection = () => {
                 <section className='bg-white dark:bg-slate-700 shadow-md rounded-md py-8 px-5 h-auto'>
                     <div className="flex justify-between items-center px-3 mb-4">
                         <h3 className="text-2xl flex items-center"><FaClone className="mr-3" /> Forum Topics</h3>
-                        <Link href="/dashboard/forums/add-topic" passHref>
+
+                        <Link href={`${thisUser? '/dashboard/forums/add-topic' : '/login'}`} passHref>
                             <button className="flex items-center btn"><FaPlus className="text-sm mr-2" /> Add Topics</button>
                         </Link>
+
                     </div>
                     <section className="overflow-x-auto">
                         <div>
                             {
                                 allTopics.map(forum => (
-                                    <div className='container 
-                                    grid md:grid-cols-7 xs:grid-cols-1 align-center items-center justify-between px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={forum._id}>
-                                        <div className='col-span-3'>
+                                    <div className='container grid md:grid-cols-6 xs:grid-cols-1 px-5 bg-white dark:bg-slate-600 rounded-md mb-2 py-4 shadow-md dark:shadow-slate-600' key={forum._id}>
+                                        <div className='col-span-2'>
                                             <h2 className='inline-flex'><span className="text-orange-500 my-auto mr-1.5">
                                                 <FaBookmark />
                                                 </span>

@@ -4,6 +4,8 @@ import { FaArrowRight } from 'react-icons/fa';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import useAuth from "../../utilities/Hooks/useAuth";
+import bannerIMG from "../../public/img/bannerImg.svg"
 
 const HeroSection = () => {
     var settings = {
@@ -37,6 +39,11 @@ const HeroSection = () => {
         ],
     };
 
+    const { user } = useAuth();
+
+
+    
+
     return (
         <>
             <div className="bg-white dark:bg-slate-800">
@@ -48,21 +55,36 @@ const HeroSection = () => {
                                     <div>
                                         <h2 className="text-5xl md:text-6xl font-bold text-violet-800 dark:text-violet-400">Problem Solving</h2>
                                         <p className="py-5 text-2xl lg:w-3/4 xl:w-1/2">We have got 20+ online solutions for programmers, who is excited?</p>
+                                        <Link passHref href={`${user ? '/code-editor' : '/register'}`}>
+                                            <button className="bg-rose-500 animate-[pulse_2s_ease-in-out_infinite] rounded-md text-white px-7 py-3 my-5 flex justify-center items-center">
+                                                Try it out &nbsp; <FaArrowRight style={{ fontSize: '14px', marginTop: '2px' }} />
+                                            </button>
+                                        </Link>
                                     </div>
 
 
                                     <div>
-                                        <h2 className="text-5xl md:text-6xl font-bold text-violet-800 dark:text-violet-400">Quiz System</h2>
-                                        <p className="py-5 text-2xl lg:w-3/4 xl:w-1/2">We have got 20+ online solutions for programmers, who is excited?</p>
+                                        <h2 className="text-5xl md:text-6xl font-bold text-violet-800 dark:text-violet-400">Try Our Whitebord</h2>
+                                        <p className="py-5 text-2xl lg:w-3/4 xl:w-1/2">We have a canvas, where you can Draw Imagination</p>
+                                        <Link passHref href={`${user ? '/canvas' : '/register'}`}>
+                                            <button className="bg-rose-500 animate-[pulse_2s_ease-in-out_infinite] rounded-md text-white px-7 py-3 my-5 flex justify-center items-center">
+                                                Try it out &nbsp; <FaArrowRight style={{ fontSize: '14px', marginTop: '2px' }} />
+                                            </button>
+                                        </Link>
                                     </div>
 
 
                                     <div>
-                                        <h2 className="text-5xl md:text-6xl font-bold text-violet-800 dark:text-violet-400">Code Editor</h2>
-                                        <p className="py-5 text-2xl lg:w-3/4 xl:w-1/2">We have got 20+ online solutions for programmers, who is excited?</p>
+                                        <h2 className="text-5xl md:text-6xl font-bold text-violet-800 dark:text-violet-400">Comunity</h2>
+                                        <p className="py-5 text-2xl lg:w-3/4 xl:w-1/2">Take a look to our Forum coummity, Share your thought</p>
+                                        <Link passHref href={`${user ? '/forum' : '/register'}`}>
+                                            <button className="bg-rose-500 animate-[pulse_2s_ease-in-out_infinite] rounded-md text-white px-7 py-3 my-5 flex justify-center items-center">
+                                                Try it out &nbsp; <FaArrowRight style={{ fontSize: '14px', marginTop: '2px' }} />
+                                            </button>
+                                        </Link>
                                     </div>
                                 </Slider>
-                                <style jsx global>
+                                <style >
                                     {`
                                         .slick-list{
                                             padding-bottom: 0 !important;
@@ -70,18 +92,14 @@ const HeroSection = () => {
                                     `}
                                 </style>
                             </div>
-                            <Link passHref href="/register">
-                                <button className="bg-rose-500 animate-[pulse_2s_ease-in-out_infinite] rounded-md text-white px-7 py-3 my-5 flex justify-center items-center">
-                                    Try it out &nbsp; <FaArrowRight style={{ fontSize: '14px', marginTop: '2px' }} />
-                                </button>
-                            </Link>
+
                         </div>
                         <div className="w-5/6 lg:w-[50%] py-5">
                             <div className="w-5/6 mx-auto">
                                 <Image
-                                    src="https://i.postimg.cc/qR1FkLYw/hero.png"
-                                    width="500"
-                                    height="432"
+                                    src={bannerIMG}
+                                    width={600}
+                                    height={500}
                                     alt="Hero Image"
                                     draggable="false"
                                 />

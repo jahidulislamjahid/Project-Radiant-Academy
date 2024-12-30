@@ -34,9 +34,9 @@ const DashboardSidebar = () => {
                     <FaFolder className="mr-5" /> Forum
                 </button>
             </Link>
-            <button className="btn-ghost w-full px-4 py-1 rounded-full dark:hover:text-slate-500 hover:bg-slate-200 text-lg text-left flex items-center my-1">
+            {/* <button className="btn-ghost w-full px-4 py-1 rounded-full dark:hover:text-slate-500 hover:bg-slate-200 text-lg text-left flex items-center my-1">
                 <FaNewspaper className="mr-5" /> Newsletters
-            </button>
+            </button> */}
             <Link href="/dashboard/admins" passHref>
                 <button className="btn-ghost w-full px-4 py-1 rounded-full dark:hover:text-slate-500 hover:bg-slate-200 text-lg text-left flex items-center">
                     <FaUserCog className="mr-5" /> Admins

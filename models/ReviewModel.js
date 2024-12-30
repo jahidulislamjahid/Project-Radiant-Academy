@@ -26,6 +26,19 @@ const ReviewSchema = new mongoose.Schema({
         required: true,
     },
 
+    commentorEmail:{
+        type: String,
+        required: true,
+    },
+    commentorName : {
+        type: String,
+        required: true,
+    },
+    commentorPic : {
+        type: String,
+        required: true,
+    },
+
 },
 
     { timestamps: true }

@@ -1,51 +1,53 @@
 import Image from 'next/image';
-// import Lottie from 'react-lottie';
-// import animationData from '../../public/img/loading.json';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { FaBookmark, FaClock, FaHeart, FaPenNib } from "react-icons/fa";
 import ReactStars from "react-rating-stars-component";
-import { useDispatch } from 'react-redux';
-import useAuth from '../../utilities/Hooks/useAuth';
+import { useDispatch, useSelector } from 'react-redux';
+import { FcMoneyTransfer } from "react-icons/fc";
 import { fetchQuizzes } from '../../utilities/redux/slices/quizSlice';
 import ProfileDetailsSection from './ProfileDetailsSection';
+import useLoading from '../../utilities/Hooks/useLoading'
+import axios from 'axios';
 
 const ProfileSection = ({ account }) => {
-    const [rating, setRating] = useState(4.5);
-    const { user, isLoading } = useAuth();
-    const router = useRouter();
+    const { loading, LoadingIndicator } = useLoading()
+
+
+    const thisUser = useSelector((state) => state?.loginUser?.loginUser)
+    // console.log(thisUser);
+
+
+
+    const [rating, setRating] = useState(0);
     const dispatch = useDispatch();
+
+
+    const userCreatDate = new Date(thisUser?.createdAt)
+
+    const allCourses = useSelector((state) => state.courses.coursesList);
+    const purchaseCourses = thisUser?.enrolledCourses;
+    // console.log(allCourses);
+    // console.log('purchase course', purchaseCourses);
+
+
+    const totalSpend = allCourses?.filter((course) =>
+        purchaseCourses?.some((item) => item?.courseId === course?._id))?.reduce(
+            (total, course) => total + course?.price, 0);
+
 
     useEffect(() => {
         dispatch(fetchQuizzes());
     }, [dispatch]);
 
-    // const defaultOptions = {
-    //     loop: true,
-    //     autoplay: true,
-    //     animationData: animationData,
-    //     rendererSettings: {
-    //         preserveAspectRatio: 'xMidYMid slice'
-    //     }
-    // };
-
-    if (isLoading && !user.isSignedIn) {
-        return <div className="loading flex justify-center items-center min-h-screen m-auto">
-            {/* <div>
-                <Lottie options={defaultOptions}
-                    height={200}
-                    width={200} />
-            </div> */}
-        </div>
-    }
-
+   
     //rating system
     const ratingCount = {
         size: 0,
         count: 5,
         color: "black",
         activeColor: "red",
-        value: 0,
+        value: thisUser?.enrolledCourses.length,
         a11y: true,
         isHalf: true,
         emptyIcon: <i className="far fa-star" />,
@@ -56,45 +58,61 @@ const ProfileSection = ({ account }) => {
         }
     };
 
-    !user.isSignedIn && router.replace('/login');
+    // !signInUserData && router.replace('/login');
+
+    const formateDate = (date) => {
+        const dateOption = {
+            month: '2-digit',
+            day: '2-digit',
+            year: 'numeric',
+
+        }
+        return new Intl.DateTimeFormat('es-US', dateOption).format(date).replace(',', '')
+    }
+
+    const userFormatedDate = formateDate(userCreatDate)
+    
+    if (loading) {
+        return LoadingIndicator
+    }
 
     return (
         <div>
-            {user.isSignedIn &&
+            {thisUser &&
                 <div className="grid xs:grid-cols-1 md:grid-cols-4 p-8 bg-white dark:bg-slate-800 gap-5">
                     <div className="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 p-5 rounded-lg py-6 flex justify-center">
                         <div className="flex-col text-center">
                             <div>
                                 <Image
-                                    src={user.photo}
+                                    src={thisUser?.photoURL}
                                     alt="Profile Picture"
-                                    width="100px"
-                                    height="100px"
+                                    width={100}
+                                    height={100}
                                     className="rounded-full"
                                 />
                             </div>
                             <div className="py-2">
-                                <h2 className="text-xl font-bold">{user.name}</h2>
-                                <p className="text-stone-500 dark:text-stone-400">{user.email}</p>
+                                <h2 className="text-xl font-bold">{thisUser?.name}</h2>
+                                <p className="text-stone-500 dark:text-stone-400">{thisUser?.email}</p>
                             </div>
                             <div>
                                 <p className="mt-3 flex items-center mb-1">
-                                    <FaClock className="mr-2" />Joined: Feb 01, 2022
+                                    <FaClock className="mr-2" />{userFormatedDate}
                                 </p>
                                 <p className="flex items-center mb-1">
-                                    <FaPenNib className="mr-2" />Topics: 13</p>
+                                    <FaPenNib className="mr-2" />Enrolled Courses : {thisUser?.enrolledCourses.length}</p>
                                 <p className="flex items-center mb-1">
-                                    <FaHeart className="mr-2 text-rose-700 dark:text-rose-500" />Reputations: 1214
+                                    <FcMoneyTransfer className="mr-2 " />Total Spent : {totalSpend} BDT
                                 </p>
-                                <p className="flex items-center mb-1">
-                                    <FaBookmark className="mr-2 text-orange-500 dark:text-orange-400" />Rank: Collaborator
+                                <p className="flex items-center mb-1 uppercase">
+                                    <FaBookmark className="mr-2 text-orange-500 dark:text-orange-400 " />Rank : {thisUser?.role}
                                 </p>
                             </div>
                             <div className="py-3 text-center">
                                 <h5 className="text-lg">Overall Rating</h5>
                                 <div className="ratings flex">
-                                    <ReactStars {...ratingCount} value={rating} edit={false} /> (50)
-                                    <style jsx global>
+                                    <ReactStars {...ratingCount} value={thisUser.enrolledCourses.length} edit={false} /> ({thisUser?.enrolledCourses.length})
+                                    <style >
                                         {`
                                         .ratings {
                                             margin: 1rem;

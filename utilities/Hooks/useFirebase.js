@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../redux/slices/userSlice";
+import { removeAllFromCartlist } from "../redux/slices/courseSlice";
 
 initializeFirebase();
 const useFirebase = () => {
@@ -43,15 +44,16 @@ const useFirebase = () => {
                     success: true,
                     name: displayName
                 };
-                
+                localStorage.setItem('signedInUser', JSON.stringify(signedInUser));
                 setUser(signedInUser);
                 dispatch(fetchUsers());
-                router.replace(`/profile/${signedInUser.email}`);
+                router.replace(`/`);
                 toast.success("Successfully signed in!", {
                     position: "top-center"
                 });
             })
             .catch((error) => {
+                console.log(error);
                 setAuthError(error.message)
             })
             .finally(() => setIsLoading(false))
@@ -61,13 +63,21 @@ const useFirebase = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('');
+                console.log(userCredential);
+                const { accessToken } = userCredential?.user
+                console.log('token', accessToken);
+
+                const userPic = 'https://i.ibb.co.com/TwS4rK9/2289-Sk-VNQSBGQU1-PIDEw-Mjgt-MTIy.png'
                 const newUser = { email, displayName: name };
+                saveUser(email, name, userPic, accessToken, 'POST');
+
                 setUser(newUser);
                 // save user to the database
                 // saveUser(email, name, 'POST');
                 // send name to firebase after creation
                 updateProfile(auth.currentUser, {
-                    displayName: name
+                    displayName: name,
+                    email: email
                 }).then(() => {
                 }).catch((error) => {
                 });
@@ -86,12 +96,23 @@ const useFirebase = () => {
         signInWithPopup(auth, githubProvider)
             .then((result) => {
                 // The signed-in user info.
-                const user = result.user;
-                setUser(user);
-                router.replace('/profile');
+                const { accessToken, email, displayName, photoURL } = result?.user
+                console.log(accessToken, email, displayName, photoURL);
+                const signedInUser = {
+                    isSignedIn: true,
+                    email: email,
+                };
+                localStorage.setItem('signedInUser', JSON.stringify(signedInUser));
+
+                // const user = result.user;                
+                saveUser(email, displayName, photoURL, accessToken, 'POST');
+                // setUser(user);
+                router.replace('/');
                 setAuthError('');
             })
             .catch((error) => {
+                console.log(error.message);
+
                 setAuthError(error.message)
             })
 
@@ -122,8 +143,17 @@ const useFirebase = () => {
 
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const destination = location?.state?.from || '/';
-                history.replace(destination);
+                console.log(userCredential);
+                const signedInUser = {
+                    isSignedIn: true,
+                    email: email,
+                };
+                localStorage.setItem('signedInUser', JSON.stringify(signedInUser));
+                const signInUserData = JSON.parse(localStorage.getItem('signedInUser'));
+                console.log(signInUserData);
+                setUser(signInUserData)
+                toast.success("Logged In")
+                router.replace('/');
                 setAuthError('');
             })
             .catch((error) => {
@@ -161,6 +191,8 @@ const useFirebase = () => {
             localStorage.removeItem('token');
             setUser({});
             router.push('/');
+            dispatch(removeAllFromCartlist())
+            localStorage.removeItem('signedInUser')
             toast.success("Successfully signed out!", {
                 position: "top-center"
             });
@@ -179,9 +211,11 @@ const useFirebase = () => {
         if (alreadyUser) {
             console.log('already user!');
         } else {
+            // console.log(`${process.env.NEXT_PUBLIC_API}`);
+            
             const role = 'user';
             const user = { email, displayName, photoURL, accessToken, role };
-            fetch('http://localhost:3000/api/users', {
+            fetch(`${process.env.NEXT_PUBLIC_API}/api/users`, {
                 method: method,
                 headers: {
                     'content-type': 'application/json'

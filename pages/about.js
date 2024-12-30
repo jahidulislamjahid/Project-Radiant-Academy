@@ -1,7 +1,8 @@
 import Image from "next/image";
 import React from 'react';
-import { Fade } from 'react-awesome-reveal';
-import { FaFacebook, FaGithub, FaLink, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { Fade, Zoom } from 'react-awesome-reveal';
+import { FaFacebook, FaGithub, FaLinkedinIn, FaTwitter, FaInstagram, FaLink } from "react-icons/fa";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import Contact from '../components/Contact';
@@ -47,9 +48,9 @@ const about = () => {
                     <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                         <div className="grid place-content-center relative bottom-12">
                             <Image
-                                src="/img/jahid.jpg"
-                                height="150"
-                                width="150"
+                                src="https://i.ibb.co/vvphWfV/310747857-5400378163413295-811890902554305829-n.jpg"
+                                height={150}
+                                width={150}
                                 alt="User"
                                 draggable="false"
                                 className="rounded-full"
@@ -62,14 +63,14 @@ const about = () => {
                         </div>
                         <div className="flex justify-center">
                             <h4 className="text-slate-700 dark:text-slate-200  text-md">
-                                Team Leader
+                                MERN Stack Developer
                             </h4>
                         </div>
                         <div>
-                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“In this project i served as the Team Leader, and led the team of total seven members. I maintained the administrative actions and together build this production ready web app.”</p>
+                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I build this site front end visualization according to the figma file. Used TailwindCSS and some UI library to buid a user friendly web application”</p>
                         </div>
                         <div className="flex justify-center pb-5">
-                            <a href="https://www.linkedin.com/in/jahidul-islam-076a8b216/" target="_new" className="mr-3">
+                            <a href="https://www.linkedin.com/in/jahid-ul" target="_new" className="mr-3">
                                 <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-500 hover:text-blue-500 duration-300">
                                     <FaLinkedinIn />
                                 </span>
@@ -84,19 +85,19 @@ const about = () => {
                                     <FaGithub />
                                 </span>
                             </a>
-                            <a href="https://portfolio-jahidul.web.app/" target="_new" className="mr-3">
+                            {/* <a href="https://twitter.com/Zahidul15053004" target="_new" className="mr-3">
                                 <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
                                     <FaLink />
                                 </span>
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                     <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                         <div className="grid place-content-center relative bottom-12">
                             <Image
-                                src="/img/iftikharrasha.jpg"
-                                height="150"
-                                width="150"
+                                src="https://i.ibb.co/B6NNNFT/rabbi.jpg"
+                                height={150}
+                                width={150}
                                 alt="User"
                                 draggable="false"
                                 className="rounded-full"
@@ -104,46 +105,46 @@ const about = () => {
                         </div>
                         <div className="flex justify-center">
                             <h2 className="text-slate-700 dark:text-slate-200 font-semibold text-xl">
-                                Iftikhar Rasha
+                                Fazle Rabbi
                             </h2>
                         </div>
                         <div className="flex justify-center">
                             <h4 className="text-slate-700 dark:text-slate-200  text-md">
-                                Project Manager
+                                UI/UX Designer
                             </h4>
                         </div>
                         <div>
                             <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I was project manager of our team and also contributed on both client and server side. Helped the backend developer designing mongoose schema and maintained the redux system.”</p>
                         </div>
                         <div className="flex justify-center pb-5">
-                            <a href="https://www.linkedin.com/in/iftikharrasha/" target="_new" className="mr-3">
+                            <a href="https://www.linkedin.com/in/fazlerabbi-/" target="_new" className="mr-3">
                                 <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-500 hover:text-blue-500 duration-300">
                                     <FaLinkedinIn />
                                 </span>
                             </a>
-                            <a href="https://github.com/iftikharrasha" target="_new" className="mr-3">
+                            <a href="https://github.com/" target="_new" className="mr-3">
                                 <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-slate-900 hover:text-slate-900 duration-300">
                                     <FaGithub />
                                 </span>
                             </a>
-                            <a href="https://www.facebook.com/iftikhar.rasha" target="_new" className="mr-3">
+                            <a href="https://www.facebook.com/rabbigex" target="_new" className="mr-3">
                                 <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
                                     <FaFacebook />
                                 </span>
                             </a>
-                            <a href="https://iftikhar-rasha.web.app/" target="_new" className="mr-3">
+                            {/* <a href="https://iftikhar-rasha.web.app/" target="_new" className="mr-3">
                                 <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
                                     <FaLink />
                                 </span>
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                     <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                         <div className="grid place-content-center relative bottom-12">
                             <Image
-                                src="/img/shahriar.jpg"
-                                height="150"
-                                width="150"
+                                src="https://i.ibb.co/vLncdVC/346064333-949333756309325-621565237007494427-n-1.jpg"
+                                height={150}
+                                width={150}
                                 alt="User"
                                 draggable="false"
                                 className="rounded-full"
@@ -151,41 +152,41 @@ const about = () => {
                         </div>
                         <div className="flex justify-center">
                             <h2 className="text-slate-700 dark:text-slate-200 font-semibold text-xl">
-                                Md. Shahriar Mehedi
+                                Shafiul Islam
                             </h2>
                         </div>
                         <div className="flex justify-center">
                             <h4 className="text-slate-700 dark:text-slate-200  text-md">
-                                Backend Developer
+                            MERN Stack Developer
                             </h4>
                         </div>
                         <div>
-                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“I received my certificate, and I would like to thank you for your support. Your course was challenging, but you were always there supporting me and ready to help. I enjoyed your class tremendously.”</p>
+                            <p className="text-slate-500 dark:text-slate-400 my-5 w-5/6 mx-auto text-center pb-3">“Creating this exiting project by following the UI and creating API to intregate data and display in the Frontend. We enjoyed a lot to creating a web application like Radien Academy ”</p>
                         </div>
                         <div className="flex justify-center pb-5">
-                            <a href="" target="_new" className="mr-3">
+                            <a href="https://www.linkedin.com/in/shafiul-islam-shatak/" target="_new" className="mr-3">
                                 <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-500 hover:text-blue-500 duration-300">
                                     <FaLinkedinIn />
                                 </span>
                             </a>
-                            <a href="" target="_new" className="mr-3">
+                            <a href="https://www.facebook.com/shafiulislamshatak.sk/" target="_new" className="mr-3">
                                 <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
                                     <FaFacebook />
                                 </span>
                             </a>
-                            <a href="" target="_new" className="mr-3">
+                            <a href="https://github.com/Shafiul-Islam-Shatak" target="_new" className="mr-3">
                                 <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-slate-900 hover:text-slate-900 duration-300">
                                     <FaGithub />
                                 </span>
                             </a>
-                            <a href="" target="_new" className="mr-3">
+                            {/* <a href="" target="_new" className="mr-3">
                                 <span className="text-slate-700 dark:text-slate-200 text-2xl dark:hover:text-blue-600 hover:text-blue-600 duration-300">
                                     <FaTwitter />
                                 </span>
-                            </a>
+                            </a> */}
                         </div>
                     </div>
-                    <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
+                    {/* <div className="single-card rounded-xl bg-slate-100 dark:bg-slate-700 shadow-xl hover:shadow-zinc-400 dark:hover:shadow-violet-500 transition duration-300 px-3 mb-7 my-20 md:mb-0">
                         <div className="grid place-content-center relative bottom-12">
                             <Image
                                 src="/img/Nashtarin.jpg"
@@ -372,7 +373,7 @@ const about = () => {
                                 </span>
                             </a>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </section>
 

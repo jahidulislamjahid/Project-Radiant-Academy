@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { MdTimer } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
-// import Lottie from 'react-lottie';
-// import animationData from '../../public/img/success.json';
 import { useRouter } from 'next/router';
 import QuizOptions from './QuizOptions';
 import { addToAnsweredList, addToScore } from '../../utilities/redux/slices/quizSlice';
@@ -26,6 +24,9 @@ const QuizzesSection = () => {
     //filtering out all quizzes to find quizzes related to thisCourseId
     const thisCourseId = useSelector((state) => state.quizzes.thisCourse);
     const enrolledQuizzes = allQuizzes.filter(quizData => quizData.courseId === thisCourseId);
+    console.log(thisCourseId);
+    console.log(enrolledQuizzes);
+    
 
     const startQuizzes = () => {
         const display = document.getElementById('timer');
@@ -57,32 +58,35 @@ const QuizzesSection = () => {
 
     const nextQuestion = (questionId) => {
         // dispatch(addToAnsweredList(answered));
+        console.log('question ID', questionId);
+        
         setOptionsList([]);
         const question = enrolledQuizzes.find((val) => val.surveyStep === questionId);
-        const next = '';
+        let next = ''; 
         if (question && !question.isFinalQuestion) {
-            next = question.surveyStep + 1;
+            next = question?.surveyStep + 1;
         }
-
+    
         if (question && question.options != null) {
             document.getElementById('questionText').innerText = question.questionText;
-
+    
             setOptionsList(question.options);
             setNextId(next);
-
-            //progress here
+    
+            // Progress here
             const answered = question.surveyStep - 1;
             const stepsTotal = question.totalSurveySteps;
             let progress = (answered / stepsTotal) * 100;
             const speed = progress * 20;
             setProgressValue(progress);
-
+    
         } else {
             let progress = 100;
             setProgressValue(progress);
             validateScreen();
         }
-    }
+    };
+    
 
     const startExpire = (duration, display) => {
         var timer = duration, minutes, seconds;
@@ -103,8 +107,6 @@ const QuizzesSection = () => {
     }
 
     const validateScreen = () => {
-        console.log(score);
-        dispatch(addToScore(score));
         isValidated(true);
         document.getElementById('questionText').style.display = 'none';
         setTimeout(() => {
@@ -112,27 +114,19 @@ const QuizzesSection = () => {
         }, 1500);
         setTimeout(() => {
             router.push('/quiz/quiz-result');
-        }, 6500);
+        }, 3000);
     }
-
-    // const defaultOptions = {
-    //     loop: true,
-    //     autoplay: true,
-    //     animationData: animationData,
-    //     rendererSettings: {
-    //         preserveAspectRatio: 'xMidYMid slice'
-    //     }
-    // };
 
 
     const handleOnScore = (isCorrect) => {
         if (isCorrect) {
             setScore(score + 1);
+            dispatch(addToScore(score + 1));
         }
         nextQuestion(nextId);
+        console.log('next id' , nextId);
+        
     };
-    // console.log(thisUser._id, course.data._id);
-    // const { user } = useAuth();
 
     return (
         <div>
@@ -156,7 +150,7 @@ const QuizzesSection = () => {
                     </div>
                     <div className="flex justify-center">
                         {
-                            enrolledQuizzes.length === 0 ? <p className="text-xl font-medium text-rose-500">No quizzes avaiable in this course!</p> :
+                            enrolledQuizzes?.length === 0 ? <p className="text-xl font-medium text-rose-500">No quizzes avaiable in this course!</p> :
                                 <button
                                     onClick={startQuizzes}
                                     className="bg-rose-500 animate-[pulse_1s_ease-in-out_infinite] rounded-md text-white px-7 py-3 flex justify-center items-center uppercase"
@@ -194,11 +188,6 @@ const QuizzesSection = () => {
                         </div>
                         {validated &&
                             <div className="loading flex justify-center items-center m-auto">
-                                {/* <div>
-                                    <Lottie options={defaultOptions}
-                                        height={300}
-                                        width={300} />
-                                </div> */}
                                 <InfinitySpin color="grey" />
                             </div>
                         }

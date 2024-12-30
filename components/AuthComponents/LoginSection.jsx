@@ -77,9 +77,9 @@ const LoginSection = () => {
                     <div className="w-full md:w-2/5 bg-violet-500 text-white rounded-bl-2xl md:rounded-tr-2xl rounded-br-2xl md:rounded-bl-none py-36 px-12 sm:w-full">
                         <p className="text-lg font-bold"> Or Sign In With</p>
                         <div className="flex flex-col justify-center items-center">
-                            <button onClick={facebookSignIn} className="w-full sm:w-3/5 md:w-4/5 border-2 border-white rounded-full px-8 py-2 mt-2 text-lg text-center flex items-center justify-center hover:bg-slate-100 hover:text-blue-500">
+                            {/* <button onClick={facebookSignIn} className="w-full sm:w-3/5 md:w-4/5 border-2 border-white rounded-full px-8 py-2 mt-2 text-lg text-center flex items-center justify-center hover:bg-slate-100 hover:text-blue-500">
                                 <FaFacebook className="text-2xl mr-2" /> Facebook
-                            </button>
+                            </button> */}
                             <button onClick={githubSignIn} className="w-full sm:w-3/5 md:w-4/5 border-2 border-white rounded-full px-8 py-2 mt-2 text-lg text-center flex items-center justify-center hover:bg-slate-100 hover:text-black">
                                 <FaGithub className="text-2xl mr-2" /> Github
                             </button>

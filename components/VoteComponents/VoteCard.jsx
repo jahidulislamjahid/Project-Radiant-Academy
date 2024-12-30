@@ -80,8 +80,8 @@ const VoteCard = ({ votes }) => {
                         <Image
                             src={image}
                             alt="Course Cover"
-                            width="300px"
-                            height="165px"
+                            width={300}
+                            height={300}
                             draggable="false"
                         />
                     </div>

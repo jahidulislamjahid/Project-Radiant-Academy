@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchCourses = createAsyncThunk(
     'course/fetchCourses',
     async () => {
-        const response = await fetch('http://localhost:3000/api/courses')
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/courses`)
             .then(res => res.json())
         return response.data
     }
@@ -13,22 +13,35 @@ export const fetchCourses = createAsyncThunk(
 export const deleteCourse = createAsyncThunk(
     'course/deleteCourse',
     async (id) => {
-        const response = await axios.delete(`http://localhost:3000/api/courses/${id}`, id);
+        const response = await axios.delete(`${process.env.NEXT_PUBLIC_API}/api/courses/${id}`, id);
         return response.data
     }
 )
 
-// export const courseView = createAsyncThunk(
-//     'course/courseView',
-//     async (course) => {
-//         try {
-//             const response = await axios.put(`http://localhost:3000/api/course/views/${forum._id}`);
-//             return response
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     }
-// )
+export const courseCreate = createAsyncThunk(
+    'course/courseCreate',
+    async (course) => {
+        try {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_API}/api/courses`, course);
+            return response.data.data
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
+export const updateCourse = createAsyncThunk(
+    'course/updateCourse',
+    async (course) => {
+        try {
+            const response = await axios.put(`${process.env.NEXT_PUBLIC_API}/api/courses/edit/${course._id}`, course);
+            return course
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
 
 const courseSlice = createSlice({
     name: 'course',
@@ -44,6 +57,9 @@ const courseSlice = createSlice({
         removeFromWishList: (state, action) => {
             state.wishList = state.wishList.filter(course => course._id !== action.payload);
         },
+        removeAllFromCartlist(state) {
+            state.wishList = [];
+        }
     },
     extraReducers: (builder) => {
         // Add reducers for additional action types here, and handle loading state as needed
@@ -56,9 +72,26 @@ const courseSlice = createSlice({
             state.coursesList = state.coursesList.filter(course => course._id !== action.payload._id);
             state.status = 'success';
         })
+
+        builder.addCase(courseCreate.fulfilled, (state, action) => {
+            state.coursesList = [...state.coursesList, action.payload];
+            state.status = 'success';
+        })
+
+        builder.addCase(updateCourse.fulfilled, (state, action) => {
+            state.coursesList = state.coursesList.map(course => course._id === action.payload._id ? {
+                ...course,
+                title: action.payload.title,
+                subtitle: action.payload.subtitle,
+                category: action.payload.category,
+                desc: action.payload.desc,
+                price: action.payload.price,
+            } : course);
+            state.status = 'success';
+        })
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToWishlist, removeFromWishList } = courseSlice.actions;
+export const { addToWishlist, removeFromWishList , removeAllFromCartlist } = courseSlice.actions;
 export default courseSlice.reducer;

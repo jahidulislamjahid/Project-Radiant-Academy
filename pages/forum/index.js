@@ -4,8 +4,15 @@ import React from 'react';
 import BrowseCategorySection from "../../components/ForumComponents/BrowseCategorySection";
 import FeaturedTopicSection from '../../components/ForumComponents/FeaturedTopicSection';
 import TopicSearch from "../../components/ForumComponents/TopicSearch";
+import useLoading from "../../utilities/Hooks/useLoading";
 
 const index = ({ forums }) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { loading, LoadingIndicator } = useLoading()
+  if (loading) {
+    return LoadingIndicator
+}
+
   return (
     <div className="bg-white dark:bg-slate-800">
       <Head>
@@ -31,7 +38,7 @@ const index = ({ forums }) => {
 };
 
 export const getServerSideProps = async () => {
-  const url = 'http://localhost:3000/api/forums';
+  const url = `${process.env.NEXT_PUBLIC_API}/api/forums`;
   const res = await fetch(url);
   const data = await res.json();
 

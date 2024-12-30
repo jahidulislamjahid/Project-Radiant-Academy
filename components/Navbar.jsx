@@ -9,10 +9,16 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { removeFromWishList } from "../utilities/redux/slices/courseSlice";
+import { setUserData } from "../utilities/redux/slices/loginUserSlice";
 
 const Navbar = () => {
     const dispatch = useDispatch();
     const { user, logout } = useAuth();
+    console.log(`${process.env.NEXT_PUBLIC_API}`);
+
+    const signInUserData = JSON.parse(localStorage.getItem('signedInUser'));
+
+
     const [isDarkMode, toggleDarkMode] = useDarkMode();
 
     const { wishList } = useSelector((state) => state.courses);
@@ -33,8 +39,12 @@ const Navbar = () => {
         });
     }
     const allUsers = useSelector((state) => state.users.usersList);
-    const thisUser = allUsers.find(userData => userData.email === user.email);
-    console.log('all users',allUsers,'users',thisUser)
+    const logInUser = allUsers?.find(userData => userData.email === signInUserData?.email);
+    dispatch(setUserData(logInUser))
+
+    const thisUser = useSelector((state) => state.loginUser.loginUser)
+
+
 
     return (
         <>
@@ -47,8 +57,8 @@ const Navbar = () => {
                                     <Image
                                         src={Logo}
                                         alt="Radiant Academy Logo"
-                                        width="80px"
-                                        height="80px"
+                                        width={80}
+                                        height={80}
                                         draggable="false"
                                     />
                                 </div>
@@ -107,32 +117,33 @@ const Navbar = () => {
                                             ))
                                         }
                                         <div className="p-4 justify-center flex">
-                                            <Link href="/courses/payment" passHref>
+                                            <Link href={`${thisUser ? '/chekout' : '/login'}`} passHref>
                                                 <button className="text-sm undefined hover:scale-110 focus:outline-none
                                                     flex justify-center px-4 py-2 rounded font-bold
                                                     hover:bg-rose-700 hover:text-white bg-violet-500 
-                                                    text-white border duration-200 ease-in-out border-white-600 transition cursor-not-allowed" disabled>
-                                                    Checkout ${totalPrice}
+                                                    text-white border duration-200 ease-in-out border-white-600 transition " >
+                                                    Checkout ৳ {totalPrice}
                                                 </button>
                                             </Link>
                                         </div>
                                     </ul>
                                 </div>
                             }
-                            {!user.isSignedIn &&
+                            {!thisUser &&
                                 <Link passHref href="/register">
-                                    <button className="btn border-0 px-7 py-2 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">FREE TRIAL</button>
+                                    <button className="btn border-0 px-5 py-1 rounded bg-rose-500 text-white dark:hover:bg-slate-600 transition duration-500 mx-3">Join Now</button>
                                 </Link>
                             }
 
                         </div>
                     </div>
-                    {user.isSignedIn &&
+                    {thisUser &&
                         <div className="flex-none dropdown dropdown-end mx-1 sm:mx-2 my-auto lg:pr-10">
                             <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:border-purple-800">
                                 <div className="rounded-full">
                                     {
-                                        user.photo ? <Image src={user.photo} alt="User Profile" width="90px" height="90px" draggable="false" /> :
+                                        thisUser ? <Image src={thisUser?.photoURL
+                                        } alt="User Profile" width="90px" height="90px" draggable="false" /> :
                                             <div className="flex-none my-auto pr-2 sm:mr-3 lg:mr-12">
                                                 <label tabIndex="0" className="btn btn-ghost btn-circle avatar hover:bg-transparent">
                                                     <div className="rounded-full">
@@ -145,24 +156,24 @@ const Navbar = () => {
                             </label>
                             <ul tabIndex="0" className="mt-3 p-2 relative top-10 shadow menu menu-compact dropdown-content bg-slate-100 dark:bg-slate-600 rounded-box w-52">
                                 <li>
-                                    <Link href={`/profile/${user.email}`}>
+                                    <Link href={`/profile/${thisUser?.email}`}>
                                         <a className=" hover:bg-rose-500 hover:text-white">
                                             Profile
                                         </a>
                                     </Link>
                                 </li>
                                 {
-                                    thisUser!==undefined? thisUser.role === 'admin' && <li>
-                                                                    <Link href="/dashboard">
-                                                                        <a className=" hover:bg-rose-500 hover:text-white">
-                                                                            Dashboard
-                                                                            <span className="ml-2 badge">New</span>
-                                                                        </a>
-                                                                    </Link>
-                                                                </li> : ''
+                                    thisUser !== undefined ? thisUser.role === 'admin' && <li>
+                                        <Link href="/dashboard">
+                                            <a className=" hover:bg-rose-500 hover:text-white">
+                                                Dashboard
+                                                <span className="ml-2 badge">New</span>
+                                            </a>
+                                        </Link>
+                                    </li> : ''
                                 }
                                 <li>
-                                    <Link href={`/my-course/${user.email}`}>
+                                    <Link href={`/my-course/${thisUser?.email}`}>
                                         <a className=" hover:bg-rose-500 hover:text-white">My Course</a>
                                     </Link>
                                 </li>
@@ -225,10 +236,10 @@ const Navbar = () => {
                                     <a className="btn hover:bg-slate-300 dark:hover:bg-slate-500 btn-ghost rounded-btn mx-3">CONTACT </a>
                                 </Link>
                             </li>  */}
-                            {!user.isSignedIn && 
+                            {!thisUser &&
                                 <li className="text-white mt-3">
                                     <Link passHref href="/register">
-                                        <button className="btn border-0 px-7 py-2 rounded-btn bg-rose-500 text-white transition duration-500 mx-3">FREE TRIAL</button>
+                                        <button className="btn border-0 px-5 py-1 rounded-btn bg-rose-500 text-white transition duration-500 mx-3">Join for Free</button>
                                     </Link>
                                 </li>
                             }
