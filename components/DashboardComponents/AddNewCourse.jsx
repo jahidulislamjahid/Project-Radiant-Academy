@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaClone } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import DashboardSidebar from './DashboardSidebar';
@@ -6,10 +6,13 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from "next/router";
 import axios from 'axios';
 import { courseCreate } from '../../utilities/redux/slices/courseSlice';
+import CourseOutline from './CourseOutline';
 
 const AddNewCourse = () => {
     const router = useRouter();
     const [imageStore, setImageStore] = useState({});
+
+    const [courseOutline, setCourseOutLine] = useState([])
 
     const categories = [
         {
@@ -38,31 +41,43 @@ const AddNewCourse = () => {
         },
     ]
 
-    const [postData, setPostData] = useState({ title: '', subtitle: '', category: '', description: '', image: '', price: 0, rating: 4.5, enrolled: 0, contents: [] , courseVideo:'' });
-    console.log(postData);
+    const outLineText = courseOutline?.map(i => i.value)
+
+    const [postData, setPostData] = useState({ title: '', subtitle: '', category: '', description: '', image: '', price: 0, rating: 4.5, enrolled: 0, contents: [], courseVideo: '', outLineText:[] });
+
+    useEffect(() => { 
+        setPostData(prevData => (
+            { ...prevData, outLineText: courseOutline.map(i => i.value) })); }, [courseOutline]);
+
+    console.log('postdata', postData);
+    console.log('course outline', outLineText);
+
+
+
+    // console.log(postData);
 
     const dispatch = useDispatch();
     const postTopic = e => {
         const loading = toast.loading('Please wait ...');
         axios.post('https://api.imgbb.com/1/upload', imageStore)
-        .then(function (response) {
-            postData.image = response.data.data.display_url;
-            if (dispatch(courseCreate(postData))) {
-                toast.dismiss(loading);
-                toast.success("Successfully added a new topic!", {
-                    position: "top-center"
-                });
-                clear();
-                router.replace('/dashboard/courses');
-            } else {
-                toast.dismiss(loading);
-                toast.error('Something went wrong!');
-            }
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-        
+            .then(function (response) {
+                postData.image = response.data.data.display_url;
+                if (dispatch(courseCreate(postData))) {
+                    toast.dismiss(loading);
+                    toast.success("Successfully added a new topic!", {
+                        position: "top-center"
+                    });
+                    clear();
+                    router.replace('/dashboard/courses');
+                } else {
+                    toast.dismiss(loading);
+                    toast.error('Something went wrong!');
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
         e.preventDefault();
     }
 
@@ -78,6 +93,8 @@ const AddNewCourse = () => {
     const clear = () => {
         setPostData({ title: '', subtitle: '', category: '', description: '', image: '', price: 0, rating: 0, enrolled: 0, contents: [] });
     };
+
+
 
     return (
         <div className='px-0 sm:px-6 lg:px-12 bg-white dark:bg-slate-800 text-slate-700'>
@@ -132,6 +149,9 @@ const AddNewCourse = () => {
                                             )
                                         }
                                     </select>
+                                    <CourseOutline
+                                        setCourseOutLine={setCourseOutLine}
+                                    />
                                     <button type="submit" className="bg-rose-500 text-white font-bold px-12 py-2 text-lg rounded-lg tracking-wider w-2/4 lg:w-full mx-auto"
                                     >POST</button>
                                 </form>
@@ -156,6 +176,7 @@ const AddNewCourse = () => {
                                     value={postData.courseVideo}
                                     onChange={(e) => setPostData({ ...postData, courseVideo: e.target.value })}
                                 />
+
                                 <textarea
                                     name="description"
                                     cols="30"

@@ -41,6 +41,9 @@ const CourseSchema = new mongoose.Schema({
     }],
     courseVideo :{
         type : String
+    },
+    outLineText :{
+        type: Array
     }
 },
     { timestamps: true }
