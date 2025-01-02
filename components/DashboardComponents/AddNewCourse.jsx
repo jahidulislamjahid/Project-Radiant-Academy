@@ -17,11 +17,11 @@ const AddNewCourse = () => {
     const categories = [
         {
             "id": 1,
-            "category": "Premium",
+            "category": "Artificial Intelligence",
         },
         {
             "id": 2,
-            "category": "Free",
+            "category": "Framwork",
         },
         {
             "id": 3,

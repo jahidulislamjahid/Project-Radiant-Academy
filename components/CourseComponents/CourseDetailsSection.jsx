@@ -12,12 +12,14 @@ const CourseDetailsSection = ({ course }) => {
     const reviews = course?.data?.reviews
     const thisUser = useSelector((state) => state.loginUser.loginUser);
     const userEnrolled = thisUser?.enrolledCourses || [];
+    const cousrseOutline = course?.data?.outLineText
     
+
 
 
     // Check if the user has purchased the course 
     const isPurchase = userEnrolled?.some((item) => item.courseId == course.data._id);
-    
+
 
 
 
@@ -69,11 +71,11 @@ const CourseDetailsSection = ({ course }) => {
             </div>
 
             <div className="mx-auto w-5/6 text-slate-800 dark:text-slate-200">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-3 py-8 bg-slate-100 dark:bg-slate-600">
+                <div className="grid grid-cols-1  md:grid-cols-2  px-3 py-8 bg-slate-100 dark:bg-slate-600">
                     <a href="#about-the-course" className="text-center text-xl font-medium text-purple-900 dark:text-violet-300">About This Course</a>
-                    <a href="#syllabus" className="text-center text-xl font-medium text-stone-500 dark:text-violet-400">Syllabus</a>
-                    <a href="#reviews" className="text-center text-xl font-medium text-stone-500 dark:text-violet-400">Reviews</a>
-                    <a href="#related-course" className="text-center text-xl font-medium text-stone-500 dark:text-violet-400">Related Course</a>
+                    <a href="#syllabus" className="text-center text-xl font-medium text-stone-500 dark:text-violet-400">Course Outline</a>
+                    {/* <a href="#reviews" className="text-center text-xl font-medium text-stone-500 dark:text-violet-400">Reviews</a>
+                    <a href="#related-course" className="text-center text-xl font-medium text-stone-500 dark:text-violet-400">Related Course</a> */}
                 </div>
 
                 <div className="mt-8 py-8">
@@ -118,117 +120,30 @@ const CourseDetailsSection = ({ course }) => {
                                 <a href="#syllabus"><FaLink className="hover:text-purple-900 mr-3 text-xl" /></a>
                             </div>
                             <div>
-                                <h3 className="text-2xl font-medium text-rose-500">Syllabus</h3>
+                                <h3 className="text-2xl font-medium text-rose-500">Course Outline</h3>
                             </div>
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-col-2 md:grid-col-3 lg:grid-cols-3 mt-6">
+                        <div className=" mt-6">
                             <div className="py-8 px-16 bg-violet-200 dark:bg-slate-600 text-slate-800 dark:text-slate-200 rounded-xl">
-                                <h4 className="text-lg  mb-2 font-medium">What you will learn?</h4>
-                                <p className="flex items-center text-lg font-medium ">
-                                    <BsCheck2All className="mr-2" /> HTML
-                                </p>
-                                <p className="flex items-center text-lg font-medium my-1">
-                                    <BsCheck2All className="mr-2" /> CSS
-                                </p>
-                                <p className="flex items-center text-lg font-medium">
-                                    <BsCheck2All className="mr-2" /> Flexbox Concepts
-                                </p>
-                            </div>
-                            <div className="py-8 px-12 ">
-                                <p className="flex items-center text-lg font-medium">
-                                    <BsCheck2Circle className="mr-3" /> 3 Articles
-                                </p>
-                                <p className="flex items-center text-lg font-medium my-1">
-                                    <BsCheck2Circle className="mr-3" /> 10 Quizzes
-                                </p>
-                                <p className="flex items-center text-lg font-medium">
-                                    <BsCheck2Circle className="mr-3" /> 3 Problem Solving
-                                </p>
-                                <p className="flex items-center text-lg font-medium mt-1">
-                                    <BsCheck2Circle className="mr-3" /> Approax 1 hour to complete
-                                </p>
-                            </div>
-                            <div className="py-8 px-16">
-                                <p className="flex items-center text-lg font-medium">
-                                    <BsCheck2Circle className="mr-3" /> 100% Online
-                                </p>
-                                <p className="flex items-center text-lg font-medium my-1">
-                                    <BsCheck2Circle className="mr-3" /> Certificate
-                                </p>
-                                <p className="flex items-center text-lg font-medium">
-                                    <BsCheck2Circle className="mr-3" /> For Beginners
-                                </p>
-                                <p className="flex items-center text-lg font-medium mt-1">
-                                    <BsCheck2Circle className="mr-3" /> English
-                                </p>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <div className="mt-1 py-8">
-                    <section id="reviews">
-                        <div>
-                            <h3 className="text-2xl font-medium text-rose-500">Reviews</h3>
-                        </div>
-                        <div>
-                            <div className="p-2 sm:p-5 flex items-start">
-
                                 {
-                                    reviews && (
-                                        reviews.map(review =>
-                                            <div key={review}>
-
-                                                <div className="p-2 sm:p-5 flex items-start">
-                                                    <div className="px-2 pt-1.5 block w-[100px]">
-                                                        <Image
-                                                            className='rounded-2xl'
-                                                            src={review?.img}
-                                                            alt="User Picture"
-                                                            height={100}
-                                                            width={100}
-                                                        />
-                                                    </div>
-                                                    <div className="w-full">
-                                                        <div className="flex items-baseline flex-wrap sm:flex-row px-2">
-                                                            <h4 className="text-xl">{review?.name}</h4>
-                                                            &nbsp; - &nbsp;
-                                                            <p className="text-stone-400">2 days ago</p>
-                                                        </div>
-                                                        <p className="text-sm px-2 pt-1">{review?.reviewTxt}</p>
-                                                        <div className="ratings flex">
-                                                            <ReactStars {...ratingCount} value={rating} edit={false} />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        )
-                                    )
+                                    cousrseOutline?.map((text, idx) => (
+                                        <ul key={idx}  >
+                                            <li className='mb-5'>
+                                                <h1>
+                                                    <span>{idx + 1}</span> {text}
+                                                </h1>
+                                            </li>
+                                        </ul>
+                                    ))
                                 }
-                            </div>
 
+                            </div>
+                          
                         </div>
                     </section>
                 </div>
-                <div className="mt-1 pb-20 py-8">
-                    {/* <section id="related-course">
-                        <div className="flex items-center">
-                            <div>
-                                <a href="#related-course"><FaLink className="hover:text-purple-900 mr-3 text-xl" /></a>
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-medium text-rose-500 pb-5">Related Course</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                                <CourseCard />
-                                <CourseCard />
-                                <CourseCard />
-                                <CourseCard />
-                            </div>
-                        </div>
-                    </section> */}
-                </div>
+               
+               
             </div>
         </div>
 
