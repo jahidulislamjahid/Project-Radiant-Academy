@@ -8,7 +8,7 @@ const QuizSection = () => {
             <div className="w-5/6 mx-auto grid py-20 px-5 lg:grid-cols-4 gap-x-2 gap-y-8 sm:gap-2 h-full">
                 <div className="flex justify-center items-start flex-col text-violet-800 dark:text-violet-400">
                     <h2 className="text-4xl font-bold">The next Quiz is about to start</h2>
-                    <p className="text-lg pt-3 flex items-center text-violet-800 dark:text-violet-400">Learn how it works &nbsp; <FaArrowRight style={{ fontSize: '14px', marginTop: '3px' }} /></p>
+                    {/* <p className="text-lg pt-3 flex items-center text-violet-800 dark:text-violet-400">Learn how it works &nbsp; <FaArrowRight style={{ fontSize: '14px', marginTop: '3px' }} /></p> */}
                 </div>
                 <div className="flex justify-center">
                     <div className="text-center">

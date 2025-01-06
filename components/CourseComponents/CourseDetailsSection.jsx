@@ -130,7 +130,7 @@ const CourseDetailsSection = ({ course }) => {
                                         <ul key={idx}  >
                                             <li className='mb-5'>
                                                 <h1>
-                                                    <span>{idx + 1}</span> {text}
+                                                    <span>{idx + 1}.</span> {text}
                                                 </h1>
                                             </li>
                                         </ul>
